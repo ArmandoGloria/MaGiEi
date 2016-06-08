@@ -1,0 +1,206 @@
+/*
+ * Clase y funciones de conexion a la base de datos
+ */
+
+package MySQLconn;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+
+
+public class ConexionMySQL
+{
+    private String NombreBD = "magiei_db";
+    private String DireccionBD = "jdbc:mysql://148.240.232.95/" + this.NombreBD;
+    private String UsuarioBD = "InteliGeneDatabases";
+    private String ClaveBD = "Databaseconn7";
+    public String strQueryMySQL;
+    public Connection mySqlConn;
+    private Statement Instruccion;
+    private ResultSet Resultado;
+    
+    public PreparedStatement ps = null;
+
+
+    public ConexionMySQL()
+    {
+        try
+        {
+            Class.forName("org.gjt.mm.mysql.Driver");
+//	    Class.forName("com.mysql.jdbc.Driver");
+	    
+            this.mySqlConn = DriverManager.getConnection(this.DireccionBD,this.UsuarioBD,this.ClaveBD);
+            this.Instruccion = this.mySqlConn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+        }
+        catch(SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
+        }
+        catch(ClassNotFoundException CNFE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage());
+        }
+    }
+    
+    public boolean updateTable(String SentenciaSQL)
+    {   
+	try
+        {
+            this.Instruccion.executeUpdate(SentenciaSQL);
+            return true;
+        }
+        catch (SQLException SQLE)
+        {
+            return false;
+        }
+    }    
+
+    
+    public void InsertInsertar(String SentenciaSQL)
+    {
+
+
+        try
+        {
+            
+		mySqlConn.setAutoCommit(false);
+		ps = mySqlConn.prepareStatement(SentenciaSQL);
+	
+        }
+        catch (SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
+        }
+    }
+    
+    public void InsertGuardar(String SentenciaSQL)
+    {
+
+
+        try
+        {
+            
+		 ps.executeUpdate();
+      mySqlConn.commit();
+    } 
+        catch (SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
+        }finally {
+		try {
+			ps.close();
+		} catch (SQLException ex) {
+			Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);
+		}
+
+	
+        }
+    }
+
+    public void UpdateModificar(String SentenciaSQL)
+    {
+        this.strQueryMySQL = SentenciaSQL;
+
+        try
+        {
+            this.Instruccion.executeUpdate(this.strQueryMySQL);
+            JOptionPane.showMessageDialog(null,"LA TABLA SE MODIFICO CON EXITO A LA BD");
+        }
+        catch (SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
+        }
+    }
+/*
+    public void DeleteEliminar(String SentenciaSQL)
+    {
+        this.strQueryMySQL = SentenciaSQL;
+
+        try
+        {
+            this.Instruccion.executeUpdate(this.strQueryMySQL);
+            JOptionPane.showMessageDialog(null,"LA TABLA SE ELIMINO CON EXITO A LA BD");
+        }
+        catch (SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL ELIMINAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
+        }
+    }*/
+    
+
+    public DefaultTableModel GetTable(String SentenciaSQL)
+    {
+        this.strQueryMySQL = SentenciaSQL;
+	
+	DefaultTableModel table= new DefaultTableModel();        
+         AbstractTableModel table2; 
+	
+        try
+        {
+	     
+	    
+	ResultSet set = Instruccion.executeQuery(this.strQueryMySQL);
+        ResultSetMetaData metaData = set.getMetaData();
+        int totalColumn = metaData.getColumnCount();
+        Object[] dataRow = new Object[totalColumn];
+        if(set!= null)
+        {
+            for(int i=1;i<=totalColumn;i++)
+            {
+                table.addColumn(metaData.getColumnName(i));
+		//table2.addColumn(metaData.getColumnName(i));
+            }
+            while(set.next())
+            {
+                for(int i=1;i<=totalColumn;i++)
+                {
+			dataRow[i-1] = set.getObject(i);
+		   
+                }
+                table.addRow(dataRow);
+            }
+
+        }
+	    
+        }
+        catch (SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
+        }
+
+        return table;
+    }
+    
+    public void CerrarConexion(){
+	try{
+		this.mySqlConn.close();
+	}
+	catch(SQLException SQLE)
+        {
+            JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
+	}
+    }
+    
+    
+//    public static void llenarInfoFromMySQL(Connection Conmexion, ObserbableList<String>){
+//	    try{
+//		    
+//	    }
+//	    catch(){
+//		    
+//	    }
+//    }
+    
+    
+    
+}

@@ -1,0 +1,607 @@
+
+ /*Created on : Apr 24, 2016, 7:08:00 PM
+    Author     : SergioHome
+*/
+
+
+/*@font-face {
+font-family: Century Gothic;
+src: url("centurygothic.ttf"); 
+}*/
+
+ *{   
+-fx-font-family: "Century Gothic";
+}
+
+
+/* Buttons */ 
+
+
+
+.button { 
+    -fx-cursor: hand;
+}
+
+
+.button.commitButtonBig {
+    -fx-background-color:  #24BE58;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px; 
+   
+}
+
+.button.commitButtonBig:hover{
+   -fx-background-color: linear-gradient(#39e600, #39e600);
+}   
+
+
+
+.button.commitButtonSmall {
+    -fx-background-color:  #24BE58;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px; 
+    -fx-font-size: 12; 
+}
+
+
+.button.commitButtonSmall:hover{
+   -fx-background-color: linear-gradient(#39e600, #39e600);
+}   
+
+
+
+.button.selectButtonBig {
+    -fx-background-color:  white;
+    -fx-text-fill: #24BE58;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #24BE58  
+}
+
+
+.button.selectButtonBig:hover{
+    -fx-text-fill: #39e600;
+    -fx-border-color: #39e600; 
+}   
+
+.button.selectButtonSmall {
+    -fx-background-color:  white;
+    -fx-text-fill: #24BE58;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #24BE58;
+    -fx-font-size: 10;
+}
+
+
+.button.selectButtonSmall:hover{
+    -fx-border-color: #39e600;
+    -fx-text-fill: #39e600;
+       
+}   
+
+
+
+.button.addButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/addButton.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;  
+}
+
+.button.addButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/addButtonHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;   
+}
+
+.button.searchButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/searchButton.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;  
+}
+
+.button.searchButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/searchButtonHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;   
+}
+
+.button.deleteButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/deletebutton.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;  
+}
+
+.button.deleteButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/deleteButtonHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;   
+}
+
+.button.editButtonSmall {
+     -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/editButton.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 14px;     
+}
+
+
+.button.editButtonSmall:hover {
+     -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/editButtonHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 14px;     
+}
+
+.button.editButtonHidden {
+     -fx-background-color: transparent;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;     
+}
+
+
+.button.editButtonHidden:hover {
+     -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/editButton.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-font-size: 12px;     
+}
+
+
+.menu-button{
+    -fx-background-color: transparent;
+}
+
+
+.menu-button > .arrow-button {
+    -fx-padding: 10 10 10 10;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5;   
+}
+
+.menu-button > .arrow-button > .arrow:hover {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/arrowHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5;   
+}
+
+
+.menu-button.mnuBtnAsSelect {
+    -fx-background-color:  transparent;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #24BE58; 
+    -fx-cursor: hand;
+    
+}
+
+.menu-button.mnuBtnAsSelect > .arrow-button {
+    -fx-padding: 0;
+}
+
+.menu-button.mnuBtnAsSelect > .arrow-button > .arrow {
+    -fx-background-image: none;
+    -fx-padding: 0;
+}
+
+.menu-button.mnuBtnAsSelect > .label {
+    -fx-text-fill: #24BE58;
+}
+
+.menu-button.mnuBtnAsSelect:hover {
+    -fx-background-color:  transparent;
+    -fx-text-fill: #39e600;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #39e600;  
+}
+
+.menu-button.mnuBtnAsSelect > .label:hover {
+    -fx-text-fill: #39e600;
+}
+
+
+
+.button.addPicture{
+    -fx-background-color:  white;
+    -fx-text-fill: #24BE58;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #24BE58;
+    -fx-font-size: 50;
+    -fx-padding: 18 15 18 15;
+    
+    
+    
+}
+/* -------------------------------------------*/
+
+
+.menu-item {
+    
+    
+}
+/* Date Picker*/
+
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-font-size:13;
+    -fx-font-weight:bold;
+    -fx-pref-height: 22;
+    -fx-min-height:9;
+}
+
+.date-picker > .text-field {
+    -fx-background-color: #ECECEC;
+    -fx-font-size: 13;
+    -fx-padding: 2 0 2 0;
+    -fx-background-radius: 0;   
+}
+
+.date-picker > .arrow-button{
+    -fx-background-color: #ECECEC;
+    -fx-background-radius: 0; 
+    -fx-cursor: hand;
+}
+
+.date-picker > .arrow-button > .arrow {
+    -fx-background-color: #24BE58;
+}
+
+.date-picker > .arrow-button:hover > .arrow {
+    -fx-background-color: #39e600;
+}
+
+/* Spinner */
+
+.spinner{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-text-align: center;
+ 
+}
+
+.spinner > .text-field{
+    -fx-background-color: #ECECEC;
+    -fx-font-size:13;
+    -fx-padding: 0;
+    -fx-font-weight:bold;
+    -fx-text-align: center;
+}
+
+.spinner > .increment-arrow-button{
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 5 0; 
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+}
+
+.spinner > .increment-arrow-button > .increment-arrow {
+    -fx-background-color: #24BE58;
+    -fx-min-height:7;
+    -fx-min-width:10;
+}
+
+.spinner > .decrement-arrow-button{
+    -fx-background-color: transparent;
+    -fx-padding:5 0 0  0; 
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+}
+
+.spinner > .decrement-arrow-button > .decrement-arrow {
+    -fx-background-color: #24BE58;
+    -fx-min-height:7;
+    -fx-min-width:10;
+}
+
+
+.spinner > .increment-arrow-button:hover > .increment-arrow {
+    -fx-background-color: #39e600;
+    -fx-min-height:7;
+    -fx-min-width:10;
+}
+
+
+.spinner > .decrement-arrow-button:hover > .decrement-arrow {
+    -fx-background-color: #39e600;
+    -fx-min-height:7;
+    -fx-min-width:10;
+}
+
+
+
+
+/* Titled pane  */
+
+
+.titled-pane {
+    -fx-color: White;
+    -fx-padding: -1 -1 -1 -1;
+    -fx-text-fill:#808080;   
+}
+
+
+
+.titled-pane:expanded {
+    -fx-color: white;
+    -fx-padding:-1 -1 -2 -1;   
+}   
+
+
+
+.titled-pane > .title {
+    -fx-background-color: white;
+    -fx-border-color:#DADADA;
+    -fx-font-size:18;
+    -fx-border-width: .5;
+}
+
+
+
+.titled-pane >  .title > .arrow-button > .arrow {
+    -fx-background-color: #24BE58;
+    -fx-cursor:hand;
+}
+
+.titled-pane >  .title > .arrow-button:hover > .arrow {
+    -fx-background-color: #39e600;
+    -fx-cursor:hand;
+}
+
+.titled-pane:focused >  .title > .arrow-button > .arrow {
+    -fx-background-color: #24BE58;
+    -fx-effect:dropshadow(two-pass-box , #39e600, 5, 0.2 , 0, 0);
+}
+
+/*  Combo box */
+
+.combo-box {
+    -fx-background-color: transparent;
+    -fx-font-size: 14;
+    -fx-padding: 0 0 0 0 ;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    }
+    
+.combo-box.comboboxBold{
+    -fx-font-weight:bold;
+        
+}
+
+
+.combo-box > .list-cell {
+    
+    -fx-padding: 0;
+}
+
+.combo-box > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 10 10 10 10;
+}
+
+.combo-box > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5; 
+    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+}
+
+.combo-box > .arrow-button:hover > .arrow {
+    
+    -fx-background-image: url("../../Resources/Imagenes/arrowHover.png");
+    -fx-cursor: hand;
+     
+}
+
+.combo-box.ComBxEditable:editable {
+    -fx-padding: -1 -1 -2 -1;
+    -fx-text-alignment:justify;
+    -fx-border-radius: 0;   
+}
+
+
+
+.combo-box.ComBxEditable:editable > .text-field{
+    -fx-padding: 0;
+    -fx-background-color: #ECECEC;
+    -fx-text-alignment:justify;
+    -fx-background-radius: 0;
+    /*-fx-font-weight: bold;*/
+    
+}
+
+.combo-box.ComBxEditable:editable > .list-cell:filled{   
+    -fx-font-weight: bold;
+    
+}
+
+
+.combo-box.ComBxEditable > .arrow-button{
+    -fx-padding: 0 0 0 2;
+    
+}
+
+
+
+.combo-box.CBstatus {
+    -fx-background-color: transparent;
+    -fx-font-size: 18;
+    -fx-padding: 0 0 0 0 ;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    }
+
+
+.combo-box.CBstatus > .list-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill: #24BE58;
+    -fx-padding: -2 -2 -2 -2;
+}
+
+.combo-box.CBstatus > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 10 10 10 10;
+}
+
+.combo-box.CBstatus > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5;  
+}
+
+.combo-box.CBstatus:hover > .arrow-button > .arrow {
+    
+    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+    -fx-cursor: hand;
+     
+}
+
+
+/* Labels */
+
+
+
+.label.labelRegular {
+    -fx-font-size: 14;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: lighter;   
+}
+
+.label.labelBold {
+    -fx-font-size: 14;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;   
+}
+
+.label.labelSmall {
+    -fx-font-size: 12;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: lighter;   
+}
+
+.label.labelSmallBold {
+    -fx-font-size: 12;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;   
+}
+
+.label.labelBig {
+    -fx-font-size: 18;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: lighter;   
+}
+
+.label.labelStatusBig {
+    -fx-font-size: 18;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: bold; 
+    -fx-text-fill: #24BE58;
+}
+
+.label.labelInSelButton {
+    -fx-text-fill: #24BE58;
+    -fx-font-size: 10;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    
+}
+
+.label.labelInSelButton:hover {
+    -fx-text-fill: #39e600;
+    -fx-font-size: 10;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    
+}
+
+
+/*others*/
+.AnchorPane{
+    -fx-background-color: white;
+    -fx-border-color:  #DADADA;
+    -fx-background-radius: 0;
+    -fx-border-width: .5;
+}
+
+#AllWhite{
+    -fx-background-color: white;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    
+}
+
+.textInput {
+      -fx-background-color: #ECECEC;
+      -fx-font-size: 13;
+      -fx-padding: 2 0 2 0;
+      -fx-background-radius: 0;      
+}
+   
+.textInputBold {
+    -fx-background-color: #ECECEC;
+    -fx-font-size: 13;
+    -fx-padding: 2 0 2 0;
+    -fx-background-radius: 0;    
+    -fx-font-weight: bold ;
+}
+
+.header {
+    
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+    -fx-border-color: transparent;
+}
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="179.0" prefWidth="305.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.ExamenNvoIngreso.ExamenNvoIngresoController">
+    <stylesheets>
+        <URL value="@Magie1_Estilo.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane layoutX="25.0" layoutY="-25.0" prefHeight="175.0" prefWidth="282.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="1.5" layoutY="0.5" prefHeight="35.0" prefWidth="304.0" styleClass="AnchorPane" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ComboBox layoutX="5.0" prefHeight="32.0" prefWidth="88.0" promptText="Familiar" />
+               </children></AnchorPane>
+            <Button layoutX="144.0" layoutY="115.0" mnemonicParsing="false" styleClass="commitButtonSmall" text="Agregar" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+            <MenuButton layoutX="14.0" layoutY="49.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="72.0" styleClass="mnuBtnAsSelect" text="Cancer">
+              <items>
+                <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </MenuButton>
+            <MenuButton layoutX="95.0" layoutY="49.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" styleClass="mnuBtnAsSelect" text="Metabolicas">
+               <items>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </MenuButton>
+            <MenuButton layoutX="14.0" layoutY="84.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="88.0" styleClass="mnuBtnAsSelect" text="Cardiacas">
+               <items>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </MenuButton>
+            <MenuButton layoutX="109.0" layoutY="84.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" styleClass="mnuBtnAsSelect" text="Respiratorias">
+               <items>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
