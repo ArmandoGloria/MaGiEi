@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 import MySQLconn.ConexionMySQL;
+//import Resources.GlobalClass1;
 //import Resources.Global;
 import com.mysql.jdbc.Blob;
 
@@ -87,6 +88,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
+import javax.swing.JFrame;
 
 
 
@@ -100,6 +102,8 @@ public class MDIController implements Initializable {
 
 	
         ConexionMySQL MySqlJavaCon =new ConexionMySQL();
+	
+//	GlobalClass1 global;
 	
 	File fileImage; 
 	
@@ -389,7 +393,22 @@ public class MDIController implements Initializable {
 		    //CargarCombos();
 		    }
 		    else{
-			    JOptionPane.showMessageDialog(null,"Debe seleccionar un registro prmero ");
+//			 String backupDir = "/Users/al/backups";
+//			     
+//				// create a jframe
+//				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+//			
+//				// show a joptionpane dialog using showMessageDialog
+//				JOptionPane.showMessageDialog(frame,
+//			        "fgh" + ": '" + "fjkkk" + "'.",
+//			        "ggggg",
+//			        JOptionPane.ERROR_MESSAGE);
+//	
+//				frame.dispose();
+			   
+			 mensajeB("Error","Debe seleccionar un registro prmero ",JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"Debe seleccionar un registro prmero ");
+			     
 		    }
 
 
@@ -397,7 +416,8 @@ public class MDIController implements Initializable {
 		    //limpiarCamposPaciente();
 		}
 		catch(Exception ex){
-			    JOptionPane.showMessageDialog(null,"Error al Editar informacion \n ERROR : " + ex.getMessage());
+//			    global.mensajeB("Error","Error al Editar informacion \n ERROR : " + ex.getMessage(),JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(null,"Error al Editar informacion \n ERROR : " + ex.getMessage());
 		}
 	}
 
@@ -764,8 +784,21 @@ public void setDataPane(Node node) {
 	
     
     
+    protected void  mensajeB(String Titulo,String Mensaje,Integer Tipo)
+    {
+	   // String backupDir = "/Users/al/backups";
+     
+	// create a jframe
+	JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+
+	// show a joptionpane dialog using showMessageDialog
+	JOptionPane.showMessageDialog(frame,
+        Titulo + ": '" + Mensaje + "'.",
+        Titulo,
+        Tipo);//JOptionPane.INFORMATION_MESSAGE);
     
-    
+	frame.dispose();
+    }
     
 }
 
