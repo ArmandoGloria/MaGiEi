@@ -17,6 +17,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
+import javax.swing.JFrame;
+
+//import Resources.GlobalClass1;
 
 public class ConexionMySQL
 {
@@ -30,7 +33,9 @@ public class ConexionMySQL
     private ResultSet Resultado;
     
     public PreparedStatement ps = null;
-
+    
+//    GlobalClass1 global;
+    
 
     public ConexionMySQL()
     {
@@ -44,11 +49,13 @@ public class ConexionMySQL
         }
         catch(SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
+		mensajeB("Error","ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           // JOptionPane.showMessageDialog(null,"ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
         }
         catch(ClassNotFoundException CNFE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage());
+            mensajeB("Error","ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage());
         }
     }
     
@@ -79,7 +86,8 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
+            mensajeB("Error","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }
     }
     
@@ -95,7 +103,8 @@ public class ConexionMySQL
     } 
         catch (SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
+            mensajeB("Error","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }finally {
 		try {
 			ps.close();
@@ -114,11 +123,13 @@ public class ConexionMySQL
         try
         {
             this.Instruccion.executeUpdate(this.strQueryMySQL);
-            JOptionPane.showMessageDialog(null,"LA TABLA SE MODIFICO CON EXITO A LA BD");
+            mensajeB("DB","LA TABLA SE MODIFICO CON EXITO A LA BD",JOptionPane.INFORMATION_MESSAGE);
+           //JJOptionPane.showMessageDialog(null,"LA TABLA SE MODIFICO CON EXITO A LA BD");
         }
         catch (SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
+            mensajeB("Error","ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
         }
     }
 /*
@@ -175,7 +186,8 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
+            mensajeB("Error","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
         }
 
         return table;
@@ -187,7 +199,8 @@ public class ConexionMySQL
 	}
 	catch(SQLException SQLE)
         {
-            JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
+            mensajeB("Error","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+           //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
 	}
     }
     
@@ -200,6 +213,31 @@ public class ConexionMySQL
 //		    
 //	    }
 //    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    protected void  mensajeB(String Titulo,String Mensaje,Integer Tipo)
+    {
+	   // String backupDir = "/Users/al/backups";
+     
+	// create a jframe
+	JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+
+	// show a joptionpane dialog using showMessageDialog
+	JOptionPane.showMessageDialog(frame,
+        Titulo + ": '" + Mensaje + "'.",
+        Titulo,
+        Tipo);//JOptionPane.INFORMATION_MESSAGE);
+    
+	frame.dispose();
+    }
     
     
     
