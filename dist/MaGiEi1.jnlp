@@ -8,9 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\SupremeMdiWindow-1.0-SNAPSHOT.jar" size="161522" download="eager" />
-    <jar href="lib\controlsfx-8.40.10.jar" size="954085" download="eager" />
-    <jar href="lib\mysql-connector-java-5.1.38-bin.jar" size="983914" download="eager" />
+    <jar href="lib/SupremeMdiWindow-1.0-SNAPSHOT.jar" size="161522" download="eager" />
+    <jar href="lib/controlsfx-8.40.10.jar" size="954085" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.38-bin.jar" size="983914" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="MaGiEi1" >
     <param name="requiredFXVersion" value="8.0+"/>

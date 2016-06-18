@@ -50,7 +50,8 @@ public class MaGiEi1 extends Application {
         
         stage.setTitle("MaGiEi 1.0 powered by InteliGene");
         stage.setScene(scene);
-        stage.setMaximized(true);    // make the main form fit to the screen
+        stage.setMaximized(false);    // make the main form fit to the screen
+        stage.setResizable(false);
         stage.show(); 
 	
 	

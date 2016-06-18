@@ -11,9 +11,99 @@ src: url("centurygothic.ttf");
 
  *{   
 -fx-font-family: "Century Gothic";
+-fx-maincolor: #24BE58;
+-fx-hovercolor:#39e600;
+-fx-backgroundcolor: white;
+-fx-linewidth:0.5px;
+-fx-linecolor: #DADADA;
+ }
+
+ /* Containers */
+ 
+ .split-pane {
+     -fx-background-color: -fx-backgroundcolor;   
+ }
+ 
+ .split-pane > .split-pane-divider{
+     -fx-background-color: -fx-linecolor;
+     -fx-min-widht: -fx-linewidth;
+     -fx-max-width: -fx-linewidth;
+     -fx-pref-width: -fx-linewidth;
+ }
+
+ .AnchorPane{
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-color:  transparent;
+    -fx-background-radius: 0;
+}
+
+.titled-pane {
+    -fx-color: -fx-backgroundcolor;
+    -fx-padding: -1 -1 -1 -1;
+    -fx-text-fill:#808080;   
 }
 
 
+
+.titled-pane:expanded {
+    -fx-color: white;
+    -fx-padding:-1 -1 -2 -1;   
+}   
+
+
+
+.titled-pane > .title {
+    -fx-background-color: white;
+    -fx-border-color:-fx-linecolor;
+    -fx-font-size:18;
+    -fx-border-width: .5px;
+}
+
+
+
+.titled-pane >  .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-maincolor;
+    -fx-cursor:hand;
+}
+
+.titled-pane >  .title > .arrow-button:hover > .arrow {
+    -fx-background-color: -fx-hovercolor;
+    -fx-cursor:hand;
+}
+
+.titled-pane:focused >  .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-maincolor;
+    -fx-effect:dropshadow(two-pass-box , -fx-hovercolor, 5, 0.2 , 0, 0);
+}
+
+
+.scroll-pane{
+    -fx-border-color: white;
+}
+
+.scroll-pane > .scroll-bar{
+    -fx-border-color: white;
+}
+
+.scroll-pane > .scroll-bar:vertical > .track{
+    -fx-background-color:   -fx-backgroundcolor;
+}
+
+.scroll-pane > .scroll-bar:vertical > .track-background{
+    -fx-background-color:white
+}
+
+.scroll-pane > .scroll-bar:vertical > .thumb{
+    -fx-opacity: .5;
+}
+
+.scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
+    -fx-background-color: -fx-maincolor;
+}
+
+.scroll-pane > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
+    -fx-background-color: -fx-maincolor;
+}
 /* Buttons */ 
 
 
@@ -24,7 +114,7 @@ src: url("centurygothic.ttf");
 
 
 .button.commitButtonBig {
-    -fx-background-color:  #24BE58;
+    -fx-background-color:  -fx-maincolor;
     -fx-text-fill: white;
     -fx-background-radius: 5px; 
    
@@ -37,7 +127,7 @@ src: url("centurygothic.ttf");
 
 
 .button.commitButtonSmall {
-    -fx-background-color:  #24BE58;
+    -fx-background-color:  -fx-maincolor;
     -fx-text-fill: white;
     -fx-background-radius: 5px; 
     -fx-font-size: 12; 
@@ -45,7 +135,7 @@ src: url("centurygothic.ttf");
 
 
 .button.commitButtonSmall:hover{
-   -fx-background-color: linear-gradient(#39e600, #39e600);
+   -fx-background-color: -fx-hovercolor;
 }   
 
 
@@ -180,7 +270,7 @@ src: url("centurygothic.ttf");
 
 
 .menu-button > .arrow-button {
-    -fx-padding: 10 10 10 10;
+    -fx-padding: 0;
 }
 
 .menu-button > .arrow-button > .arrow {
@@ -352,47 +442,9 @@ src: url("centurygothic.ttf");
 
 
 
-/* Titled pane  */
-
-
-.titled-pane {
-    -fx-color: White;
-    -fx-padding: -1 -1 -1 -1;
-    -fx-text-fill:#808080;   
-}
 
 
 
-.titled-pane:expanded {
-    -fx-color: white;
-    -fx-padding:-1 -1 -2 -1;   
-}   
-
-
-
-.titled-pane > .title {
-    -fx-background-color: white;
-    -fx-border-color:#DADADA;
-    -fx-font-size:18;
-    -fx-border-width: .5;
-}
-
-
-
-.titled-pane >  .title > .arrow-button > .arrow {
-    -fx-background-color: #24BE58;
-    -fx-cursor:hand;
-}
-
-.titled-pane >  .title > .arrow-button:hover > .arrow {
-    -fx-background-color: #39e600;
-    -fx-cursor:hand;
-}
-
-.titled-pane:focused >  .title > .arrow-button > .arrow {
-    -fx-background-color: #24BE58;
-    -fx-effect:dropshadow(two-pass-box , #39e600, 5, 0.2 , 0, 0);
-}
 
 /*  Combo box */
 
@@ -406,7 +458,13 @@ src: url("centurygothic.ttf");
     
 .combo-box.comboboxBold{
     -fx-font-weight:bold;
+    -fx-padding:0;
         
+}
+
+.combo-box.comboboxBold > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
 }
 
 
@@ -417,7 +475,7 @@ src: url("centurygothic.ttf");
 
 .combo-box > .arrow-button {
     -fx-background-color: transparent;
-    -fx-padding: 10 10 10 10;
+    -fx-padding: 0;
 }
 
 .combo-box > .arrow-button > .arrow {
@@ -569,12 +627,7 @@ src: url("centurygothic.ttf");
 
 
 /*others*/
-.AnchorPane{
-    -fx-background-color: white;
-    -fx-border-color:  #DADADA;
-    -fx-background-radius: 0;
-    -fx-border-width: .5;
-}
+
 
 #AllWhite{
     -fx-background-color: white;
