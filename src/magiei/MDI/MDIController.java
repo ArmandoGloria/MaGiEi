@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 import MySQLconn.ConexionMySQL;
+import Resources.MessageBox;
 //import Resources.GlobalClass1;
 //import Resources.Global;
 import com.mysql.jdbc.Blob;
@@ -74,6 +75,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContentDisplay;
@@ -88,7 +91,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
-import javax.swing.JFrame;
+//import javax.swing.JFrame;
 
 
 
@@ -146,7 +149,7 @@ public class MDIController implements Initializable {
 		CargarCombos();
 	}
 	catch(Exception ex){
-			JOptionPane.showMessageDialog(null,"Error al Inicializar informacion \n ERROR : " + ex.getMessage());
+			MessageBox.show("Error","","Error al Inicializar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 	    }
     } 
     
@@ -311,7 +314,7 @@ public class MDIController implements Initializable {
 		    //MySqlJavaCon.CerrarConexion();
 		}
 		catch(Exception ex){
-		    JOptionPane.showMessageDialog(null,"Error al Buscar informacion \n ERROR : " + ex.getMessage());
+		    MessageBox.show("Error","","Error al Buscar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 
 	}
@@ -335,7 +338,7 @@ public class MDIController implements Initializable {
 		    fileImage=null;
 		}
 		catch(Exception ex){
-			    JOptionPane.showMessageDialog(null,"Error en funcion limpiar campos \n ERROR : " + ex.getMessage());
+			    MessageBox.show("Error","","Error en funcion limpiar campos \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 
@@ -358,7 +361,7 @@ public class MDIController implements Initializable {
 		  btnImgPaciente.disableProperty().set(deshabilitar);
 		}
 		catch(Exception ex){
-		    JOptionPane.showMessageDialog(null,"Error en funcion deshabilirar botones \n ERROR : " + ex.getMessage());
+		    MessageBox.show("Error","","Error en funcion deshabilirar botones \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 
@@ -374,7 +377,7 @@ public class MDIController implements Initializable {
 		    //CargarCombos();
 		}
 		catch(Exception ex){
-		    JOptionPane.showMessageDialog(null,"Error en fucion agrgar \n ERROR : " + ex.getMessage());
+		    MessageBox.show("Error","","Error en fucion agrgar \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 
@@ -399,15 +402,29 @@ public class MDIController implements Initializable {
 //				JFrame frame = new JFrame("JOptionPane showMessageDialog example");
 //			
 //				// show a joptionpane dialog using showMessageDialog
-//				JOptionPane.showMessageDialog(frame,
+//				MessageBox.show(frame,
 //			        "fgh" + ": '" + "fjkkk" + "'.",
 //			        "ggggg",
-//			        JOptionPane.ERROR_MESSAGE);
+//			        Alert.AlertType.ERROR);
 //	
 //				frame.dispose();
 			   
-			 mensajeB("Error","Debe seleccionar un registro prmero ",JOptionPane.ERROR_MESSAGE);
-           //JOptionPane.showMessageDialog(null,"Debe seleccionar un registro prmero ");
+			 MessageBox.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING);
+//			 MessageBox.show("fdd", "fggg");
+//			 Stage primaryStage = null;
+//			 int answer = jfx.messagebox.MessageBox.show(primaryStage, 
+// 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
+//						"Information dialog",  
+// 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
+			 
+			 
+////			 Alert alert = new Alert(AlertType.ERROR);
+////alert.setTitle("Error Dialog");
+////alert.setHeaderText("Look, an Error Dialog");
+////alert.setContentText("Ooops, there was an error!");
+////
+////alert.showAndWait();
+           //MessageBox.show(null,"Debe seleccionar un registro prmero ");
 			     
 		    }
 
@@ -416,8 +433,8 @@ public class MDIController implements Initializable {
 		    //limpiarCamposPaciente();
 		}
 		catch(Exception ex){
-//			    global.mensajeB("Error","Error al Editar informacion \n ERROR : " + ex.getMessage(),JOptionPane.ERROR_MESSAGE);
-           JOptionPane.showMessageDialog(null,"Error al Editar informacion \n ERROR : " + ex.getMessage());
+//			    global.MessageBox.show("Error","Error al Editar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
+           MessageBox.show("Error","","Error al Editar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 
@@ -448,7 +465,7 @@ public class MDIController implements Initializable {
 				strMySqlQuery="UPDATE `magiei_db`.`t_paciente` SET `Nombre`='" + txtNombrePaciente.getText() + "', `ApPat`='" + txtApellidoPaternoPaciente.getText() + "', `ApMat`='" + txtApellidoMaternoPaciente.getText() + "', `Sexo`='" + cboSexoPaciente.getValue() + "', `Posicion`='" + txtPosicionPaciente.getText() + "', `FechNac`='" + ft.format(calendar.getTime()) + "', `NoEmpleado`='" + txtNoEmpleadoPaciente.getText() + "', `Activo`='" + cboEstatusPaciente.getValue() + "' WHERE idPaciente=" + lblIdPaciente.getText() + ";";
 			}
 			if(MySqlJavaCon.updateTable(strMySqlQuery)){
-				JOptionPane.showMessageDialog(null,"Informacion Almacenada ");
+				MessageBox.show(null,"Informacion Almacenada ");
 				deshabilitarCamposPaciente(true);
 				btnGuardarNvoPaciente.setDisable(true);
 				btnCancelarAltaPaciente.setDisable(true);
@@ -474,16 +491,16 @@ MySqlJavaCon.InsertGuardar("");
 				limpiarCamposPaciente();
 			
 			}else{
-				JOptionPane.showMessageDialog(null,"Error al guardar Informacion ");
+				MessageBox.show("Error","","Error al guardar Informacion ",Alert.AlertType.INFORMATION);
 			}
 			
 		}
 		else{
-			JOptionPane.showMessageDialog(null,"Flantan datos Obligatorios");
+			MessageBox.show(null,"Flantan datos Obligatorios");
 		}
 		}
 		catch (Exception ex) {
-			JOptionPane.showMessageDialog(null,"Error al guargar informacion \n ERROR : " + ex.getMessage());
+			MessageBox.show("Error","","Error al guargar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 
@@ -496,7 +513,7 @@ MySqlJavaCon.InsertGuardar("");
 			this.btnCancelarAltaPaciente.setDisable(true);
 		}
 		catch (Exception ex) {
-			JOptionPane.showMessageDialog(null,"Error al cancelar informacion \n ERROR : " + ex.getMessage());
+			MessageBox.show("Error","","Error al cancelar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 	
@@ -576,7 +593,7 @@ MySqlJavaCon.InsertGuardar("");
 		StrStations=StrStations.substring(0, StrStations.length()-2);
 		}
 		catch(Exception ex) {
-			JOptionPane.showMessageDialog(null, ex.getMessage());
+			MessageBox.show("Error","", ex.getMessage(),Alert.AlertType.ERROR);
 		}
 		return StrStations;
 	}
@@ -667,7 +684,7 @@ MySqlJavaCon.InsertGuardar("");
 		
 		}
 		catch(Exception ex) {
-			JOptionPane.showMessageDialog(null, ex.getMessage());
+			MessageBox.show("Error","", ex.getMessage(),Alert.AlertType.ERROR);
 		}
 	}
 	
@@ -782,23 +799,24 @@ public void setDataPane(Node node) {
 	}    
 	/*****************************************************************************************/
 	
-    
-    
-    protected void  mensajeB(String Titulo,String Mensaje,Integer Tipo)
-    {
-	   // String backupDir = "/Users/al/backups";
-     
-	// create a jframe
-	JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-
-	// show a joptionpane dialog using showMessageDialog
-	JOptionPane.showMessageDialog(frame,
-        Titulo + ": '" + Mensaje + "'.",
-        Titulo,
-        Tipo);//JOptionPane.INFORMATION_MESSAGE);
-    
-	frame.dispose();
-    }
+//   int answer = jfx.messagebox.MessageBox.show(primaryStage, 
+// 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
+//						"Information dialog",  
+// 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
+// 
+// 
+// 		if (answer == jfx.messagebox.MessageBox.OK) { 
+// 			System.out.println("Ok"); 
+// 		} else if (answer == jfx.messagebox.MessageBox.CANCEL) { 
+// 			System.out.println("Cancel"); 
+//		} 
+// 
+// 
+// 		answer = jfx.messagebox.MessageBox.show(primaryStage, 
+// 						"Ejemplo de un mensaje de error.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_ERROR]", 
+//						"Error dialog",  
+//						jfx.messagebox.MessageBox.ICON_ERROR); 
+//		System.out.println(answer); 
     
 }
 
