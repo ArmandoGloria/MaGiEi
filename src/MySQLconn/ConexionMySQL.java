@@ -4,6 +4,7 @@
 
 package MySQLconn;
 
+import Resources.MessageBox;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,11 +14,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
-import javax.swing.JFrame;
+//import javax.swing.JFrame;
 
 //import Resources.GlobalClass1;
 
@@ -49,12 +51,12 @@ public class ConexionMySQL
         }
         catch(SQLException SQLE)
         {
-		mensajeB("Error","ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+		MessageBox.show("Error","","ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            // JOptionPane.showMessageDialog(null,"ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
         }
         catch(ClassNotFoundException CNFE)
         {
-            mensajeB("Error","ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage());
         }
     }
@@ -86,7 +88,7 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            mensajeB("Error","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }
     }
@@ -103,7 +105,7 @@ public class ConexionMySQL
     } 
         catch (SQLException SQLE)
         {
-            mensajeB("Error","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }finally {
 		try {
@@ -123,12 +125,12 @@ public class ConexionMySQL
         try
         {
             this.Instruccion.executeUpdate(this.strQueryMySQL);
-            mensajeB("DB","LA TABLA SE MODIFICO CON EXITO A LA BD",JOptionPane.INFORMATION_MESSAGE);
+//            MessageBox.show("DB","LA TABLA SE MODIFICO CON EXITO A LA BD",JOptionPane.INFORMATION_MESSAGE);
            //JJOptionPane.showMessageDialog(null,"LA TABLA SE MODIFICO CON EXITO A LA BD");
         }
         catch (SQLException SQLE)
         {
-            mensajeB("Error","ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
         }
     }
@@ -186,7 +188,7 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            mensajeB("Error","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
         }
 
@@ -199,7 +201,7 @@ public class ConexionMySQL
 	}
 	catch(SQLException SQLE)
         {
-            mensajeB("Error","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),JOptionPane.ERROR_MESSAGE);
+            MessageBox.show("Error","","ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
 	}
     }
@@ -223,22 +225,23 @@ public class ConexionMySQL
     
     
     
-    protected void  mensajeB(String Titulo,String Mensaje,Integer Tipo)
-    {
-	   // String backupDir = "/Users/al/backups";
-     
-	// create a jframe
-	JFrame frame = new JFrame("JOptionPane showMessageDialog example");
-
-	// show a joptionpane dialog using showMessageDialog
-	JOptionPane.showMessageDialog(frame,
-        Titulo + ": '" + Mensaje + "'.",
-        Titulo,
-        Tipo);//JOptionPane.INFORMATION_MESSAGE);
+//    protected void  MessageBox.show(String Titulo,String Mensaje,Integer Tipo)
+//    {
+//	   // String backupDir = "/Users/al/backups";
+//     
+//	// create a jframe
+//	JFrame frame = new JFrame("JOptionPane showMessageDialog example");
+//
+//	// show a joptionpane dialog using showMessageDialog
+//	JOptionPane.showMessageDialog(frame,
+//        Titulo + ": '" + Mensaje + "'.",
+//        Titulo,
+//        Tipo);//JOptionPane.INFORMATION_MESSAGE);
+//    
+//	frame.dispose();
+//    }
     
-	frame.dispose();
-    }
-    
+   
     
     
 }
