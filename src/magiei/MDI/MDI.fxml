@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Accordion?>
@@ -15,6 +7,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
@@ -22,9 +15,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
+<VBox prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
    <children>
       <HBox prefHeight="25.0" prefWidth="962.0" VBox.vgrow="NEVER">
          <children>
@@ -58,7 +50,7 @@
                                                 <ImageView fx:id="imgPaciente" disable="true" fitHeight="100.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" visible="false" />
                                              </children>
                                           </Group>
-                                          <ComboBox fx:id="cboEstatusPaciente" disable="true" layoutX="111.0" layoutY="90.0" prefHeight="35.0" prefWidth="86.0" promptText="Estatus..." styleClass="CBstatus" visibleRowCount="2" AnchorPane.rightAnchor="10.0" />
+                                          <ComboBox fx:id="cboEstatusPaciente" disable="true" editable="true" layoutX="111.0" layoutY="90.0" prefHeight="35.0" prefWidth="86.0" promptText="Estatus..." styleClass="CBstatus" visibleRowCount="2" AnchorPane.rightAnchor="10.0" />
                                           <Button fx:id="btnAgregarPaciente" layoutX="149.0" layoutY="28.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
                                           <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="24.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
                                           <Button fx:id="btnBuscarPaciente" layoutX="119.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
@@ -70,13 +62,13 @@
                                           <TextField fx:id="txtApellidoMaternoPaciente" disable="true" layoutX="17.0" layoutY="299.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label layoutX="17.0" layoutY="329.0" prefHeight="18.0" prefWidth="127.0" text="Fecha de Nacimiento" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <ComboBox fx:id="cboDiaFechaNacPaciente" disable="true" editable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" promptText="Dia" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="15" AnchorPane.leftAnchor="10.0" />
-                                          <ComboBox fx:id="cboMesFechaNacPaciente" disable="true" layoutX="55.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="95.0" promptText="Mes" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="12" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="62.0" />
-                                          <ComboBox fx:id="cboAnioFechaNacPaciente" disable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="50.0" promptText="Año" style="-fx-background-radius: 0;" styleClass="ComBxEditable" AnchorPane.rightAnchor="10.0" />   
+                                          <ComboBox fx:id="cboMesFechaNacPaciente" disable="true" editable="true" layoutX="55.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="95.0" promptText="Mes" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="12" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="62.0" />
+                                          <ComboBox fx:id="cboAnioFechaNacPaciente" disable="true" editable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="50.0" promptText="Año" style="-fx-background-radius: 0;" styleClass="ComBxEditable" AnchorPane.rightAnchor="10.0" />   
                                           <Label layoutY="380.0" prefHeight="18.0" prefWidth="127.0" text="Sexo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <ComboBox fx:id="cboSexoPaciente" layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="187.0" promptText="Genero" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="comboboxBold" visibleRowCount="2" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <ComboBox fx:id="cboSexoPaciente" disable="true" editable="true" layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="187.0" promptText="Genero" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="comboboxBold" visibleRowCount="2" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label layoutY="425.0" prefHeight="18.0" prefWidth="127.0" text="Posicion/Titulo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField fx:id="txtPosicionPaciente" disable="true" layoutY="445.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <MenuButton fx:id="cboEstacionesPaciente" layoutY="475.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Estaciones" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                                          <MenuButton fx:id="cboEstacionesPaciente" disable="true" layoutY="475.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Estaciones" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                              <padding>
                                                 <Insets left="-9.0" top="-4.0" />
                                              </padding>
