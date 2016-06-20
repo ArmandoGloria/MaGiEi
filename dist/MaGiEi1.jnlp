@@ -8,13 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="lib\SupremeMdiWindow-1.0-SNAPSHOT.jar" size="161522" download="eager" />
     <jar href="lib\controlsfx-8.40.10.jar" size="954085" download="eager" />
-    <jar href="lib\controlsfx-samples-8.40.10.jar" size="639701" download="eager" />
-    <jar href="lib\fxsampler-1.0.9.jar" size="30888" download="eager" />
-    <jar href="lib\javafx-dialogs-0.0.1.jar" size="116201" download="eager" />
-    <jar href="lib\javafx-dialogs-0.0.2.jar" size="112358" download="eager" />
-    <jar href="lib\javafx-dialogs-0.0.3.jar" size="118212" download="eager" />
     <jar href="lib\javafx-dialogs-0.0.4.jar" size="118239" download="eager" />
     <jar href="lib\jfxmessagebox-1.1.0.jar" size="33430" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.38-bin.jar" size="983914" download="eager" />
