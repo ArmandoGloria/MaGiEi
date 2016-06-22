@@ -458,7 +458,7 @@ src: url("centurygothic.ttf");
     
 .combo-box.comboboxBold{
     -fx-font-weight:bold;
-    -fx-padding:0;
+    
         
 }
 
