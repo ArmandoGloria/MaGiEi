@@ -131,6 +131,7 @@ src: url("centurygothic.ttf");
     -fx-text-fill: white;
     -fx-background-radius: 5px; 
     -fx-font-size: 12; 
+    -fx-pref-width:76px;
 }
 
 
@@ -161,6 +162,7 @@ src: url("centurygothic.ttf");
     -fx-border-radius: 5px;
     -fx-border-color: -fx-maincolor;
     -fx-font-size: 12;
+    -fx-pref-width:76px;
 }
 
 
