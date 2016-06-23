@@ -142,31 +142,31 @@ src: url("centurygothic.ttf");
 
 .button.selectButtonBig {
     -fx-background-color:  white;
-    -fx-text-fill: #24BE58;
+    -fx-text-fill: -fx-maincolor;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: #24BE58  
+    -fx-border-color: -fx-maincolor;  
 }
 
 
 .button.selectButtonBig:hover{
-    -fx-text-fill: #39e600;
-    -fx-border-color: #39e600; 
+    -fx-text-fill: -fx-hovercolor;
+    -fx-border-color: -fx-hovercolor
 }   
 
 .button.selectButtonSmall {
     -fx-background-color:  white;
-    -fx-text-fill: #24BE58;
+    -fx-text-fill: -fx-maincolor;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: #24BE58;
-    -fx-font-size: 10;
+    -fx-border-color: -fx-maincolor;
+    -fx-font-size: 12;
 }
 
 
 .button.selectButtonSmall:hover{
-    -fx-border-color: #39e600;
-    -fx-text-fill: #39e600;
+    -fx-border-color: -fx-hovercolor;
+    -fx-text-fill: -fx-hovercolor;
        
 }   
 
@@ -539,14 +539,11 @@ src: url("centurygothic.ttf");
     -fx-cursor: hand;
     }
 
-#CBstatus > .text-field {
-    -fx-padding: 0;
-    -fx-text-fill: red;
-}
+
 
 #CBstatus > .list-cell {
     -fx-font-weight: bold;
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: #808080;
     -fx-padding: 0;
 }
 
