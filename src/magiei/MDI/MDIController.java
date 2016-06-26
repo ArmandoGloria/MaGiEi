@@ -79,20 +79,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
 //import javax.swing.JFrame;
-
+import javafx.util.Callback;
 
 
 
@@ -113,7 +116,7 @@ public class MDIController implements Initializable {
 	String strMySqlQuery = "";
 	
 	protected ObservableList<Integer> DiaFecha =FXCollections.observableArrayList();
-	protected ObservableList<Integer> MesFecha =FXCollections.observableArrayList() ;
+	protected ObservableList<MesObj> MesFecha =FXCollections.observableArrayList() ;
 	protected ObservableList<Integer> AnioFecha =FXCollections.observableArrayList();
 	@FXML
 	private Button btnMenuBar;
@@ -129,6 +132,8 @@ public class MDIController implements Initializable {
 
     /**
      * Initializes the controller class.
+	 * @param url
+	 * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -191,7 +196,7 @@ public class MDIController implements Initializable {
 	@FXML
 	private ComboBox<Integer> cboDiaFechaNacPaciente;
 	@FXML
-	private ComboBox<Integer> cboMesFechaNacPaciente;
+	private ComboBox<MesObj> cboMesFechaNacPaciente;
 	@FXML
 	private ComboBox<Integer> cboAnioFechaNacPaciente;
 	@FXML
@@ -202,14 +207,12 @@ public class MDIController implements Initializable {
 	private Button btnCancelarAltaPaciente;
 	@FXML
 	private ImageView imgPaciente;
-	@FXML
-	private Label btnAgregarImagenPaciente;
 	
 	protected ObservableList<String> status =FXCollections.observableArrayList("Activo","Inactivo");
 	@FXML
 	private ComboBox<String> cboEstatusPaciente;
 	
-	protected ObservableList<String> sexo =FXCollections.observableArrayList("M","F");
+	protected ObservableList<String> sexo =FXCollections.observableArrayList("Masculino","Femenino");
 	@FXML
 	protected ComboBox<String> cboSexoPaciente;
 	
@@ -253,10 +256,11 @@ public class MDIController implements Initializable {
 			    cboEstacionesPaciente.setText(ObtenerEstacionesPaciente(lblIdPaciente.getText()));
 
 			    cboAnioFechaNacPaciente.setValue(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[0])));
-			    cboMesFechaNacPaciente.setValue(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[1])));
+			    cboMesFechaNacPaciente.setValue(MesFecha.get(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[1]))-1));
+			    //cboMesFechaNacPaciente.getItems().lastIndexOf(dt).setValue(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[1])));
 			    cboDiaFechaNacPaciente.setValue(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[2])));
 			    
-			  CheckBox x= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(1)).getContent()));
+			  //CheckBox x= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(1)).getContent()));
 			    
 			    
 			    
@@ -269,6 +273,7 @@ public class MDIController implements Initializable {
 
 			    txtNoEmpleadoPaciente.setText(dt.getValueAt(0,8).toString());
 			    cboEstatusPaciente.setValue(dt.getValueAt(0,9).toString());
+			    
     //	      byte[] imageBytes = dt.getValueAt(0,8).getBytes(1, dt.getValueAt(0,8).toString().length());
     //			byte[] imgData = (byte[])dt.getValueAt(0,7);//Here r1.getBytes() extract byte data from resultSet 
     //            System.out.println(imgData);
@@ -306,6 +311,8 @@ public class MDIController implements Initializable {
     //        root.getChildren().add(viewr);
 
 		  //imgPaciente.setImage(convertToJavaFXImage);
+		  
+		    btnImgPaciente.setText("");
 			    imgPaciente.setImage(imagen);
 			    imgPaciente.setVisible(true);
 
@@ -313,7 +320,7 @@ public class MDIController implements Initializable {
 		    }
 		    //MySqlJavaCon.CerrarConexion();
 		}
-		catch(Exception ex){
+		catch(NumberFormatException | IOException ex){
 		    MessageBox.show("Error","","Error al Buscar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 
@@ -327,15 +334,33 @@ public class MDIController implements Initializable {
 		    txtApellidoPaternoPaciente.clear();
 		    txtApellidoMaternoPaciente.clear();
 		    cboSexoPaciente.setValue(null);
+		    cboSexoPaciente.setPromptText("Sexo");
 		    txtPosicionPaciente.clear();
 		    cboDiaFechaNacPaciente.setValue(null);
+		    cboDiaFechaNacPaciente.setPromptText("Dia");
+		    //cboDiaFechaNacPaciente.set
 		    cboMesFechaNacPaciente.setValue(null);
+		    cboMesFechaNacPaciente.setPromptText("Mes");
 		    cboAnioFechaNacPaciente.setValue(null);
-		    cboEstatusPaciente.setValue(null);     
+		    cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
+		    cboEstatusPaciente.setValue(null);
+		    cboEstatusPaciente.setPromptText("Estaciones");
+		    
+		    btnImgPaciente.setText("Agregar Foto");
+		
+		   //cboEstatusPaciente.setValue("Estaciones"); 
 		    txtNoEmpleadoPaciente.clear();
 		    imgPaciente.setImage(null);
 		    //cboEstatusPaciente.getValue(dt.getValueAt(0,9));
 		    fileImage=null;
+		    
+		    cboEstacionesPaciente.textProperty().set("Estaciones");
+		    
+
+			 for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
+				((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
+				 }
+			
 		}
 		catch(Exception ex){
 			    MessageBox.show("Error","","Error en funcion limpiar campos \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
@@ -355,10 +380,12 @@ public class MDIController implements Initializable {
 		  cboMesFechaNacPaciente.disableProperty().set(deshabilitar);
 		  cboAnioFechaNacPaciente.disableProperty().set(deshabilitar);
 		  txtNombrePaciente.disableProperty().set(deshabilitar);     
-		  txtNoEmpleadoPaciente.disableProperty().set(deshabilitar);
+		  //txtNoEmpleadoPaciente.disableProperty().set(deshabilitar);
 		  cboEstatusPaciente.disableProperty().set(deshabilitar);
 		  imgPaciente.disableProperty().set(deshabilitar);
 		  btnImgPaciente.disableProperty().set(deshabilitar);
+		  
+		  cboEstacionesPaciente.disableProperty().set(deshabilitar);
 		}
 		catch(Exception ex){
 		    MessageBox.show("Error","","Error en funcion deshabilirar botones \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
@@ -442,8 +469,6 @@ public class MDIController implements Initializable {
 	private void GuardarPaciente(ActionEvent event) {
 		try{
 			
-			this.btnGuardarNvoPaciente.setDisable(true);
-			this.btnCancelarAltaPaciente.setDisable(true);
 			
 			boolean FechaValida=false;
 			Calendar calendar = Calendar.getInstance();
@@ -451,7 +476,8 @@ public class MDIController implements Initializable {
 
 			
 			try{
-			calendar.set(cboAnioFechaNacPaciente.getValue(), cboMesFechaNacPaciente.getValue() , cboDiaFechaNacPaciente.getValue());
+			calendar.set(cboAnioFechaNacPaciente.getValue(), cboMesFechaNacPaciente.getValue().Value()-1 , cboDiaFechaNacPaciente.getValue());
+			//calendar.set(2016, 01, 21);
 			FechaValida=true;
 			}catch(Exception ex){FechaValida=false;}
 			
@@ -465,29 +491,76 @@ public class MDIController implements Initializable {
 				strMySqlQuery="UPDATE `magiei_db`.`t_paciente` SET `Nombre`='" + txtNombrePaciente.getText() + "', `ApPat`='" + txtApellidoPaternoPaciente.getText() + "', `ApMat`='" + txtApellidoMaternoPaciente.getText() + "', `Sexo`='" + cboSexoPaciente.getValue() + "', `Posicion`='" + txtPosicionPaciente.getText() + "', `FechNac`='" + ft.format(calendar.getTime()) + "', `NoEmpleado`='" + txtNoEmpleadoPaciente.getText() + "', `Activo`='" + cboEstatusPaciente.getValue() + "' WHERE idPaciente=" + lblIdPaciente.getText() + ";";
 			}
 			if(MySqlJavaCon.updateTable(strMySqlQuery)){
-				MessageBox.show(null,"Informacion Almacenada ");
+				
+				
+			
+				//      File file = new File("C:\\x.jpg");      
+				//      FileInputStream fis = null;
+				//      fis = new FileInputStream(file);
+				//      MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
+				//      MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) file.length());
+				//MySqlJavaCon.InsertGuardar("");
+
+				      //File file = new File(fileImage);
+				if(fileImage!=null)
+				{
+					      
+					MySqlJavaCon.mySqlConn.setAutoCommit(false);
+				
+					InputStream fis = null;
+					fis = new FileInputStream(fileImage);
+					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
+					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
+					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
+					MySqlJavaCon.InsertGuardar("");
+				}
+				
+				if(fileImage!=null)
+				{
+					      
+					MySqlJavaCon.mySqlConn.setAutoCommit(false);
+				
+					InputStream fis = null;
+					fis = new FileInputStream(fileImage);
+					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
+					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
+					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
+					MySqlJavaCon.InsertGuardar("");
+					MySqlJavaCon.mySqlConn.setAutoCommit(true);
+				}
+				
+				String insertStation="";
+				try{
+					//StrStations += dt.getValueAt(a, 0).toString() + ", ";
+					MySqlJavaCon.updateTable("Delete from magiei_db.t_EstacionPaciente where idPaciente="+ lblIdPaciente.getText() +" ; ");
+					for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
+					CheckBox chkEstacionC= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
+					if(chkEstacionC.selectedProperty().get()){
+				//((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
+				
+						String sta=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).getText();
+						insertStation =" insert into magiei_db.t_EstacionPaciente(idEstacion,idPaciente) values((SELECT IdEstacion FROM magiei_db.t_Estacion where nombre='"+ sta +"'),"+ lblIdPaciente.getText() +"); ";
+						MySqlJavaCon.updateTable(insertStation);
+				
+				
+				 }
+			 }
+//					if(!"".equals(insertStation)){
+//						
+////						MySqlJavaCon.updateTable("Delete from magiei_db.t_EstacionPaciente where idPaciente="+ lblIdPaciente.getText() +" ; "+insertStation);
+//					}
+				}
+				catch(Exception ex) {
+					MessageBox.show("Error","","Error al guargar estacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
+				}
+				
+				MessageBox.show("Guardar","","Informacion Almacenada ",Alert.AlertType.INFORMATION);
+				
+				this.btnGuardarNvoPaciente.setDisable(true);
+				this.btnCancelarAltaPaciente.setDisable(true);
 				deshabilitarCamposPaciente(true);
 				btnGuardarNvoPaciente.setDisable(true);
 				btnCancelarAltaPaciente.setDisable(true);
-				
-				MySqlJavaCon.mySqlConn.setAutoCommit(false);
-				
-			
-//      File file = new File("C:\\x.jpg");      
-//      FileInputStream fis = null;
-//      fis = new FileInputStream(file);
-//      MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
-//      MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) file.length());
-//MySqlJavaCon.InsertGuardar("");
-				
-      //File file = new File(fileImage);      
-      InputStream fis = null;
-      fis = new FileInputStream(fileImage);
-      MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
-      MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
-      //MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
-MySqlJavaCon.InsertGuardar("");
-				
 				limpiarCamposPaciente();
 			
 			}else{
@@ -545,6 +618,9 @@ MySqlJavaCon.InsertGuardar("");
 			
 			imgPaciente.setVisible(true);
 			fileImage=new File(get.toString());
+			
+			
+		    btnImgPaciente.setText("");
 		
 		
 //		FileFilter Ft = new FileNameExtensionFilter("Imagenes","png");
@@ -583,7 +659,13 @@ MySqlJavaCon.InsertGuardar("");
 			 for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
 				 String sta=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).getText();
 				 if(sta.equals(dt.getValueAt(a, 0).toString())){
-				((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
+//					 CheckBox ck=new CheckBox
+//					ck=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
+//					ck.setSelected(true);
+					((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
+				 }
+				 else{
+					 ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
 				 }
 			 }
 			 
@@ -631,9 +713,21 @@ MySqlJavaCon.InsertGuardar("");
 		}
 		//AnioFecha =FXCollections.observableArrayList();
 		
-		for (Integer a=1;a<=12 ;a++){
-		MesFecha.add(a);
-		}
+//		for (Integer a=1;a<=12 ;a++){
+//		MesFecha.add(a);
+//		}
+		MesFecha.add(new MesObj("Enero",1));
+		MesFecha.add(new MesObj("Febrero",2));
+		MesFecha.add(new MesObj("Marzo",3));
+		MesFecha.add(new MesObj("Abril",4));
+		MesFecha.add(new MesObj("Mayo",5));
+		MesFecha.add(new MesObj("Junio",6));
+		MesFecha.add(new MesObj("Julio",7));
+		MesFecha.add(new MesObj("Agosto",8));
+		MesFecha.add(new MesObj("Septiembre",9));
+		MesFecha.add(new MesObj("Octubre",10));
+		MesFecha.add(new MesObj("Noviembre",11));
+		MesFecha.add(new MesObj("Diciembre",12));
 		
 		for (Integer a=1;a<=31 ;a++){
 		DiaFecha.add(a);
@@ -797,6 +891,49 @@ public void setDataPane(Node node) {
 		}
 	    };
 	}    
+
+	@FXML
+	private void CambiarColor(ActionEvent event) {
+		//this.cboEstatusPaciente.
+		if("Incativo".equals(cboEstatusPaciente.getValue())){
+			cboEstatusPaciente.setStyle("-fx-text-fill: #ff0000;");
+		}
+		if("Activo".equals(cboEstatusPaciente.getValue())){
+			cboEstatusPaciente.setStyle("-fx-text-fill: #00ff00;");
+			cboEstatusPaciente.setStyle("-fx-text-fill: red;");
+		}
+	}
+	
+	
+//	
+//	choboxEstatusPaciente.setCellFactory(
+//            new Callback<ListView<String>, ListCell<String>>() {
+//                @Override public ListCell<String> call(ListView<String> param) {
+//                    final ListCell<String> cell = new ListCell<String>() {   
+//                        @Override public void updateItem(String item, 
+//                            boolean empty) {
+//                                super.updateItem(item, empty);
+//                                if (item != null) {
+//                                    setText(item);    
+//                                    if (item.contains("High")) {
+//                                        setTextFill(Color.RED);
+//                                    }
+//                                    else if (item.contains("Low")){
+//                                        setTextFill(Color.GREEN);
+//                                    }
+//                                    else {
+//                                        setTextFill(Color.BLACK);
+//                                    }
+//                                }
+//                                else {
+//                                    setText(null);
+//                                }
+//                            }
+//                };
+//                return cell;
+//            }
+//        });
+
 	/*****************************************************************************************/
 	
 //   int answer = jfx.messagebox.MessageBox.show(primaryStage, 
@@ -818,5 +955,48 @@ public void setDataPane(Node node) {
 //						jfx.messagebox.MessageBox.ICON_ERROR); 
 //		System.out.println(answer); 
     
+	
+	
+	
+	
+	
+	
+	
+	public static class MesObj {
+
+		private  String TMesNombre;
+		private  Integer TMesNumero;        
+
+		private MesObj(String MesNombre,Integer MesNumero) {
+		    this.TMesNombre = MesNombre;         
+		    this.TMesNumero = MesNumero;             
+		}  
+		public Integer getTMesNumero() {
+		    return TMesNumero;
+		}
+		public void setTMesNumero(Integer fNum) {
+		    TMesNumero= fNum;
+		}         
+		public String getTMesNombre() {
+		    return TMesNombre;
+		}
+		public void setMesNombre(String fNom) {
+		    TMesNombre = fNom;
+		}                 
+		@Override
+		public String toString() {
+		    return TMesNombre;
+		}
+		
+		public Integer Value() {
+		    return TMesNumero;
+		}
+
+	} 
+	
+	
+	
+	
+	
 }
 

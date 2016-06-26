@@ -330,17 +330,21 @@ src: url("centurygothic.ttf");
 
 
 
-.button.addPicture{
-    -fx-background-color:  white;
-    -fx-text-fill: #24BE58;
+#addPictureButton{
+    -fx-background-color:  transparent;
+    -fx-text-fill: -fx-maincolor;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: #24BE58;
-    -fx-font-size: 50;
-    -fx-padding: 18 15 18 15;
+    -fx-border-color: transparent;
+    -fx-font-size: 14;
+    -fx-padding: 18 15 18 15;  
     
-    
-    
+}
+
+#Margen{
+    -fx-fill: transparent;
+    -fx-stroke: -fx-maincolor;
+    -fx-stroke-width:1px;
 }
 /* -------------------------------------------*/
 
@@ -458,7 +462,7 @@ src: url("centurygothic.ttf");
     
 .combo-box.comboboxBold{
     -fx-font-weight:bold;
-    -fx-padding:0;
+    
         
 }
 
@@ -525,27 +529,33 @@ src: url("centurygothic.ttf");
 
 
 
-.combo-box.CBstatus {
+#CBstatus {
     -fx-background-color: transparent;
-    -fx-font-size: 18;
-    -fx-padding: 0 0 0 0 ;
+    -fx-font-size: 15;
+    -fx-font-color: -fx-maincolor;
+    -fx-font-weight: bold;
+    -fx-padding: -2,-2,-2,-2;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     }
 
+#CBstatus > .text-field {
+    -fx-padding: 0;
+    -fx-text-fill: red;
+}
 
-.combo-box.CBstatus > .list-cell {
+#CBstatus > .list-cell {
     -fx-font-weight: bold;
-    -fx-text-fill: #24BE58;
-    -fx-padding: -2 -2 -2 -2;
+    -fx-text-fill: -fx-maincolor;
+    -fx-padding: 0;
 }
 
-.combo-box.CBstatus > .arrow-button {
+#CBstatus > .arrow-button {
     -fx-background-color: transparent;
-    -fx-padding: 10 10 10 10;
+    -fx-padding: 0;
 }
 
-.combo-box.CBstatus > .arrow-button > .arrow {
+#CBstatus > .arrow-button > .arrow {
     -fx-background-color: transparent;
     -fx-background-size: 100%;
     -fx-background-position: center;
@@ -554,7 +564,7 @@ src: url("centurygothic.ttf");
     -fx-padding: 5 5 5 5;  
 }
 
-.combo-box.CBstatus:hover > .arrow-button > .arrow {
+#CBstatus:hover > .arrow-button > .arrow {
     
     -fx-background-image: url("../../Resources/Imagenes/arrow.png");
     -fx-cursor: hand;
