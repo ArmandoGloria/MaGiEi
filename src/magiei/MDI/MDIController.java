@@ -79,20 +79,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.util.Duration;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
 //import javax.swing.JFrame;
-
+import javafx.util.Callback;
 
 
 
@@ -204,8 +207,6 @@ public class MDIController implements Initializable {
 	private Button btnCancelarAltaPaciente;
 	@FXML
 	private ImageView imgPaciente;
-	@FXML
-	private Label btnAgregarImagenPaciente;
 	
 	protected ObservableList<String> status =FXCollections.observableArrayList("Activo","Inactivo");
 	@FXML
@@ -272,6 +273,7 @@ public class MDIController implements Initializable {
 
 			    txtNoEmpleadoPaciente.setText(dt.getValueAt(0,8).toString());
 			    cboEstatusPaciente.setValue(dt.getValueAt(0,9).toString());
+			    
     //	      byte[] imageBytes = dt.getValueAt(0,8).getBytes(1, dt.getValueAt(0,8).toString().length());
     //			byte[] imgData = (byte[])dt.getValueAt(0,7);//Here r1.getBytes() extract byte data from resultSet 
     //            System.out.println(imgData);
@@ -309,6 +311,8 @@ public class MDIController implements Initializable {
     //        root.getChildren().add(viewr);
 
 		  //imgPaciente.setImage(convertToJavaFXImage);
+		  
+		    btnImgPaciente.setText("");
 			    imgPaciente.setImage(imagen);
 			    imgPaciente.setVisible(true);
 
@@ -330,17 +334,33 @@ public class MDIController implements Initializable {
 		    txtApellidoPaternoPaciente.clear();
 		    txtApellidoMaternoPaciente.clear();
 		    cboSexoPaciente.setValue(null);
+		    cboSexoPaciente.setPromptText("Sexo");
 		    txtPosicionPaciente.clear();
 		    cboDiaFechaNacPaciente.setValue(null);
+		    cboDiaFechaNacPaciente.setPromptText("Dia");
+		    //cboDiaFechaNacPaciente.set
 		    cboMesFechaNacPaciente.setValue(null);
+		    cboMesFechaNacPaciente.setPromptText("Mes");
 		    cboAnioFechaNacPaciente.setValue(null);
-		    cboEstatusPaciente.setValue(null);     
+		    cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
+		    cboEstatusPaciente.setValue(null);
+		    cboEstatusPaciente.setPromptText("Estaciones");
+		    
+		    btnImgPaciente.setText("Agregar Foto");
+		
+		   //cboEstatusPaciente.setValue("Estaciones"); 
 		    txtNoEmpleadoPaciente.clear();
 		    imgPaciente.setImage(null);
 		    //cboEstatusPaciente.getValue(dt.getValueAt(0,9));
 		    fileImage=null;
 		    
-		    cboEstacionesPaciente.textProperty().set("");
+		    cboEstacionesPaciente.textProperty().set("Estaciones");
+		    
+
+			 for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
+				((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
+				 }
+			
 		}
 		catch(Exception ex){
 			    MessageBox.show("Error","","Error en funcion limpiar campos \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
@@ -449,8 +469,6 @@ public class MDIController implements Initializable {
 	private void GuardarPaciente(ActionEvent event) {
 		try{
 			
-			this.btnGuardarNvoPaciente.setDisable(true);
-			this.btnCancelarAltaPaciente.setDisable(true);
 			
 			boolean FechaValida=false;
 			Calendar calendar = Calendar.getInstance();
@@ -537,6 +555,9 @@ public class MDIController implements Initializable {
 				}
 				
 				MessageBox.show("Guardar","","Informacion Almacenada ",Alert.AlertType.INFORMATION);
+				
+				this.btnGuardarNvoPaciente.setDisable(true);
+				this.btnCancelarAltaPaciente.setDisable(true);
 				deshabilitarCamposPaciente(true);
 				btnGuardarNvoPaciente.setDisable(true);
 				btnCancelarAltaPaciente.setDisable(true);
@@ -597,6 +618,9 @@ public class MDIController implements Initializable {
 			
 			imgPaciente.setVisible(true);
 			fileImage=new File(get.toString());
+			
+			
+		    btnImgPaciente.setText("");
 		
 		
 //		FileFilter Ft = new FileNameExtensionFilter("Imagenes","png");
@@ -635,6 +659,9 @@ public class MDIController implements Initializable {
 			 for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
 				 String sta=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).getText();
 				 if(sta.equals(dt.getValueAt(a, 0).toString())){
+//					 CheckBox ck=new CheckBox
+//					ck=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
+//					ck.setSelected(true);
 					((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
 				 }
 				 else{
@@ -864,6 +891,49 @@ public void setDataPane(Node node) {
 		}
 	    };
 	}    
+
+	@FXML
+	private void CambiarColor(ActionEvent event) {
+		//this.cboEstatusPaciente.
+		if("Incativo".equals(cboEstatusPaciente.getValue())){
+			cboEstatusPaciente.setStyle("-fx-text-fill: #ff0000;");
+		}
+		if("Activo".equals(cboEstatusPaciente.getValue())){
+			cboEstatusPaciente.setStyle("-fx-text-fill: #00ff00;");
+			cboEstatusPaciente.setStyle("-fx-text-fill: red;");
+		}
+	}
+	
+	
+//	
+//	choboxEstatusPaciente.setCellFactory(
+//            new Callback<ListView<String>, ListCell<String>>() {
+//                @Override public ListCell<String> call(ListView<String> param) {
+//                    final ListCell<String> cell = new ListCell<String>() {   
+//                        @Override public void updateItem(String item, 
+//                            boolean empty) {
+//                                super.updateItem(item, empty);
+//                                if (item != null) {
+//                                    setText(item);    
+//                                    if (item.contains("High")) {
+//                                        setTextFill(Color.RED);
+//                                    }
+//                                    else if (item.contains("Low")){
+//                                        setTextFill(Color.GREEN);
+//                                    }
+//                                    else {
+//                                        setTextFill(Color.BLACK);
+//                                    }
+//                                }
+//                                else {
+//                                    setText(null);
+//                                }
+//                            }
+//                };
+//                return cell;
+//            }
+//        });
+
 	/*****************************************************************************************/
 	
 //   int answer = jfx.messagebox.MessageBox.show(primaryStage, 
