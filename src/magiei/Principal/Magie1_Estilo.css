@@ -60,7 +60,6 @@ src: url("centurygothic.ttf");
 }
 
 
-
 .titled-pane >  .title > .arrow-button > .arrow {
     -fx-background-color: -fx-maincolor;
     -fx-cursor:hand;
@@ -131,7 +130,6 @@ src: url("centurygothic.ttf");
     -fx-text-fill: white;
     -fx-background-radius: 5px; 
     -fx-font-size: 12; 
-    -fx-pref-width:76px;
 }
 
 
@@ -143,32 +141,31 @@ src: url("centurygothic.ttf");
 
 .button.selectButtonBig {
     -fx-background-color:  white;
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: #24BE58;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: -fx-maincolor;  
+    -fx-border-color: #24BE58  
 }
 
 
 .button.selectButtonBig:hover{
-    -fx-text-fill: -fx-hovercolor;
-    -fx-border-color: -fx-hovercolor
+    -fx-text-fill: #39e600;
+    -fx-border-color: #39e600; 
 }   
 
 .button.selectButtonSmall {
     -fx-background-color:  white;
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: #24BE58;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: -fx-maincolor;
-    -fx-font-size: 12;
-    -fx-pref-width:76px;
+    -fx-border-color: #24BE58;
+    -fx-font-size: 10;
 }
 
 
 .button.selectButtonSmall:hover{
-    -fx-border-color: -fx-hovercolor;
-    -fx-text-fill: -fx-hovercolor;
+    -fx-border-color: #39e600;
+    -fx-text-fill: #39e600;
        
 }   
 
@@ -530,7 +527,6 @@ src: url("centurygothic.ttf");
 }
 
 
-
 #CBstatus {
     -fx-background-color: transparent;
     -fx-font-size: 15;
@@ -541,11 +537,14 @@ src: url("centurygothic.ttf");
     -fx-cursor: hand;
     }
 
-
+#CBstatus > .text-field {
+    -fx-padding: 0;
+    -fx-text-fill: black;
+}
 
 #CBstatus > .list-cell {
     -fx-font-weight: bold;
-    -fx-text-fill: #808080;
+    -fx-text-fill: -fx-maincolor;
     -fx-padding: 0;
 }
 
@@ -564,6 +563,94 @@ src: url("centurygothic.ttf");
 }
 
 #CBstatus:hover > .arrow-button > .arrow {
+    
+    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+    -fx-cursor: hand;
+     
+}
+
+
+
+#CBstatusA {
+    -fx-background-color: transparent;
+    -fx-font-size: 15;
+    -fx-font-color: -fx-maincolor;
+    -fx-font-weight: bold;
+    -fx-padding: -2,-2,-2,-2;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    }
+
+#CBstatusA > .text-field {
+    -fx-padding: 0;
+    -fx-text-fill: green;
+}
+
+#CBstatusA > .list-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-maincolor;
+    -fx-padding: 0;
+}
+
+#CBstatusA > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#CBstatusA > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5;  
+}
+
+#CBstatusA:hover > .arrow-button > .arrow {
+    
+    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+    -fx-cursor: hand;
+     
+}
+
+
+
+#CBstatusI {
+    -fx-background-color: transparent;
+    -fx-font-size: 15;
+    -fx-font-color: -fx-maincolor;
+    -fx-font-weight: bold;
+    -fx-padding: -2,-2,-2,-2;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    }
+
+#CBstatusI > .text-field {
+    -fx-padding: 0;
+    -fx-text-fill: red;
+}
+
+#CBstatusI > .list-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-maincolor;
+    -fx-padding: 0;
+}
+
+#CBstatusI > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+#CBstatusI > .arrow-button > .arrow {
+    -fx-background-color: transparent;
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-cursor: hand;
+    -fx-padding: 5 5 5 5;  
+}
+
+#CBstatusI:hover > .arrow-button > .arrow {
     
     -fx-background-image: url("../../Resources/Imagenes/arrow.png");
     -fx-cursor: hand;
