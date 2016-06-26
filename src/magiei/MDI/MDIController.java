@@ -905,6 +905,7 @@ public void setDataPane(Node node) {
 	}
 	
 	
+	
 //	
 //	choboxEstatusPaciente.setCellFactory(
 //            new Callback<ListView<String>, ListCell<String>>() {
