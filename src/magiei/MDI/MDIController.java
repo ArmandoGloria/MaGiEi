@@ -151,7 +151,72 @@ public class MDIController implements Initializable {
 //		cboEstacionPaciente2.setItems(items);
 		//cboEstacionesPaciente.getItems().addAll(0, clctn)
 		
+		
 		CargarCombos();
+		
+//		comboBox.setButtonCell(new ListCell(){
+//
+//        @Override
+//        protected void updateItem(Object item, boolean empty) {
+//            super.updateItem(item, empty); 
+//            if(empty || item==null){
+//                // styled like -fx-prompt-text-fill:
+//                setStyle("-fx-text-fill: derive(-fx-control-inner-background,-30%)");
+//            } else {
+//                setStyle("-fx-text-fill: -fx-text-inner-color");
+//                setText(item.toString());
+//            }
+//        }
+//
+//    });
+
+		
+//		cboEstatusPaciente.setButtonCell(new ListCell(){
+
+//        @Override
+//        protected void updateItem(Object item, boolean empty) {
+//            super.updateItem(item, empty); 
+//            if (item != null) {
+//                                    setText(item.toString());    
+//                                    if (item.toString().contains("Inactivo")) {
+//                                        setTextFill(Color.RED);
+//                                    }
+//                                    else if (item.toString().contains("Activo")){
+//                                        setTextFill(Color.GREEN);
+//                                    }
+//                                    else {
+//                                        setTextFill(Color.BLACK);
+//                                    }
+//                                }
+//                                else {
+//                                    setText(null);
+//                                }
+//        }
+//	@Override 
+//	protected void updateItem(String item,boolean empty) {
+//                                super.updateItem(item, empty);
+//                                if (item != null) {
+//                                    setText(item);    
+//                                    if (item.contains("High")) {
+//                                        setTextFill(Color.RED);
+//                                    }
+//                                    else if (item.contains("Low")){
+//                                        setTextFill(Color.GREEN);
+//                                    }
+//                                    else {
+//                                        setTextFill(Color.BLACK);
+//                                    }
+//                                }
+//                                else {
+//                                    setText(null);
+//                                }
+//                            }
+//
+//    });
+
+		
+		
+		
 	}
 	catch(Exception ex){
 			MessageBox.show("Error","","Error al Inicializar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
@@ -652,7 +717,13 @@ public class MDIController implements Initializable {
 							"on t_EstacionPaciente.idEstacion=t_Estacion.IdEstacion\n" +
 							"left join magiei_db.t_paciente on t_EstacionPaciente.idPaciente=t_paciente.idPaciente\n" +
 							"left join magiei_db.t_area on magiei_db.t_area.IdArea=t_Estacion.idArea\n" +
-							"where t_paciente.idPaciente=1; "));
+							"where t_paciente.idPaciente="+ id +" ; "));
+			
+			for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
+				 ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
+			 }	
+			
+			
 		for (Integer a=0;a<dt.getRowCount() ;a++){
 		StrStations += dt.getValueAt(a, 0).toString() + ", ";
 			
@@ -664,9 +735,9 @@ public class MDIController implements Initializable {
 //					ck.setSelected(true);
 					((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
 				 }
-				 else{
-					 ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
-				 }
+//				 else{
+//					 ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(false);
+//				 }
 			 }
 			 
 			   // ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(1)).content.get())).text.get()
@@ -894,15 +965,24 @@ public void setDataPane(Node node) {
 
 	@FXML
 	private void CambiarColor(ActionEvent event) {
-		//this.cboEstatusPaciente.
-		if("Incativo".equals(cboEstatusPaciente.getValue())){
-			cboEstatusPaciente.setStyle("-fx-text-fill: #ff0000;");
-		}
-		if("Activo".equals(cboEstatusPaciente.getValue())){
-			cboEstatusPaciente.setStyle("-fx-text-fill: #00ff00;");
-			cboEstatusPaciente.setStyle("-fx-text-fill: red;");
+		if(null != cboEstatusPaciente.getValue()) //this.cboEstatusPaciente.
+		switch (cboEstatusPaciente.getValue()) {
+			case "Inactivo":
+				//			cboEstatusPaciente.setStyle("-fx-text-fill: #ff0000;");
+				cboEstatusPaciente.setId("CBstatusI");
+				break;
+			case "Activo":
+				//			cboEstatusPaciente.setStyle("-fx-text-fill: #00ff00;");
+//			cboEstatusPaciente.setStyle("-fx-text-fill: red;");
+				cboEstatusPaciente.setId("CBstatusA");
+//		    cboEstacionesPaciente.textProperty
+				break;
+			default:
+				cboEstatusPaciente.setId("CBstatus");
+				break;
 		}
 	}
+	
 	
 	
 //	
