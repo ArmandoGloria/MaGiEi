@@ -60,7 +60,6 @@ src: url("centurygothic.ttf");
 }
 
 
-
 .titled-pane >  .title > .arrow-button > .arrow {
     -fx-background-color: -fx-maincolor;
     -fx-cursor:hand;

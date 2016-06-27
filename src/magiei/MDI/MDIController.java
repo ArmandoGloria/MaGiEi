@@ -15,10 +15,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 import MySQLconn.ConexionMySQL;
+import static Resources.FXOptionPane.showConfirmDialog;
+import Resources.FxUtil;
 import Resources.MessageBox;
+import Resources.MessageBoxController;
 //import Resources.GlobalClass1;
 //import Resources.Global;
-import com.mysql.jdbc.Blob;
+//import com.mysql.jdbc.Blob;
 
 import javafx.scene.image.Image;
 import java.awt.image.BufferedImage;
@@ -118,6 +121,8 @@ public class MDIController implements Initializable {
 	protected ObservableList<Integer> DiaFecha =FXCollections.observableArrayList();
 	protected ObservableList<MesObj> MesFecha =FXCollections.observableArrayList() ;
 	protected ObservableList<Integer> AnioFecha =FXCollections.observableArrayList();
+	
+	
 	@FXML
 	private Button btnMenuBar;
 	
@@ -145,6 +150,13 @@ public class MDIController implements Initializable {
 		
 		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
 		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
+		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2));
+		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4));
+//		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(15));
+		
+		
+	
+	
 		MenuItem[] col = null;
 		
 //		cboEstacionPaciente2 = createComboBox(items);
@@ -153,6 +165,8 @@ public class MDIController implements Initializable {
 		
 		
 		CargarCombos();
+		
+		FxUtil.autoCompleteComboBox(cboMesFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		
 //		comboBox.setButtonCell(new ListCell(){
 //
@@ -409,7 +423,7 @@ public class MDIController implements Initializable {
 		    cboAnioFechaNacPaciente.setValue(null);
 		    cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
 		    cboEstatusPaciente.setValue(null);
-		    cboEstatusPaciente.setPromptText("Estaciones");
+		    cboEstatusPaciente.setPromptText("Status");
 		    
 		    btnImgPaciente.setText("Agregar Foto");
 		
@@ -502,12 +516,20 @@ public class MDIController implements Initializable {
 //				frame.dispose();
 			   
 			 MessageBox.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING);
-//			 MessageBox.show("fdd", "fggg");
-//			 Stage primaryStage = null;
-//			 int answer = jfx.messagebox.MessageBox.show(primaryStage, 
-// 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
-//						"Information dialog",  
-// 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
+			 MessageBox.show("fdd", "fggg");
+			 
+//        VBox mainPanez = (VBox) FXMLLoader.load( getClass().getResource("/Resources/MessageBox.fxml" ) );
+//	Scene scene = new Scene(mainPanez);
+			 Stage primaryStage2 = null;
+//        primaryStage2.setScene(scene);
+			 
+			 showConfirmDialog(primaryStage2,"","");
+			 
+			 Stage primaryStage = null;
+			 int answer = jfx.messagebox.MessageBox.show(primaryStage, 
+ 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
+						"Information dialog",  
+ 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
 			 
 			 
 ////			 Alert alert = new Alert(AlertType.ERROR);
@@ -943,7 +965,49 @@ public void setDataPane(Node node) {
 		    }
 		}
 	    };
-	}    
+	}
+	
+	public EventHandler<KeyEvent> numeric_ValidationCbo(final Integer max_Lengh) {
+	    return new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent e) {
+		    ComboBox txt_TextField = (ComboBox) e.getSource();                
+		    if (txt_TextField.getEditor().getText().length() >= max_Lengh) {                    
+			e.consume();
+		    }
+		    if(e.getCharacter().matches("[0-9.]")){ 
+			if(txt_TextField.getEditor().getText().contains(".") && e.getCharacter().matches("[.]")){
+			    e.consume();
+			}else if(txt_TextField.getEditor().getText().length() == 0 && e.getCharacter().matches("[.]")){
+			    e.consume(); 
+			}
+		    }else{
+			e.consume();
+		    }
+		}
+	    };
+	}
+	
+	public EventHandler<KeyEvent> numeric_ValidationCbo(final Integer max_Lengh,final Integer maxVal) {
+	    return new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent e) {
+		    ComboBox txt_TextField = (ComboBox) e.getSource();                
+		    if (txt_TextField.getEditor().getText().length() >= max_Lengh ) {                    
+			e.consume();
+		    }
+		    if(e.getCharacter().matches("[0-9.]")){ 
+			if(txt_TextField.getEditor().getText().contains(".") && e.getCharacter().matches("[.]")){
+			    e.consume();
+			}else if(txt_TextField.getEditor().getText().length() == 0 && e.getCharacter().matches("[.]")){
+			    e.consume(); 
+			}
+		    }else{
+			e.consume();
+		    }
+		}
+	    };
+	} 
 	/*****************************************************************************************/
 
 	 /* Letters Validation Limit the  characters to maxLengh AND to ONLY Letters *************************************/
@@ -961,7 +1025,23 @@ public void setDataPane(Node node) {
 		    }
 		}
 	    };
-	}    
+	}
+	
+	public EventHandler<KeyEvent> letter_ValidationCbo(final Integer max_Lengh) {
+	    return new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent e) {
+		    ComboBox txt_TextField = (ComboBox) e.getSource();                
+		    if (txt_TextField.getEditor().getText().length() >= max_Lengh) {                    
+			e.consume();
+		    }
+		    if(e.getCharacter().matches("[A-Za-z]||\u00F1||\u00D1")){ 
+		    }else{
+			e.consume();
+		    }
+		}
+	    };
+	}
 
 	@FXML
 	private void CambiarColor(ActionEvent event) {
