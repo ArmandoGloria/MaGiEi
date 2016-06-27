@@ -16,6 +16,8 @@ src: url("centurygothic.ttf");
 -fx-backgroundcolor: white;
 -fx-linewidth:0.5px;
 -fx-linecolor: #DADADA;
+-fx-interacttext:#808080;
+-fx-warningcolor:#ff0000;
  }
 
  /* Containers */
@@ -127,9 +129,10 @@ src: url("centurygothic.ttf");
 
 .button.commitButtonSmall {
     -fx-background-color:  -fx-maincolor;
-    -fx-text-fill: white;
+    -fx-text-fill: -fx-backgroundcolor;
     -fx-background-radius: 5px; 
     -fx-font-size: 12; 
+    -fx-pref-width:76px;
 }
 
 
@@ -155,17 +158,18 @@ src: url("centurygothic.ttf");
 
 .button.selectButtonSmall {
     -fx-background-color:  white;
-    -fx-text-fill: #24BE58;
+    -fx-text-fill: -fx-maincolor;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
-    -fx-border-color: #24BE58;
-    -fx-font-size: 10;
+    -fx-border-color: -fx-maincolor;
+    -fx-font-size: 12;
+    -fx-pref-width: 76px;
 }
 
 
 .button.selectButtonSmall:hover{
-    -fx-border-color: #39e600;
-    -fx-text-fill: #39e600;
+    -fx-border-color: -fx-hovercolor;
+    -fx-text-fill: -fx-hovercolor;
        
 }   
 
@@ -265,6 +269,7 @@ src: url("centurygothic.ttf");
 
 .menu-button{
     -fx-background-color: transparent;
+    
 }
 
 
@@ -292,6 +297,15 @@ src: url("centurygothic.ttf");
     -fx-padding: 5 5 5 5;   
 }
 
+
+.menu-button .check-box > .box {
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-color: -fx-maincolor;
+}
+
+.menu-button .check-box > .box:selected > .mark {
+    -fx-background-color: -fx-maincolor;
+}
 
 .menu-button.mnuBtnAsSelect {
     -fx-background-color:  transparent;
@@ -376,11 +390,11 @@ src: url("centurygothic.ttf");
 }
 
 .date-picker > .arrow-button > .arrow {
-    -fx-background-color: #24BE58;
+    -fx-background-color: -fx-maincolor;
 }
 
 .date-picker > .arrow-button:hover > .arrow {
-    -fx-background-color: #39e600;
+    -fx-background-color: -fx-hovercolor;
 }
 
 /* Spinner */
@@ -539,12 +553,12 @@ src: url("centurygothic.ttf");
 
 #CBstatus > .text-field {
     -fx-padding: 0;
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-interacttext;
 }
 
 #CBstatus > .list-cell {
     -fx-font-weight: bold;
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: -fx-interacttext;
     -fx-padding: 0;
 }
 
@@ -583,7 +597,7 @@ src: url("centurygothic.ttf");
 
 #CBstatusA > .text-field {
     -fx-padding: 0;
-    -fx-text-fill: green;
+    -fx-text-fill: -fx-maincolor;
 }
 
 #CBstatusA > .list-cell {
@@ -627,12 +641,12 @@ src: url("centurygothic.ttf");
 
 #CBstatusI > .text-field {
     -fx-padding: 0;
-    -fx-text-fill: red;
+    -fx-text-fill: -fx-interacttext;
 }
 
 #CBstatusI > .list-cell {
     -fx-font-weight: bold;
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: -fx-warningcolor;
     -fx-padding: 0;
 }
 
