@@ -423,7 +423,7 @@ public class MDIController implements Initializable {
 		    cboAnioFechaNacPaciente.setValue(null);
 		    cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
 		    cboEstatusPaciente.setValue(null);
-		    cboEstatusPaciente.setPromptText("Status");
+		    cboEstatusPaciente.setPromptText("Estatus");
 		    
 		    btnImgPaciente.setText("Agregar Foto");
 		

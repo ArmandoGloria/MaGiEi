@@ -65,7 +65,7 @@ public class MessageBox
 	
 	ImageView c = null;
 	byte[] readAllBytes = null;
-			Path get = Paths.get("c://x.png");
+			Path get = Paths.get("/Users/SergioHome/Desktop/Picture2.png");
 		try {
 			readAllBytes = Files.readAllBytes(get);
 		} catch (IOException ex) {

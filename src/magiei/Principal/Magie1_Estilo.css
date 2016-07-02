@@ -553,7 +553,7 @@ src: url("centurygothic.ttf");
 
 #CBstatus > .text-field {
     -fx-padding: 0;
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-interacttext;
 }
 
 #CBstatus > .list-cell {
