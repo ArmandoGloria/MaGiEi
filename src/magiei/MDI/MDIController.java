@@ -72,6 +72,12 @@ import javafx.util.Duration;
 import javax.swing.JOptionPane;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -125,6 +131,8 @@ public class MDIController implements Initializable {
 	
 	@FXML
 	private Button btnMenuBar;
+	@FXML
+	private Label lblEstaciones;
 	
 	//protected ObservableList<CheckItem> items =FXCollections.observableArrayList(); ;//= fetchItems();
 
@@ -148,15 +156,9 @@ public class MDIController implements Initializable {
 		cboSexoPaciente.setItems(sexo);
 		
 		
-		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
-		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2));
-		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4));
 //		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(15));
 		
-		
-	
-	
+			
 		MenuItem[] col = null;
 		
 //		cboEstacionPaciente2 = createComboBox(items);
@@ -166,6 +168,12 @@ public class MDIController implements Initializable {
 		
 		CargarCombos();
 		
+		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
+		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
+		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
+		//cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
+		
+		FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		FxUtil.autoCompleteComboBox(cboMesFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		
 //		comboBox.setButtonCell(new ListCell(){
@@ -332,7 +340,8 @@ public class MDIController implements Initializable {
 			    Calendar calendar = Calendar.getInstance();
 			    calendar.setTime(Date.valueOf( dt.getValueAt(0,6).toString()));
 
-			    cboEstacionesPaciente.setText(ObtenerEstacionesPaciente(lblIdPaciente.getText()));
+//			    cboEstacionesPaciente.setText(ObtenerEstacionesPaciente(lblIdPaciente.getText()));
+			    lblEstaciones.setText(ObtenerEstacionesPaciente(lblIdPaciente.getText()));
 
 			    cboAnioFechaNacPaciente.setValue(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[0])));
 			    cboMesFechaNacPaciente.setValue(MesFecha.get(Integer.valueOf((dt.getValueAt(0,6).toString().split("-")[1]))-1));
@@ -424,9 +433,10 @@ public class MDIController implements Initializable {
 		    cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
 		    cboEstatusPaciente.setValue(null);
 		    cboEstatusPaciente.setPromptText("Estatus");
-		    
+		    lblEstaciones.setText("");
 		    btnImgPaciente.setText("Agregar Foto");
-		
+		    
+		    cboEstatusPaciente.setId("CBstatus");
 		   //cboEstatusPaciente.setValue("Estaciones"); 
 		    txtNoEmpleadoPaciente.clear();
 		    imgPaciente.setImage(null);
@@ -563,12 +573,41 @@ public class MDIController implements Initializable {
 
 			
 			try{
+				cboAnioFechaNacPaciente.setValue(Integer.parseInt(cboAnioFechaNacPaciente.getEditor().getText()));
+				cboDiaFechaNacPaciente.setValue(Integer.parseInt(cboDiaFechaNacPaciente.getEditor().getText()));
+				
 			calendar.set(cboAnioFechaNacPaciente.getValue(), cboMesFechaNacPaciente.getValue().Value()-1 , cboDiaFechaNacPaciente.getValue());
+			
+			
 			//calendar.set(2016, 01, 21);
+			calendar.getTime();
+			ft.format(calendar.getTime());
 			FechaValida=true;
-			}catch(Exception ex){FechaValida=false;}
+			if(isFechaValida(ft.format(calendar.getTime()) )){
+				
+			FechaValida=true;
+			}else{
+				FechaValida=false;
+				cboDiaFechaNacPaciente.setValue(null);
+				cboDiaFechaNacPaciente.setPromptText("Dia");
+				cboMesFechaNacPaciente.setValue(null);
+				cboMesFechaNacPaciente.setPromptText("Mes");
+				cboAnioFechaNacPaciente.setValue(null);
+				cboAnioFechaNacPaciente.setPromptText("A\u00F1o");}
+
+			}catch(Exception ex){
+				FechaValida=false;
+				cboDiaFechaNacPaciente.setValue(null);
+				cboDiaFechaNacPaciente.setPromptText("Dia");
+				cboMesFechaNacPaciente.setValue(null);
+				cboMesFechaNacPaciente.setPromptText("Mes");
+				cboAnioFechaNacPaciente.setValue(null);
+				cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
+			
+			}
 			
 			
+					MySqlJavaCon.mySqlConn.setAutoCommit(true);
 
 			if(FechaValida && this.txtNombrePaciente.getText()!="" && this.txtApellidoPaternoPaciente.getText()!="" && this.txtApellidoMaternoPaciente.getText()!="" && this.txtNoEmpleadoPaciente.getText()!="" && this.txtPosicionPaciente.getText()!="" && this.cboSexoPaciente.getValue()!="" && this.cboEstatusPaciente.getValue()!="" ){
 			if(this.lblIdPaciente.getText()==""){
@@ -579,46 +618,35 @@ public class MDIController implements Initializable {
 			}
 			if(MySqlJavaCon.updateTable(strMySqlQuery)){
 				
-				
-			
-				//      File file = new File("C:\\x.jpg");      
-				//      FileInputStream fis = null;
-				//      fis = new FileInputStream(file);
-				//      MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
-				//      MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) file.length());
-				//MySqlJavaCon.InsertGuardar("");
+				lblIdPaciente.setText(txtNoEmpleadoPaciente.getText());
+//					MySqlJavaCon.mySqlConn.setAutoCommit(false);
+//			
+//				      File file = new File("C:\\x.jpg");      
+//				      FileInputStream fis = null;
+//				      fis = new FileInputStream(file);
+//				      MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE magiei_db.t_paciente SET  Foto=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
+//				      MySqlJavaCon.ps.setBlob(1,  fis, (int) file.length());
+//				MySqlJavaCon.InsertGuardar("");
 
 				      //File file = new File(fileImage);
 				if(fileImage!=null)
 				{
 					      
 					MySqlJavaCon.mySqlConn.setAutoCommit(false);
-				
+				MySqlJavaCon.strQueryMySQL="";
 					InputStream fis = null;
 					fis = new FileInputStream(fileImage);
 					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
 					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
 					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
 					MySqlJavaCon.InsertGuardar("");
-				}
-				
-				if(fileImage!=null)
-				{
-					      
-					MySqlJavaCon.mySqlConn.setAutoCommit(false);
-				
-					InputStream fis = null;
-					fis = new FileInputStream(fileImage);
-					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
-					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
-					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
-					MySqlJavaCon.InsertGuardar("");
-					MySqlJavaCon.mySqlConn.setAutoCommit(true);
 				}
 				
 				String insertStation="";
 				try{
 					//StrStations += dt.getValueAt(a, 0).toString() + ", ";
+					
+					MySqlJavaCon.mySqlConn.setAutoCommit(true);
 					MySqlJavaCon.updateTable("Delete from magiei_db.t_EstacionPaciente where idPaciente="+ lblIdPaciente.getText() +" ; ");
 					for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
 					CheckBox chkEstacionC= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
@@ -988,7 +1016,7 @@ public void setDataPane(Node node) {
 	    };
 	}
 	
-	public EventHandler<KeyEvent> numeric_ValidationCbo(final Integer max_Lengh,final Integer maxVal) {
+	public EventHandler<KeyEvent> numeric_ValidationCbo(final Integer max_Lengh,final Integer maxVal,final Integer minVal) {
 	    return new EventHandler<KeyEvent>() {
 		@Override
 		public void handle(KeyEvent e) {
@@ -996,11 +1024,16 @@ public void setDataPane(Node node) {
 		    if (txt_TextField.getEditor().getText().length() >= max_Lengh ) {                    
 			e.consume();
 		    }
-		    if(e.getCharacter().matches("[0-9.]")){ 
-			if(txt_TextField.getEditor().getText().contains(".") && e.getCharacter().matches("[.]")){
-			    e.consume();
-			}else if(txt_TextField.getEditor().getText().length() == 0 && e.getCharacter().matches("[.]")){
-			    e.consume(); 
+		    if(e.getCharacter().matches("[0-9]")){ 
+			if(!Objects.equals(txt_TextField.getEditor().getText(), "")){
+				if(!Objects.equals(Integer.parseInt(txt_TextField.getEditor().getText()), null)){
+					if(Integer.parseInt(txt_TextField.getEditor().getText()+e.getCharacter())>maxVal){
+						txt_TextField.getEditor().setText(maxVal.toString());
+						e.consume(); 
+					}else if (Integer.parseInt(txt_TextField.getEditor().getText()+e.getCharacter())<=minVal && txt_TextField.getEditor().getText().length() == max_Lengh-1 ){
+						txt_TextField.getEditor().setText(minVal.toString());
+						e.consume(); }
+				}
 			}
 		    }else{
 			e.consume();
@@ -1155,8 +1188,17 @@ public void setDataPane(Node node) {
 	} 
 	
 	
-	
-	
-	
+	public static boolean isFechaValida(String fecha) {
+         try {
+             SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+             formatoFecha.setLenient(false);
+             formatoFecha.parse(fecha);
+         } catch (ParseException e) {
+             return false;
+         }
+         return true;
+     }
+
+
 }
 
