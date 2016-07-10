@@ -94,6 +94,7 @@ import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -379,19 +380,23 @@ public class MDIController implements Initializable {
 
     //Path get = Paths.get("c:\\x.jpg");
 	    //byte[] readAllBytes = Files.readAllBytes(get);
+	    
 			    byte[] readAllBytes = (byte[])dt.getValueAt(0,7);
-
-
+Image imagen = null;
+BufferedImage read ;
+try{
     //InputStream is=new ByteArrayInputStream(readAllBytes);
 				//BufferedImage imag=ImageIO.read(is);
 
 
 			    ByteArrayInputStream bis = new ByteArrayInputStream(readAllBytes);
-			    BufferedImage read = ImageIO.read(bis);
+	    
+			    read = ImageIO.read(bis);
     //            System.out.println(read);
 			//Image convertToJavaFXImage = convertToJavaFXImage(readAllBytes, 1024, 768);
 		       // ImageView view = new ImageView(convertToJavaFXImage);
-			    Image imagen = SwingFXUtils.toFXImage(read, null);
+			    imagen = SwingFXUtils.toFXImage(read, null);
+		    }catch(Exception ex){}
 		//image.setImage(image);
 
     //	    Image convertToJavaFXImage = convertToJavaFXImage(readAllBytes, 1024, 768);
@@ -408,7 +413,7 @@ public class MDIController implements Initializable {
 		    }
 		    //MySqlJavaCon.CerrarConexion();
 		}
-		catch(NumberFormatException | IOException ex){
+		catch(Exception ex){
 		    MessageBox.show("Error","","Error al Buscar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
 		}
 
@@ -636,8 +641,10 @@ public class MDIController implements Initializable {
 				MySqlJavaCon.strQueryMySQL="";
 					InputStream fis = null;
 					fis = new FileInputStream(fileImage);
-					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
+					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=?,Posicion=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
 					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
+					MySqlJavaCon.ps.setBlob(1,  fis, (int) fileImage.length());
+					MySqlJavaCon.ps.setString(2, "xxx");
 					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
 					MySqlJavaCon.InsertGuardar("");
 				}
@@ -881,6 +888,26 @@ public class MDIController implements Initializable {
 			    {
 				    CustomMenuItem item1 = new CustomMenuItem(new CheckBox(dt.getValueAt(c,2).toString()));
 				    item1.setHideOnClick(false);
+				    item1.setOnAction(new EventHandler<ActionEvent>() {
+					@Override public void handle(ActionEvent e) {
+					       // lblEstaciones.setText("testtt");
+					    String insertStation="";
+						try{
+						for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
+						CheckBox chkEstacionC= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
+							if(chkEstacionC.selectedProperty().get()){
+									    //((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
+
+							String sta=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).getText();
+							insertStation +=sta +",";
+						}
+						}
+						lblEstaciones.setText(insertStation.substring(0, insertStation.length()-1));
+						}
+						catch (Exception ex){lblEstaciones.setText("");}
+					    }
+					});
+
 				    cboEstacionesPaciente.getItems().add(item1);
 				    //cboEstacionesPaciente.getItems().get(c).setHideOnClick(false);
 			    }
@@ -1095,6 +1122,8 @@ public void setDataPane(Node node) {
 				break;
 		}
 	}
+
+	
 	
 	
 	

@@ -41,6 +41,8 @@ public class MessageBox
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setTitle(title);
 		stage.setMinWidth(250);
+		
+		stage.initStyle(StageStyle.TRANSPARENT);
 
 		Label lbl = new Label();
 		lbl.setText(message);
@@ -54,21 +56,25 @@ public class MessageBox
 		pane.setAlignment(Pos.CENTER);
 		
 		
-pane.getStyleClass().add("myDialog");
-pane.setStyle("-fx-background-image: url('../../Resources/Imagenes/arrow.png')"); 
-
-
-
-
 File f = new File("src/magiei/Principal/Magie1_Estilo.css");
-
-
-
+pane.getStylesheets().clear();
+pane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+pane.setId("myDialog");
+//pane.getStyleClass().add("myDialog");
+//pane.setStyle("-fx-background-image: url('../../Resources/Imagenes/arrow.png')"); 
+//
+//
+//
+//
+//File f = new File("src/magiei/Principal/Magie1_Estilo.css");
+//
+//
+//
 		Scene scene = new Scene(pane);
-		
-		
-scene.getStylesheets().clear();
-scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+//		
+//		
+//scene.getStylesheets().clear();
+//scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 		
 		stage.setScene(scene);
 		
@@ -123,6 +129,7 @@ scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
 DialogPane dialogPane = alert.getDialogPane();
 
+		alert.initStyle(StageStyle.TRANSPARENT);
 //String css = DynamicCSS.class.getResource("/jarcss.css").toExternalForm();
 //dialogPane.getStylesheets().clear();
 //dialogPane.getStylesheets().add(css);

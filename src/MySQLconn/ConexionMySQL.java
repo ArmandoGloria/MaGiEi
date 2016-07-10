@@ -26,7 +26,9 @@ import javax.swing.table.DefaultTableModel;
 public class ConexionMySQL
 {
     private String NombreBD = "magiei_db";
-    private String DireccionBD = "jdbc:mysql://148.240.208.217/" + this.NombreBD;
+    private String DireccionBD = "jdbc:mysql://148.240.219.22/" + this.NombreBD;
+//    private String UsuarioBD = "SPF2";
+//    private String ClaveBD = "Hernandez13";
     private String UsuarioBD = "InteliGeneDatabases";
     private String ClaveBD = "Databaseconn7";
     public String strQueryMySQL;
@@ -75,7 +77,7 @@ public class ConexionMySQL
     }    
 
     
-    public void InsertInsertar(String SentenciaSQL)
+    public void InsertInsertar(String SentenciaSQL) throws SQLException
     {
 
 
@@ -91,6 +93,9 @@ public class ConexionMySQL
             MessageBox.show("Error","","ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR);
            //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }
+	finally{
+		mySqlConn.setAutoCommit(true);
+	}
     }
     
     public void InsertGuardar(String SentenciaSQL)
@@ -100,6 +105,7 @@ public class ConexionMySQL
         try
         {
             
+		mySqlConn.setAutoCommit(false);
 		 ps.executeUpdate();
       mySqlConn.commit();
     } 
@@ -110,6 +116,7 @@ public class ConexionMySQL
         }finally {
 		try {
 			ps.close();
+			mySqlConn.setAutoCommit(true);
 		} catch (SQLException ex) {
 			Logger.getLogger(ConexionMySQL.class.getName()).log(Level.SEVERE, null, ex);
 		}

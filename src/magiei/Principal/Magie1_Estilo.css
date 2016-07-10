@@ -321,7 +321,7 @@ src: url("centurygothic.ttf");
 }
 
 .menu-button.mnuBtnAsSelect > .arrow-button > .arrow {
-    -fx-background-image: none;
+/*    -fx-background-image: none;*/
     -fx-padding: 0;
 }
 
@@ -546,7 +546,7 @@ src: url("centurygothic.ttf");
     -fx-font-size: 15;
     -fx-font-color: -fx-maincolor;
     -fx-font-weight: bold;
-    -fx-padding: -2,-2,-2,-2;
+    -fx-padding: -2 -2 -2 -2;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     }
@@ -590,7 +590,7 @@ src: url("centurygothic.ttf");
     -fx-font-size: 15;
     -fx-font-color: -fx-maincolor;
     -fx-font-weight: bold;
-    -fx-padding: -2,-2,-2,-2;
+    -fx-padding: -2 -2 -2 -2;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     }
@@ -634,7 +634,7 @@ src: url("centurygothic.ttf");
     -fx-font-size: 15;
     -fx-font-color: -fx-maincolor;
     -fx-font-weight: bold;
-    -fx-padding: -2,-2,-2,-2;
+    -fx-padding: -2 -2 -2 -2;
     -fx-border-color: transparent;
     -fx-cursor: hand;
     }
@@ -784,10 +784,10 @@ src: url("centurygothic.ttf");
     -fx-background-position: center center;
     -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
 
-}
-*/
-.dialog > .dialog-pane {
-    /*-fx-background-image: url("http://docs.oracle.com/javafx/2/get_started/img/two_logins.png");*/
+}*/
+
+/*.dialog > .dialog-pane {
+    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
 }
 
 .dialog > .dialog-pane > .button-bar {
@@ -808,18 +808,22 @@ src: url("centurygothic.ttf");
 }
 
 .alert.error.dialog-pane {
-    /*-fx-graphic: url("../../Resources/Imagenes/editButton.png");*/
-}
+    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
+}*/
 
 .dialog-pane {
     -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
     -fx-background-size: 900 506;
     -fx-background-position: center center;
     -fx-pref-height: 300;
+    
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
 
 .dialog-pane .label {
     -fx-text-fill: white;
+    -fx-border-radius: 10px;
 }
 
 .dialog-pane:header .header-panel {
@@ -831,14 +835,27 @@ src: url("centurygothic.ttf");
     -fx-font-size: 2em;
 }
 
-/*.myDialog{
-    -fx-background-color: #f9d900;
+#myDialog{
+    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
+    -fx-background-size: 900 506;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
 }
-.myDialog > *.button-bar > *.container{
+#myDialog .label {
+    /*-fx-background-image: url("../../Resources/Imagenes/Mensaje.png");*/
+/*    -fx-text-fill: white;*/
+/*    -fx-pref-height: 406;
+    -fx-pref-width: 600;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;*/
+    /*-fx-background-image-radius: 10px;*/
+}/*
+#myDialog > *.button-bar > *.container{
     -fx-background-color: #a9e200;
 }
-.myDialog > *.label.content{
+#myDialog > *.label.content{
     -fx-font-size: 14px;
+    -fx-pref-tile-width: 200;
     -fx-font-weight: bold;
 }
 .myDialog:header *.header-panel{
