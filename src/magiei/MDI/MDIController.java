@@ -623,7 +623,7 @@ try{
 			}
 			if(MySqlJavaCon.updateTable(strMySqlQuery)){
 				
-				lblIdPaciente.setText(txtNoEmpleadoPaciente.getText());
+////				lblIdPaciente.setText(txtNoEmpleadoPaciente.getText());
 //					MySqlJavaCon.mySqlConn.setAutoCommit(false);
 //			
 //				      File file = new File("C:\\x.jpg");      
@@ -641,10 +641,10 @@ try{
 				MySqlJavaCon.strQueryMySQL="";
 					InputStream fis = null;
 					fis = new FileInputStream(fileImage);
-					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=?,Posicion=? WHERE idPaciente=" + lblIdPaciente.getText() + ";");
-					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
+					MySqlJavaCon.ps = MySqlJavaCon.mySqlConn.prepareStatement("UPDATE `magiei_db`.`t_paciente` SET  `Foto`=?WHERE NoEmpleado=" + txtNoEmpleadoPaciente.getText() + ";");
+//					MySqlJavaCon.ps.setBinaryStream(1,  fis, (int) fileImage.length());
 					MySqlJavaCon.ps.setBlob(1,  fis, (int) fileImage.length());
-					MySqlJavaCon.ps.setString(2, "xxx");
+//					MySqlJavaCon.ps.setString(2, "xxx");
 					//MySqlJavaCon.ps.setBlob(1,  bis, (int) bis.toString().length());
 					MySqlJavaCon.InsertGuardar("");
 				}
@@ -654,14 +654,14 @@ try{
 					//StrStations += dt.getValueAt(a, 0).toString() + ", ";
 					
 					MySqlJavaCon.mySqlConn.setAutoCommit(true);
-					MySqlJavaCon.updateTable("Delete from magiei_db.t_EstacionPaciente where idPaciente="+ lblIdPaciente.getText() +" ; ");
+					MySqlJavaCon.updateTable("Delete from magiei_db.t_EstacionPaciente where idPaciente=(SELECT idPaciente FROM magiei_db.t_paciente where noEmpleado='"+ txtNoEmpleadoPaciente.getText() +"') ; ");
 					for(Integer cc=0;cc<cboEstacionesPaciente.getItems().toArray().length ;cc++){
 					CheckBox chkEstacionC= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent()));
 					if(chkEstacionC.selectedProperty().get()){
 				//((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).setSelected(true);
 				
 						String sta=((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(cc)).getContent())).getText();
-						insertStation =" insert into magiei_db.t_EstacionPaciente(idEstacion,idPaciente) values((SELECT IdEstacion FROM magiei_db.t_Estacion where nombre='"+ sta +"'),"+ lblIdPaciente.getText() +"); ";
+						insertStation =" insert into magiei_db.t_EstacionPaciente(idEstacion,idPaciente) values((SELECT IdEstacion FROM magiei_db.t_Estacion where nombre='"+ sta +"'),(SELECT idPaciente FROM magiei_db.t_paciente where noEmpleado='"+ txtNoEmpleadoPaciente.getText() +"')); ";
 						MySqlJavaCon.updateTable(insertStation);
 				
 				
