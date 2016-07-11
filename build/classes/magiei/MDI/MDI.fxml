@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -55,8 +56,8 @@
                                              </children>
                                           </Group>
                                           <ComboBox id="CBstatus" fx:id="cboEstatusPaciente" accessibleRole="LIST_VIEW" disable="true" layoutX="118.0" layoutY="92.0" onAction="#CambiarColor" prefHeight="35.0" prefWidth="78.0" promptText="Estatus" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.rightAnchor="16.0" />
-                                          <Button fx:id="btnAgregarPaciente" layoutX="149.0" layoutY="28.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
-                                          <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="24.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
+                                          <Button fx:id="btnAgregarPaciente" layoutX="149.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
+                                          <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="23.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
                                           <Button fx:id="btnBuscarPaciente" layoutX="119.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
                                           <Label layoutX="17.0" layoutY="179.0" prefHeight="18.0" prefWidth="82.0" text="Nombres" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField fx:id="txtNombrePaciente" disable="true" layoutX="17.0" layoutY="199.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
@@ -68,13 +69,16 @@
                                           <ComboBox fx:id="cboDiaFechaNacPaciente" disable="true" editable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="40.0" promptText="Dia" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="15" AnchorPane.leftAnchor="10.0" />
                                           <ComboBox fx:id="cboMesFechaNacPaciente" disable="true" editable="true" layoutX="55.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="95.0" promptText="Mes" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="12" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="62.0" />
                                           <ComboBox fx:id="cboAnioFechaNacPaciente" disable="true" editable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="50.0" promptText="Año" style="-fx-background-radius: 0;" styleClass="ComBxEditable" AnchorPane.rightAnchor="10.0" />
-                                          <ComboBox fx:id="cboSexoPaciente" disable="true" layoutX="13.0" layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="187.0" promptText="Sexo" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="comboboxBold" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0" />
+                                          <ComboBox fx:id="cboSexoPaciente" disable="true" layoutX="13.0" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="187.0" promptText="Genero" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="comboboxBold" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label layoutY="425.0" prefHeight="18.0" prefWidth="127.0" text="Posicion/Titulo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField fx:id="txtPosicionPaciente" disable="true" layoutY="445.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <MenuButton fx:id="cboEstacionesPaciente" layoutY="475.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Estaciones" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                              <padding>
                                                 <Insets left="-9.0" top="-4.0" />
                                              </padding>
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
                                           </MenuButton>   
                                           <Label fx:id="lblEstaciones" layoutY="495.0" prefHeight="18.0" prefWidth="127.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label fx:id="lblIdPaciente" disable="true" layoutX="30.0" layoutY="200.0" prefHeight="16.0" prefWidth="0.0" visible="false" />
@@ -82,6 +86,7 @@
                                           <Button fx:id="btnCancelarAltaPaciente" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CancelarPaciente" prefHeight="25.0" prefWidth="76.0" styleClass="selectButtonSmall" text="Cancelar" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="90.0" />
                                           <Rectangle id="Margen" arcHeight="10.0" arcWidth="10.0" fill="DODGERBLUE" height="98.0" layoutX="12.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
                                           <Button id="addPictureButton" fx:id="btnImgPaciente" disable="true" layoutX="11.0" layoutY="60.0" mnemonicParsing="false" onAction="#AgregarImagenPacinete" prefHeight="99.0" prefWidth="93.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Agregar Foto" textAlignment="CENTER" wrapText="true" />
+                                          <Label layoutX="41.0" layoutY="379.0" text="Sexo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>
