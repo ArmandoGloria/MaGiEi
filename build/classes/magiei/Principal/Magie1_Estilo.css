@@ -778,7 +778,7 @@ src: url("centurygothic.ttf");
 
 
 /*.DialogPane {
-    -fx-background-image: url("http://docs.oracle.com/javafx/2/get_started/img/two_logins.png");
+    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
     -fx-background-repeat: stretch;	
     -fx-background-size: 900 506;
     -fx-background-position: center center;
@@ -787,7 +787,7 @@ src: url("centurygothic.ttf");
 }
 */
 .dialog > .dialog-pane {
-    -fx-background-image: url("http://docs.oracle.com/javafx/2/get_started/img/two_logins.png");
+    /*-fx-background-image: url("http://docs.oracle.com/javafx/2/get_started/img/two_logins.png");*/
 }
 
 .dialog > .dialog-pane > .button-bar {
@@ -808,7 +808,7 @@ src: url("centurygothic.ttf");
 }
 
 .alert.error.dialog-pane {
-    -fx-graphic: url("../../Resources/Imagenes/editButton.png");
+    /*-fx-graphic: url("../../Resources/Imagenes/editButton.png");*/
 }
 
 .dialog-pane {
