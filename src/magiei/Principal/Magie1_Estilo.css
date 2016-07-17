@@ -350,7 +350,15 @@ src: url("centurygothic.ttf");
     -fx-border-radius: 5px;
     -fx-border-color: transparent;
     -fx-font-size: 14;
-    -fx-padding: 18 15 18 15;  
+/*    -fx-padding: 18 15 18 15;  */
+    
+}
+
+#PictureRect{
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14;
+/*    -fx-padding: 18 15 18 15;  */
     
 }
 

@@ -78,8 +78,10 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -94,13 +96,17 @@ import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import javafx.stage.Window;
 import javafx.util.Duration;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
@@ -130,10 +136,14 @@ public class MDIController implements Initializable {
 	protected ObservableList<Integer> AnioFecha =FXCollections.observableArrayList();
 	
 	
+	
+	
 	@FXML
 	private Button btnMenuBar;
 	@FXML
 	private Label lblEstaciones;
+	@FXML
+	private Rectangle imgRectangulo;
 	
 	//protected ObservableList<CheckItem> items =FXCollections.observableArrayList(); ;//= fetchItems();
 
@@ -157,6 +167,8 @@ public class MDIController implements Initializable {
 		cboSexoPaciente.setItems(sexo);
 		
 		
+	
+	
 //		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(15));
 		
 			
@@ -172,10 +184,16 @@ public class MDIController implements Initializable {
 		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
 		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
 		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
-		//cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
+		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
+		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(4));
+		//********FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
+		new AutoCompleteComboBoxListener<>(cboAnioFechaNacPaciente);
+		new AutoCompleteComboBoxListener<>(cboMesFechaNacPaciente);
 		
-		FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
-		FxUtil.autoCompleteComboBox(cboMesFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
+//		imgPaciente.setFitWidth(imgRectangulo.getWidth());
+//		imgPaciente.setLayoutY(imgRectangulo.getLayoutY());
+		//new ComboBoxAutoComplete2<String>(cboMesFechaNacPaciente);
+		//*****FxUtil.autoCompleteComboBox(cboMesFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		
 //		comboBox.setButtonCell(new ListCell(){
 //
@@ -351,7 +369,7 @@ public class MDIController implements Initializable {
 			    
 			  //CheckBox x= ((CheckBox)(((CustomMenuItem)cboEstacionesPaciente.getItems().get(1)).getContent()));
 			    
-			    
+//			    imgPaciente.setPreserveRatio(true);
 			    
 			    
 			     
@@ -408,7 +426,7 @@ try{
 		    btnImgPaciente.setText("");
 			    imgPaciente.setImage(imagen);
 			    imgPaciente.setVisible(true);
-
+//imgPaciente.setPreserveRatio(true);
 		  //cboEstatusPaciente.getValue(dt.getValueAt(0,9));
 		    }
 		    //MySqlJavaCon.CerrarConexion();
@@ -427,7 +445,7 @@ try{
 		    txtApellidoPaternoPaciente.clear();
 		    txtApellidoMaternoPaciente.clear();
 		    cboSexoPaciente.setValue(null);
-		    cboSexoPaciente.setPromptText("Sexo");
+		    cboSexoPaciente.setPromptText("Genero");
 		    txtPosicionPaciente.clear();
 		    cboDiaFechaNacPaciente.setValue(null);
 		    cboDiaFechaNacPaciente.setPromptText("Dia");
@@ -546,15 +564,7 @@ try{
 						"Information dialog",  
  						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
 			 
-			 
-////			 Alert alert = new Alert(AlertType.ERROR);
-////alert.setTitle("Error Dialog");
-////alert.setHeaderText("Look, an Error Dialog");
-////alert.setContentText("Ooops, there was an error!");
-////
-////alert.showAndWait();
-           //MessageBox.show(null,"Debe seleccionar un registro prmero ");
-			     
+			 			     
 		    }
 
 
@@ -742,6 +752,7 @@ try{
 			fileImage=new File(get.toString());
 			
 			
+//			    imgPaciente.setPreserveRatio(true);
 		    btnImgPaciente.setText("");
 		
 		
@@ -1229,5 +1240,163 @@ public void setDataPane(Node node) {
      }
 
 
+	
+	
+	
+public class AutoCompleteComboBoxListener<T> implements EventHandler<KeyEvent> {
+
+    private ComboBox comboBox;
+    private StringBuilder sb;
+    private ObservableList<T> data;
+    private boolean moveCaretToPos = false;
+    private int caretPos;
+
+    public AutoCompleteComboBoxListener(final ComboBox comboBox) {
+        this.comboBox = comboBox;
+        sb = new StringBuilder();
+        data = comboBox.getItems();
+
+        this.comboBox.setEditable(true);
+        this.comboBox.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
+            @Override
+            public void handle(KeyEvent t) {
+                comboBox.hide();
+            }
+        });
+        this.comboBox.setOnKeyReleased(AutoCompleteComboBoxListener.this);
+    }
+
+    @Override
+    public void handle(KeyEvent event) {
+
+        if(event.getCode() == KeyCode.UP) {
+            caretPos = -1;
+            moveCaret(comboBox.getEditor().getText().length());
+            return;
+        } else if(event.getCode() == KeyCode.DOWN) {
+            if(!comboBox.isShowing()) {
+                comboBox.show();
+            }
+            caretPos = -1;
+            moveCaret(comboBox.getEditor().getText().length());
+            return;
+        } else if(event.getCode() == KeyCode.BACK_SPACE) {
+            moveCaretToPos = true;
+            caretPos = comboBox.getEditor().getCaretPosition();
+        } else if(event.getCode() == KeyCode.DELETE) {
+            moveCaretToPos = true;
+            caretPos = comboBox.getEditor().getCaretPosition();
+        }
+
+        if (event.getCode() == KeyCode.RIGHT || event.getCode() == KeyCode.LEFT
+                || event.isControlDown() || event.getCode() == KeyCode.HOME
+                || event.getCode() == KeyCode.END || event.getCode() == KeyCode.TAB) {
+            return;
+        }
+
+        ObservableList list = FXCollections.observableArrayList();
+        for (int i=0; i<data.size(); i++) {
+            if(data.get(i).toString().toLowerCase().startsWith(
+                AutoCompleteComboBoxListener.this.comboBox
+                .getEditor().getText().toLowerCase())) {
+                list.add(data.get(i));
+            }
+        }
+        String t = comboBox.getEditor().getText();
+
+        comboBox.setItems(list);
+        comboBox.getEditor().setText(t);
+        if(!moveCaretToPos) {
+            caretPos = -1;
+        }
+        moveCaret(t.length());
+        if(!list.isEmpty()) {
+            comboBox.show();
+        }
+    }
+
+    private void moveCaret(int textLength) {
+        if(caretPos == -1) {
+            comboBox.getEditor().positionCaret(textLength);
+        } else {
+            comboBox.getEditor().positionCaret(caretPos);
+        }
+        moveCaretToPos = false;
+    }
+
 }
+	
+	
+
+public class ComboBoxAutoComplete2<T> { 
+  
+ 	private ComboBox<T> cmb; 
+ 	String filter = ""; 
+ 	private ObservableList<T> originalItems; 
+  
+ 	public ComboBoxAutoComplete2(ComboBox<T> cmb) { 
+ 		this.cmb = cmb; 
+ 		originalItems = FXCollections.observableArrayList(cmb.getItems()); 
+ 		cmb.setTooltip(new Tooltip()); 
+ 		cmb.setOnKeyPressed(this::handleOnKeyPressed); 
+ 		cmb.setOnHidden(this::handleOnHiding); 
+ 	} 
+  
+ 	public void handleOnKeyPressed(KeyEvent e) { 
+ 		ObservableList<T> filteredList = FXCollections.observableArrayList(); 
+ 		KeyCode code = e.getCode(); 
+  
+ 		if (code.isLetterKey()) { 
+ 			filter += e.getText(); 
+ 		} 
+ 		if (code == KeyCode.BACK_SPACE && filter.length() > 0) { 
+ 			filter = filter.substring(0, filter.length() - 1); 
+ 			cmb.getItems().setAll(originalItems); 
+ 		} 
+ 		if (code == KeyCode.ESCAPE) { 
+ 			filter = ""; 
+ 		} 
+ 		if (filter.length() == 0) { 
+ 			filteredList = originalItems; 
+ 			cmb.getTooltip().hide(); 
+ 		} else { 
+ 			Stream<T> itens = cmb.getItems().stream(); 
+ 			String txtUsr = filter.toString().toLowerCase(); 
+ 			itens.filter(el -> el.toString().toLowerCase().contains(txtUsr)).forEach(filteredList::add); 
+ 			cmb.getTooltip().setText(txtUsr); 
+ 			Window stage = cmb.getScene().getWindow(); 
+ 			double posX = stage.getX() + cmb.getBoundsInParent().getMinX(); 
+ 			double posY = stage.getY() + cmb.getBoundsInParent().getMinY(); 
+ 			cmb.getTooltip().show(stage, posX, posY); 
+ 			cmb.show(); 
+ 		} 
+ 		cmb.getItems().setAll(filteredList); 
+ 	} 
+  
+ 	public void handleOnHiding(Event e) { 
+ 		filter = ""; 
+ 		cmb.getTooltip().hide(); 
+ 		T s = cmb.getSelectionModel().getSelectedItem(); 
+ 		cmb.getItems().setAll(originalItems); 
+ 		cmb.getSelectionModel().select(s); 
+ 	} 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+	
+}
+
+
+
 
