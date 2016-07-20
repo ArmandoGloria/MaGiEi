@@ -184,8 +184,8 @@ public class MDIController implements Initializable {
 		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
 		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
 		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
-		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(4,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
-		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(4));
+		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(5,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
+		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(11));
 		//********FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		new AutoCompleteComboBoxListener<>(cboAnioFechaNacPaciente);
 		new AutoCompleteComboBoxListener<>(cboMesFechaNacPaciente);
