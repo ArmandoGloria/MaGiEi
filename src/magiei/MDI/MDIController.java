@@ -190,6 +190,11 @@ public class MDIController implements Initializable {
 		new AutoCompleteComboBoxListener<>(cboAnioFechaNacPaciente);
 		new AutoCompleteComboBoxListener<>(cboMesFechaNacPaciente);
 		
+		
+		
+		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
+		
+		
 //		imgPaciente.setFitWidth(imgRectangulo.getWidth());
 //		imgPaciente.setLayoutY(imgRectangulo.getLayoutY());
 		//new ComboBoxAutoComplete2<String>(cboMesFechaNacPaciente);
@@ -728,8 +733,11 @@ try{
 		try {
 			FileChooser AbreArchivo=new FileChooser();
 			File archivo ;
-			ExtensionFilter filtro= new ExtensionFilter("Imagenes","png");
-			AbreArchivo.setSelectedExtensionFilter(filtro);
+			AbreArchivo.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+				new FileChooser.ExtensionFilter("PNG", "*.png")
+			    );
+//			AbreArchivo.setSelectedExtensionFilter(filtro);
 			archivo =AbreArchivo.showOpenDialog(null);
 			
 			
@@ -1251,11 +1259,13 @@ public class AutoCompleteComboBoxListener<T> implements EventHandler<KeyEvent> {
     private int caretPos;
 
     public AutoCompleteComboBoxListener(final ComboBox comboBox) {
+	    
         this.comboBox = comboBox;
         sb = new StringBuilder();
         data = comboBox.getItems();
 
         this.comboBox.setEditable(true);
+	
         this.comboBox.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
             @Override
@@ -1305,7 +1315,12 @@ public class AutoCompleteComboBoxListener<T> implements EventHandler<KeyEvent> {
         String t = comboBox.getEditor().getText();
 
         comboBox.setItems(list);
-        comboBox.getEditor().setText(t);
+		if(list.size()>0 )
+		{
+        comboBox.getEditor().setText(t);}
+		else
+		{comboBox.getEditor().setText("");}
+        //comboBox.getEditor().setText(t);
         if(!moveCaretToPos) {
             caretPos = -1;
         }
