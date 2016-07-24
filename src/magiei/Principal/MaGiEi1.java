@@ -16,6 +16,7 @@ import javafx.stage.Screen;
 
 
 import MySQLconn.ConexionMySQL;
+import Resources.MessageBox;
 //import br.com.supremeforever.suprememdiwindow.*;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -105,7 +106,14 @@ public class MaGiEi1 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+//	    MessageBox msj;
         launch(args);
     }
+    
+    
+    
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
     
 }

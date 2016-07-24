@@ -184,7 +184,7 @@ public class MDIController implements Initializable {
 		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
 		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
 		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
-		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(5,cboAnioFechaNacPaciente.getItems().get(0),cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1)));
+		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(5,cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1),cboAnioFechaNacPaciente.getItems().get(0)));
 		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(11));
 		//********FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
 		new AutoCompleteComboBoxListener<>(cboAnioFechaNacPaciente);
@@ -547,22 +547,21 @@ try{
 //			        Alert.AlertType.ERROR);
 //	
 //				frame.dispose();
-			   
-			 MessageBox.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING);
-			 MessageBox.show("fdd", "fggg");
+			   MessageBox msj = new MessageBox();
+			 msj.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING);
+			 msj.show("fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff", "fgghhhhhhhhhhhhhhhhhhhhhhhhhhhg",getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 			 
-//        VBox mainPanez = (VBox) FXMLLoader.load( getClass().getResource("/Resources/MessageBox.fxml" ) );
-//	Scene scene = new Scene(mainPanez);
-			 Stage primaryStage2 = null;
-//        primaryStage2.setScene(scene);
-			 
-			 showConfirmDialog(primaryStage2,"","");
-			 
-			 Stage primaryStage = null;
-			 int answer = jfx.messagebox.MessageBox.show(primaryStage, 
- 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
-						"Information dialog",  
- 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
+
+//			 Stage primaryStage2 = null;
+//
+//			 
+//			 showConfirmDialog(primaryStage2,"","");
+//			 
+//			 Stage primaryStage = null;
+//			 int answer = jfx.messagebox.MessageBox.show(primaryStage, 
+// 						"Ejemplo de un DialogBox.\n\nLas opciones son las siguientes.\n[MessageBox.ICON_INFORMATION | MessageBox.OK | MessageBox.CANCEL]", 
+//						"Information dialog",  
+// 						jfx.messagebox.MessageBox.ICON_INFORMATION| jfx.messagebox.MessageBox.OK | jfx.messagebox.MessageBox.CANCEL); 
 			 
 			 			     
 		    }
@@ -701,7 +700,7 @@ try{
 			
 		}
 		else{
-			MessageBox.show(null,"Flantan datos Obligatorios");
+			MessageBox.show("Error","","Flantan datos Obligatorios",Alert.AlertType.ERROR);
 		}
 		}
 		catch (Exception ex) {

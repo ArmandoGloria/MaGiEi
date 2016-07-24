@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import static java.nio.file.Files.readAllBytes;
 import java.nio.file.Path;
@@ -34,8 +35,11 @@ import javax.imageio.ImageIO;
 import javafx.scene.layout.BackgroundImage;
 
 public class MessageBox
+	
 {
-	public static void show(String message, String title)
+//	 URL estiloPadre=null;
+	
+	public static void show(String message, String title, URL otro)
 	{
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
@@ -56,10 +60,14 @@ public class MessageBox
 		pane.setAlignment(Pos.CENTER);
 		
 		
-File f = new File("src/magiei/Principal/Magie1_Estilo.css");
-pane.getStylesheets().clear();
-pane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+//File f = new File("src/magiei/Principal/Magie1_Estilo.css");
+//pane.getStylesheets().clear();
+//pane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+
+pane.getStylesheets().add(otro.toExternalForm());
 pane.setId("myDialog");
+
+
 //pane.getStyleClass().add("myDialog");
 //pane.setStyle("-fx-background-image: url('../../Resources/Imagenes/arrow.png')"); 
 //
@@ -139,6 +147,7 @@ dialogPane.getStylesheets().clear();
 dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
 
+//dialogPane.getStylesheets().add(otro.toExternalForm());
 //dialogPane.getStylesheets().add(getClass().getResource("Magie1_Estilo.css").toExternalForm());
 
 
@@ -230,6 +239,15 @@ dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "
 //  return alert;
 //} 
 	 
+	 
+	 
+	 
+//	 public MessageBox(URL otro)
+//	 {
+//		estiloPadre= otro;	 
+//	 }
+	 
+	
 	 
 	 
 }

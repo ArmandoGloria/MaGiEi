@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 public class ConexionMySQL
 {
     private String NombreBD = "magiei_db";
-    private String DireccionBD = "jdbc:mysql://148.240.219.22/" + this.NombreBD;
+    private String DireccionBD = "jdbc:mysql://magieisdb.ddns.net/" + this.NombreBD;
 //    private String UsuarioBD = "SPF2";
 //    private String ClaveBD = "Hernandez13";
     private String UsuarioBD = "InteliGeneDatabases";
