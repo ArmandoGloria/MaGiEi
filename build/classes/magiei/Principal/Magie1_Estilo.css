@@ -14,6 +14,7 @@ src: url("centurygothic.ttf");
 -fx-maincolor: #24BE58;
 -fx-hovercolor:#39e600;
 -fx-backgroundcolor: white;
+
 -fx-linewidth:0.5px;
 -fx-linecolor: #DADADA;
 -fx-interacttext:#808080;
@@ -818,15 +819,69 @@ src: url("centurygothic.ttf");
 .alert.error.dialog-pane {
     -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
 }*/
+/*.root { 
+   -fx-glass-color: rgba(95, 158, 160, 0.9); 
+} */
 
 .dialog-pane {
+    -fx-background-color: transparent;
     -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
-    -fx-background-size: 900 506;
+    -fx-background-size: 500 306;
     -fx-background-position: center center;
     -fx-pref-height: 300;
+    -fx-border-radius: 20;
     
-    -fx-background-radius: 10px;
+/*   ******** -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+    -fx-border-color: #b4b4b4 transparent #b4b4b4 transparent;
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 4,4,3;
+    
+    -fx-background-image-radius: 10px;*/
+
+/*    -fx-background-color:linear-gradient(white,#DDDDDD);
+    -fx-border-radius: 20;
+    -fx-border-color: transparent;
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 20;*/
+
+
+/*    -fx-background-color:linear-gradient(white,#DDDDDD);*/
+/*    -fx-border-radius: 20;
+    -fx-border-color: transparent;
+    -fx-padding: 10 10 10 10;
+    -fx-background-radius: 20;*/
+
+-fx-padding: 20; 
+-fx-spacing: 10; 
+-fx-alignment: center; 
+-fx-font-size: 20; 
+/*-fx-background-color: linear-gradient(to bottom, derive(-fx-glass-color, 20%), -fx-glass-color);*/ 
+/*-fx-border-color: derive(-fx-glass-color, -20%);*/ 
+-fx-border-width: 5; 
+-fx-background-insets: 12; 
+-fx-border-insets: 10; 
+-fx-border-radius: 6,6; 
+-fx-background-radius: 6; 
+
+}
+.fxdialog-root {
+    -fx-background-color: transparent;
+}
+.fxdialog-header {
+    -fx-alignment: center;
+    -fx-text-aligment: center;
+    -fx-text-fill: white;
+    -fx-font: 32px bold;
+    -fx-background-color: black;
+    -fx-background-insets: 0 -11 0 -11;
+}
+.ERROR       .fxdialog-header {-fx-background-color: red;}
+.INFORMATION .fxdialog-header {-fx-background-color: blue;}
+.WARNING     .fxdialog-header {-fx-background-color: orange;}
+.QUESTION    .fxdialog-header {-fx-background-color: gold;}
+.fxdialog-message {
+    -fx-font-size: 18px;
 }
 
 .dialog-pane .label {
@@ -844,19 +899,29 @@ src: url("centurygothic.ttf");
 }
 
 #myDialog{
+    -fx-background-color: transparent;
     -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
-    -fx-background-size: 900 506;
+    -fx-background-size: 500 306;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
+    -fx-pref-height: 300;
+    -fx-pref-width: 500;
+    -fx-border-color: #b4b4b4 transparent #b4b4b4 transparent;
+/*    -fx-background-insets: 0 0 -1 0,0,1;*/
+    -fx-background-radius: 10;
+    -fx-background-image-radius: 10px;
+}
+#myDialog-root {
+    -fx-background-color: transparent;
 }
 #myDialog .label {
-    /*-fx-background-image: url("../../Resources/Imagenes/Mensaje.png");*/
-/*    -fx-text-fill: white;*/
-/*    -fx-pref-height: 406;
-    -fx-pref-width: 600;
+/*    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
+    -fx-text-fill: white;
+    -fx-pref-height: 406;
+    -fx-pref-width: 600;*/
     -fx-border-radius: 10px;
-    -fx-background-radius: 10px;*/
-    /*-fx-background-image-radius: 10px;*/
+    -fx-background-radius: 10px;
+    -fx-background-image-radius: 10px;
 }/*
 #myDialog > *.button-bar > *.container{
     -fx-background-color: #a9e200;
