@@ -135,7 +135,7 @@ public class MDIController implements Initializable {
 	protected ObservableList<MesObj> MesFecha =FXCollections.observableArrayList() ;
 	protected ObservableList<Integer> AnioFecha =FXCollections.observableArrayList();
 	
-	
+	private boolean bActivoBuscar=true;
 	
 	
 	@FXML
@@ -345,12 +345,12 @@ public class MDIController implements Initializable {
 		    btnGuardarNvoPaciente.setDisable(true);
 		    btnCancelarAltaPaciente.setDisable(true);
 
-
+			bActivoBuscar=true;
 		    //Global.checkEmptyFields(txtNoEmpleadoPaciente);
 
 
 		    DefaultTableModel dt;
-		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "%' limit 1;  "));
+		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "%' and Nombre like'" + txtNombrePaciente.getText() + "%' and ApPat like'" + txtApellidoPaternoPaciente.getText() + "%' and ApMat like'" + txtApellidoMaternoPaciente.getText() + "%' and  limit 1;  "));
     //	    table = new JTable(test.GetTable("SELECT * FROM magiei_db.t_paciente where nombre like'%" + txtNoPaciente.getText() + "%'; "));
 		    if(dt.getRowCount()>0)
 		    {
@@ -488,9 +488,9 @@ try{
 		try
 		{
 
-		  txtNombrePaciente.disableProperty().set(deshabilitar);
-		  txtApellidoPaternoPaciente.disableProperty().set(deshabilitar);
-		  txtApellidoMaternoPaciente.disableProperty().set(deshabilitar);
+//		  txtNombrePaciente.disableProperty().set(deshabilitar);
+//		  txtApellidoPaternoPaciente.disableProperty().set(deshabilitar);
+//		  txtApellidoMaternoPaciente.disableProperty().set(deshabilitar);
 		  cboSexoPaciente.disableProperty().set(deshabilitar);
 		  txtPosicionPaciente.disableProperty().set(deshabilitar);
 		  cboDiaFechaNacPaciente.disableProperty().set(deshabilitar);
@@ -518,6 +518,7 @@ try{
 		    btnGuardarNvoPaciente.setDisable(false);
 		    btnCancelarAltaPaciente.setDisable(false);
 
+			bActivoBuscar=false;
 		    //CargarCombos();
 		}
 		catch(Exception ex){
@@ -535,6 +536,7 @@ try{
 			    btnCancelarAltaPaciente.setDisable(false);
 
 
+			bActivoBuscar=false;
 
 
 		    //CargarCombos();
@@ -553,7 +555,7 @@ try{
 //	
 //				frame.dispose();
 			   MessageBox msj = new MessageBox();
-			 msj.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING);
+			 msj.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 			 msj.show("fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff", "fgghhhhhhhhhhhhhhhhhhhhhhhhhhhg",getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 			 
 
@@ -699,6 +701,7 @@ try{
 				btnCancelarAltaPaciente.setDisable(true);
 				limpiarCamposPaciente();
 			
+			bActivoBuscar=true;
 			}else{
 				MessageBox.show("Error","","Error al guardar Informacion ",Alert.AlertType.INFORMATION);
 			}
@@ -720,6 +723,7 @@ try{
 			deshabilitarCamposPaciente(true);
 			this.btnGuardarNvoPaciente.setDisable(true);
 			this.btnCancelarAltaPaciente.setDisable(true);
+			bActivoBuscar=true;
 		}
 		catch (Exception ex) {
 			MessageBox.show("Error","","Error al cancelar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR);
@@ -1139,6 +1143,27 @@ public void setDataPane(Node node) {
 				cboEstatusPaciente.setId("CBstatus");
 				break;
 		}
+	}
+
+	@FXML
+	private void dragDelete(MouseEvent event) {
+		
+		cboMesFechaNacPaciente.getEditor().setText("");
+	}
+
+	@FXML
+	private void dragDelete4(DragEvent event) {
+		cboMesFechaNacPaciente.getEditor().setText("");
+	}
+
+	@FXML
+	private void dragDelete2(ActionEvent event) {
+		cboMesFechaNacPaciente.getEditor().setText("");
+	}
+
+	@FXML
+	private void dragDelete3(DragEvent event) {
+		cboMesFechaNacPaciente.getEditor().setText("");
 	}
 
 	

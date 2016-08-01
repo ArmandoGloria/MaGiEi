@@ -33,6 +33,7 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 
 import javafx.scene.layout.BackgroundImage;
+import javafx.scene.paint.Color;
 
 public class MessageBox
 	
@@ -41,12 +42,14 @@ public class MessageBox
 	
 	public static void show(String message, String title, URL otro)
 	{
-		Stage stage = new Stage();
+		//Stage stage = new Stage(); 
+		final Stage stage = new Stage(StageStyle.TRANSPARENT); 
+
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setTitle(title);
 		stage.setMinWidth(250);
 		
-		stage.initStyle(StageStyle.TRANSPARENT);
+		//stage.initStyle(StageStyle.TRANSPARENT);
 
 		Label lbl = new Label();
 		lbl.setText(message);
@@ -78,7 +81,7 @@ pane.setId("myDialog");
 //
 //
 //
-		Scene scene = new Scene(pane);
+		Scene scene = new Scene(pane,Color.TRANSPARENT);
 //		
 //		
 //scene.getStylesheets().clear();
@@ -90,7 +93,7 @@ pane.setId("myDialog");
 		stage.showAndWait();
 	}
 	
-	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo)
+	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo, URL otro)
     {
 	 Alert alert = new Alert(Tipo);
 	alert.setTitle(Titulo);
@@ -142,10 +145,11 @@ DialogPane dialogPane = alert.getDialogPane();
 //dialogPane.getStylesheets().clear();
 //dialogPane.getStylesheets().add(css);
 
-File f = new File("src/magiei/Principal/Magie1_Estilo.css");
-dialogPane.getStylesheets().clear();
-dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+//File f = new File("src/magiei/Principal/Magie1_Estilo.css");
+//dialogPane.getStylesheets().clear();
+//dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
+dialogPane.getStylesheets().add(otro.toExternalForm());
 
 //dialogPane.getStylesheets().add(otro.toExternalForm());
 //dialogPane.getStylesheets().add(getClass().getResource("Magie1_Estilo.css").toExternalForm());
@@ -221,7 +225,139 @@ dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "
 //alert.setGraphic(c);
 	alert.showAndWait();
     }
-	 
+	
+	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo)
+    {
+	 Alert alert = new Alert(Tipo);
+	alert.setTitle(Titulo);
+	alert.setHeaderText(Encabezado);
+	alert.setContentText(Mensaje);
+	
+//	ImageView c = null;
+//	byte[] readAllBytes = null;
+//			Path get = Paths.get("C:\\Mensaje.png");
+//		try {
+//			readAllBytes = Files.readAllBytes(get);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//				
+//			    
+//			ByteArrayInputStream bis = new ByteArrayInputStream(readAllBytes);
+//			BufferedImage read = null;
+//		try {
+//			read = ImageIO.read(bis);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//
+//			Image imagen = SwingFXUtils.toFXImage(read, null);
+			
+			
+			
+			
+			
+			
+			
+			//c.setImage(imagen);
+//alert.setGraphic(new ImageView(ImageCache.getInstance().get("/images/gallio/gallio-sad.png")));
+
+
+
+//alert.setGraphic(new ImageView(imagen));
+
+
+
+
+//alert.setDialogPane(value);
+
+DialogPane dialogPane = alert.getDialogPane();
+
+		alert.initStyle(StageStyle.TRANSPARENT);
+//String css = DynamicCSS.class.getResource("/jarcss.css").toExternalForm();
+//dialogPane.getStylesheets().clear();
+//dialogPane.getStylesheets().add(css);
+
+File f = new File("src/magiei/Principal/Magie1_Estilo.css");
+dialogPane.getStylesheets().clear();
+dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+
+//dialogPane.getStylesheets().add(otro.toExternalForm());
+
+//dialogPane.getStylesheets().add(otro.toExternalForm());
+//dialogPane.getStylesheets().add(getClass().getResource("Magie1_Estilo.css").toExternalForm());
+
+
+//BackgroundImage bgi=null;
+////bgi.getImage().
+//Background bg = null;
+//bg.getImages().add(bgi);
+//dialogPane.backgroundProperty().set(bg);
+////dialogPane.getStylesheets().add(getClass().getResource("myDialogs.css").toExternalForm());
+
+//alert.getContentText().getClass().;
+
+
+
+
+
+//dialogPane.getStyleClass().add("myDialog");
+//dialogPane.setStyle("-fx-background-image: url('../../Resources/Imagenes/arrow.png')"); 
+//alert.setDialogPane(dialogPane);
+
+
+
+
+
+
+//DialogPane dialogPane = alert.getDialogPane();
+// root
+
+
+    //dialogPane.getStyleClass().remove("alert");
+//    dialogPane.setId("DialogPane");
+//dialogPane.getStyleClass().add("DialogPane");
+//dialogPane.setStyle("DialogPane");
+//   dialogPane.setStyle("-fx-background-image: url(\"http://docs.oracle.com/javafx/2/get_started/img/two_logins.png\");");
+//
+//// 1. Grid
+//    // remove style to customize header
+//
+////    GridPane grid = (GridPane)dialogPane.lookup(".header-panel"); 
+////    grid.setStyle("-fx-background-color: cadetblue; "
+////            + "-fx-font-style: italic;");
+//
+//    // custom icon
+//    StackPane stackPane = new StackPane(new ImageView(imagen));
+//    stackPane.setPrefSize(24, 24);
+//    stackPane.setAlignment(Pos.CENTER);
+//    dialogPane.setGraphic(stackPane); 
+//
+//// 2. ContentText with just a Label
+//    dialogPane.lookup(".content.label").setStyle("-fx-font-size: 16px; "
+//            + "-fx-font-weight: bold; -fx-fill: blue;");
+//    
+//    dialogPane.lookup(".content.label").setStyle("-fx-font-size: 16px; "
+//            + "-fx-font-weight: bold; -fx-fill: blue;");
+//
+//// 3- ButtonBar
+//    ButtonBar buttonBar = (ButtonBar)alert.getDialogPane().lookup(".button-bar");
+//    buttonBar.setStyle("-fx-font-size: 24px;"
+//            + "-fx-background-color: indianred;");
+//    buttonBar.getButtons().forEach(b->b.setStyle("-fx-font-family: \"Andalus\";"));
+
+
+
+
+
+
+
+
+
+
+//alert.setGraphic(c);
+	alert.showAndWait();
+    }
 	 
 //	 
 //	@Override
