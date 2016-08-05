@@ -496,7 +496,7 @@ try{
 		  cboDiaFechaNacPaciente.disableProperty().set(deshabilitar);
 		  cboMesFechaNacPaciente.disableProperty().set(deshabilitar);
 		  cboAnioFechaNacPaciente.disableProperty().set(deshabilitar);
-		  txtNombrePaciente.disableProperty().set(deshabilitar);     
+		  //txtNombrePaciente.disableProperty().set(deshabilitar);     
 		  //txtNoEmpleadoPaciente.disableProperty().set(deshabilitar);
 		  cboEstatusPaciente.disableProperty().set(deshabilitar);
 		  imgPaciente.disableProperty().set(deshabilitar);
