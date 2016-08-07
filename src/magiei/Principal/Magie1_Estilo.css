@@ -815,13 +815,14 @@ src: url("centurygothic.ttf");
     -fx-background-color: cadetblue;
     -fx-font-style: italic;
 }
-
+*/
 .alert.error.dialog-pane {
-    -fx-background-image: url("../../Resources/Imagenes/Mensaje.png");
-}*/
-/*.root { 
+    -fx-background-color: transparent;
+}
+.root { 
+    -fx-background-color: transparent;
    -fx-glass-color: rgba(95, 158, 160, 0.9); 
-} */
+} 
 
 .dialog-pane {
     -fx-background-color: transparent;
@@ -906,7 +907,7 @@ src: url("centurygothic.ttf");
     -fx-border-radius: 10;
     -fx-pref-height: 300;
     -fx-pref-width: 500;
-    -fx-border-color: #b4b4b4 transparent #b4b4b4 transparent;
+    -fx-border-color: transparent transparent transparent transparent;
 /*    -fx-background-insets: 0 0 -1 0,0,1;*/
     -fx-background-radius: 10;
     -fx-background-image-radius: 10px;

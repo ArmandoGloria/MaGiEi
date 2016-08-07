@@ -10,14 +10,29 @@ package Resources;
  * @author Shadowsboy
  */
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import static java.nio.file.Files.readAllBytes;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.*;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.geometry.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javax.imageio.ImageIO;
 
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.paint.Color;
 
 public class MessageBox
@@ -25,7 +40,7 @@ public class MessageBox
 {
 //	 URL estiloPadre=null;
 	
-	public static void show( String title,String Encabezado,String message,Alert.AlertType Tipo,  URL otro)
+	public static void show(String message, String title, URL otro)
 	{
 		//Stage stage = new Stage(); 
 		final Stage stage = new Stage(StageStyle.TRANSPARENT); 
@@ -78,139 +93,51 @@ pane.setId("myDialog");
 		stage.showAndWait();
 	}
 	
-	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo, URL otro,boolean anterior)
+	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo, URL otro)
     {
-	    final Stage stage = new Stage(StageStyle.TRANSPARENT); 
-
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("ffg");
-		stage.setMinWidth(250);
-		 Alert alert = new Alert(Tipo);
-	    alert.setTitle(Titulo);
-	alert.setHeaderText(Encabezado);
-	alert.setContentText(Mensaje);
-		alert.initStyle(StageStyle.TRANSPARENT);
-DialogPane dialogPane = alert.getDialogPane();
-
-
-//		VBox pane = new VBox(20);
-//		pane.getChildren().addAll(dialogPane);
-//		pane.setAlignment(Pos.CENTER);
-
-	dialogPane.getStylesheets().add(otro.toExternalForm()); 
-dialogPane.setId("myDialog");
-//	    Scene scene = new Scene(pane,Color.TRANSPARENT);
-//		stage.setScene(scene);
-	    alert.showAndWait();
-	    
-	    
-	    
-	    /*
-	    
-	    
-	    final Stage stage = new Stage(StageStyle.TRANSPARENT); 
-final Window parent = null ;
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setTitle("ffg");
-		stage.setMinWidth(250);
-		 Alert alert = new Alert(Tipo);
-	alert.setTitle(Titulo);
-	alert.setHeaderText(Encabezado);
-	alert.setContentText(Mensaje);
-		alert.initStyle(StageStyle.TRANSPARENT);
-DialogPane dialogPane = alert.getDialogPane();
-	dialogPane.getStylesheets().add(otro.toExternalForm());    
-	alert.initOwner(parent);
-//	dialogPane.getParent().getScene()..getParent().setStyle("-fx-background-color: transparent;");
-//	dialogPane.getParent().setStyle("-fx-background-color: transparent;");
-Scene scene = new Scene(dialogPane,Color.TRANSPARENT);
-
-
-StackPane secondaryLayout = new StackPane();
-                secondaryLayout.getChildren().add(dialogPane);
-                
-                Scene secondScene = new Scene(secondaryLayout, 200, 100);
-
-//                Stage secondStage = new Stage();
-//                secondStage.setTitle("Second Stage");
-                stage.setScene(secondScene);
-                
-                //Set position of second window, related to primary window.
-//                secondStage.setX(primaryStage.getX() + 250);
-//                secondStage.setY(primaryStage.getY() + 100);
-// 
-//                secondStage.show();
-
-
-	alert.initOwner(stage);
-
-
-stage.showAndWait();
-
-//	alert.showAndWait();
-	
-//		VBox pane = new VBox(20);
-//		pane.getChildren().addAll(alert.getDialogPane());
-//		pane.setAlignment(Pos.CENTER);
-//pane.getStylesheets().add(otro.toExternalForm());
-//pane.setId("myDialog");
-
-
-//alert.initOwner(stage);
-//
-//		Scene scene = new Scene(alert.getDialogPane(),Color.TRANSPARENT);
-//		stage.setScene(scene);
-//		stage.showAndWait();
-		
-		
-	    /*
-	    
 	 Alert alert = new Alert(Tipo);
 	alert.setTitle(Titulo);
 	alert.setHeaderText(Encabezado);
 	alert.setContentText(Mensaje);
-	alert.getDialogPane().setStyle("-fx-background-color: transparent;");
+	
+//	ImageView c = null;
+//	byte[] readAllBytes = null;
+//			Path get = Paths.get("C:\\Mensaje.png");
+//		try {
+//			readAllBytes = Files.readAllBytes(get);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//				
+//			    
+//			ByteArrayInputStream bis = new ByteArrayInputStream(readAllBytes);
+//			BufferedImage read = null;
+//		try {
+//			read = ImageIO.read(bis);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//
+//			Image imagen = SwingFXUtils.toFXImage(read, null);
+			
+			
+			
+			
+			
+			
+			
+			//c.setImage(imagen);
 //alert.setGraphic(new ImageView(ImageCache.getInstance().get("/images/gallio/gallio-sad.png")));
-final Stage stage = new Stage(StageStyle.TRANSPARENT); 
 
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setMinWidth(250);
 
-		Scene scene = new Scene(alert.getDialogPane().getParent(),Color.TRANSPARENT);
-alert.getDialogPane().getParent().setStyle("-fx-background-color: transparent;");
 
-// Get the Stage.
-//Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+//alert.setGraphic(new ImageView(imagen));
 
-// Add a custom icon.
-stage.setScene(scene);
+
+
+
 //alert.setDialogPane(value);
 
-
-//Scene scene = new Scene(pane,Color.TRANSPARENT);
-//		
-//		
-//scene.getStylesheets().clear();
-//scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-		
-VBox pane = new VBox(20);
-		pane.getChildren().addAll(alert.getDialogPane());
-		pane.setAlignment(Pos.CENTER);
-		
-		
-//File f = new File("src/magiei/Principal/Magie1_Estilo.css");
-//pane.getStylesheets().clear();
-//pane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
-
-pane.getStylesheets().add(otro.toExternalForm());
-pane.setId("myDialog");
-		Scene scene2 = new Scene(pane,Color.TRANSPARENT);
-stage.setScene(scene2);
-		
-		
-		stage.showAndWait();
-
-/*
 DialogPane dialogPane = alert.getDialogPane();
 
 		alert.initStyle(StageStyle.TRANSPARENT);
@@ -294,22 +221,45 @@ dialogPane.getStylesheets().add(otro.toExternalForm());
 
 
 
-		stage.setScene(scene);
-		
-		
-		stage.showAndWait();*/
 
 //alert.setGraphic(c);
-	//alert.showAndWait();
+	alert.showAndWait();
     }
 	
-	 public static void show2(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo)
+	 public static void show(String Titulo,String Encabezado,String Mensaje,Alert.AlertType Tipo)
     {
 	 Alert alert = new Alert(Tipo);
 	alert.setTitle(Titulo);
 	alert.setHeaderText(Encabezado);
 	alert.setContentText(Mensaje);
 	
+//	ImageView c = null;
+//	byte[] readAllBytes = null;
+//			Path get = Paths.get("C:\\Mensaje.png");
+//		try {
+//			readAllBytes = Files.readAllBytes(get);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//				
+//			    
+//			ByteArrayInputStream bis = new ByteArrayInputStream(readAllBytes);
+//			BufferedImage read = null;
+//		try {
+//			read = ImageIO.read(bis);
+//		} catch (IOException ex) {
+//			Logger.getLogger(MessageBox.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//
+//			Image imagen = SwingFXUtils.toFXImage(read, null);
+			
+			
+			
+			
+			
+			
+			
+			//c.setImage(imagen);
 //alert.setGraphic(new ImageView(ImageCache.getInstance().get("/images/gallio/gallio-sad.png")));
 
 
@@ -328,9 +278,9 @@ DialogPane dialogPane = alert.getDialogPane();
 //dialogPane.getStylesheets().clear();
 //dialogPane.getStylesheets().add(css);
 
-//File f = new File("src/magiei/Principal/Magie1_Estilo.css");
-//dialogPane.getStylesheets().clear();
-//dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+File f = new File("src/magiei/Principal/Magie1_Estilo.css");
+dialogPane.getStylesheets().clear();
+dialogPane.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
 
 //dialogPane.getStylesheets().add(otro.toExternalForm());
 
@@ -395,6 +345,12 @@ DialogPane dialogPane = alert.getDialogPane();
 //    buttonBar.setStyle("-fx-font-size: 24px;"
 //            + "-fx-background-color: indianred;");
 //    buttonBar.getButtons().forEach(b->b.setStyle("-fx-font-family: \"Andalus\";"));
+
+
+
+
+
+
 
 
 
