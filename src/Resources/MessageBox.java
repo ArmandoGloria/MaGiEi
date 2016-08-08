@@ -17,6 +17,7 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.geometry.*;
+import javafx.scene.effect.*;
 
 import javafx.scene.paint.Color;
 
@@ -38,9 +39,16 @@ public class MessageBox
 
 		Label lbl = new Label();
 		lbl.setText(message);
+                DropShadow DS = new DropShadow();
+                DS.setColor(Color.rgb(179, 250, 255,.7));
+                DS.setSpread(.2);
+                lbl.setEffect(DS);
+                
 
 		Button btnOK = new Button();
 		btnOK.setText("OK");
+                
+                btnOK.setEffect(DS);
 		btnOK.setOnAction(e -> stage.close());
 
 		VBox pane = new VBox(20);
