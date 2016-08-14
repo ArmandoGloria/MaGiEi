@@ -41,8 +41,7 @@ import javax.imageio.ImageIO;
 import javax.swing.table.DefaultTableModel;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.Locale;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -451,6 +450,10 @@ public class MDIController implements Initializable {
 				cboMesFechaNacPaciente.setPromptText("Mes");
 				cboAnioFechaNacPaciente.setValue(null);
 				cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
+				
+				MessageBox.show("Error","","Error Fecha incorrecta",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css")); 
+				return;
+
 			
 			}
 			
@@ -954,7 +957,29 @@ public void setDataPane(Node node) {
 	
 	@FXML
 	private void coboClickLimpiarDia(MouseEvent event) {
-		cboDiaFechaNacPaciente.getEditor().setText("");	
+		cboDiaFechaNacPaciente.getEditor().setText("");
+		
+		Integer DiasLimite =31;
+			try{
+				
+			Calendar cal = new GregorianCalendar(cboAnioFechaNacPaciente.getValue(),  cboMesFechaNacPaciente.getValue().Value()-1, 1);
+			DiasLimite = cal.getActualMaximum(Calendar.DAY_OF_MONTH); 
+			
+			}catch(Exception ex){
+				try{
+			Calendar cal = new GregorianCalendar(2001,  cboMesFechaNacPaciente.getValue().Value()-1, 1);
+			DiasLimite = cal.getActualMaximum(Calendar.DAY_OF_MONTH); 
+			
+			}catch(Exception exx){
+				DiasLimite =31;
+				}
+			}
+		
+		DiaFecha.clear();
+		for (Integer a=1;a<=DiasLimite ;a++){
+		DiaFecha.add(a);
+		}
+		
 		cboDiaFechaNacPaciente.setItems(DiaFecha);
 	}
 
