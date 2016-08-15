@@ -911,8 +911,8 @@ src: url("centurygothic.ttf");
     -fx-border-radius: 10;
     -fx-pref-height: 280;
     -fx-pref-width: 340;
+    -fx-padding: 30 20 5 25;
     -fx-border-color: transparent;
-/*    -fx-background-insets: 0 0 -1 0,0,1;*/
     -fx-background-radius: 10;
     -fx-background-image-radius: 10px;
 }
@@ -921,12 +921,12 @@ src: url("centurygothic.ttf");
 }
 
 @font-face {
-src: url("../../Resources/Fuentes/MDfont.ttf"); 
+    src: url("MDfont.ttf");
 }
 
 #myDialog .label {
     -fx-font-family: "Guru Meditation NBP";
-    -fx-font-size: 10px;
+    -fx-font-size: 15px;
     -fx-text-fill: rgba(0, 158, 170, .7);
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;

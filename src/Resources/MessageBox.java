@@ -20,6 +20,8 @@ import javafx.geometry.*;
 import javafx.scene.effect.*;
 
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.Font;
 
 public class MessageBox
 	
@@ -39,6 +41,9 @@ public class MessageBox
 
 		Label lbl = new Label();
 		lbl.setText(message);
+                lbl.setWrapText(true);
+                lbl.setTextAlignment(TextAlignment.CENTER);
+                lbl.setFont(new Font("Guru Meditation NBP", 30));
                 DropShadow DS = new DropShadow();
                 DS.setColor(Color.rgb(179, 250, 255,.7));
                 DS.setSpread(.2);
