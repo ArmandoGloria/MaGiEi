@@ -10,7 +10,8 @@ src: url("centurygothic.ttf");
 }*/
 
  *{   
--fx-font-family: "Century Gothic";
+/*-fx-font-family: "Century Gothic";*/
+-fx-font-family: url("../../Resources/Fuentes/centurygothic.ttf");
 -fx-maincolor: #24BE58;
 -fx-hovercolor:#39e600;
 -fx-backgroundcolor: white;
@@ -912,7 +913,7 @@ src: url("centurygothic.ttf");
     -fx-pref-height: 280;
     -fx-pref-width: 340;
     -fx-padding: 30 20 5 25;
-    -fx-border-color: red;
+    -fx-border-color: transparent;
     -fx-background-radius: 10;
     -fx-background-image-radius: 10px;
 }
@@ -921,7 +922,8 @@ src: url("centurygothic.ttf");
 }
 
 @font-face {
-    src: url("MDfont.ttf");
+    
+    src: url("../../Resources/Fuentes/MDfont.ttf");
 }
 
 #myDialog .label {
