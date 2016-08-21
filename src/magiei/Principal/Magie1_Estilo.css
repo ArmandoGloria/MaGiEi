@@ -10,7 +10,8 @@ src: url("centurygothic.ttf");
 }*/
 
  *{   
--fx-font-family: "Century Gothic";
+/*-fx-font-family: "Century Gothic";*/
+-fx-font-family: url("../../Resources/Fuentes/centurygothic.ttf");
 -fx-maincolor: #24BE58;
 -fx-hovercolor:#39e600;
 -fx-backgroundcolor: white;
@@ -921,7 +922,8 @@ src: url("centurygothic.ttf");
 }
 
 @font-face {
-    src: url("MDfont.ttf");
+    
+    src: url("../../Resources/Fuentes/MDfont.ttf");
 }
 
 #myDialog .label {

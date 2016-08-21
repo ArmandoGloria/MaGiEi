@@ -220,7 +220,7 @@ public class MDIController implements Initializable {
 
 
 		    DefaultTableModel dt;
-		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "%' and Nombre like'" + txtNombrePaciente.getText() + "%' and ApPat like'" + txtApellidoPaternoPaciente.getText() + "%' and ApMat like'" + txtApellidoMaternoPaciente.getText() + "%'  limit 1;  "));
+		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "%' and Nombre like'" + txtNombrePaciente.getText() + "%' and ApPat like'" + txtApellidoPaternoPaciente.getText() + "%' and ApMat like'" + txtApellidoMaternoPaciente.getText() + "%' order by NoEmpleado  limit 1;  "));
     //	    table = new JTable(test.GetTable("SELECT * FROM magiei_db.t_paciente where nombre like'%" + txtNoPaciente.getText() + "%'; "));
 		    if(dt.getRowCount()>0)
 		    {
@@ -450,18 +450,28 @@ public class MDIController implements Initializable {
 				cboMesFechaNacPaciente.setPromptText("Mes");
 				cboAnioFechaNacPaciente.setValue(null);
 				cboAnioFechaNacPaciente.setPromptText("A\u00F1o");
-				
-				MessageBox.show("Error","","Error Fecha incorrecta",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css")); 
-				return;
-
 			
 			}
 			
 			
-					MySqlJavaCon.mySqlConn.setAutoCommit(true);
+			MySqlJavaCon.mySqlConn.setAutoCommit(true);
 
-			if(FechaValida && this.txtNombrePaciente.getText()!="" && this.txtApellidoPaternoPaciente.getText()!="" && this.txtApellidoMaternoPaciente.getText()!="" && this.txtNoEmpleadoPaciente.getText()!="" && this.txtPosicionPaciente.getText()!="" && this.cboSexoPaciente.getValue()!="" && this.cboEstatusPaciente.getValue()!="" ){
+			if(this.txtNombrePaciente.getText()!="" && this.txtApellidoPaternoPaciente.getText()!="" && this.txtApellidoMaternoPaciente.getText()!="" && this.txtNoEmpleadoPaciente.getText()!="" && this.txtPosicionPaciente.getText()!="" && this.cboSexoPaciente.getValue()!="" && this.cboEstatusPaciente.getValue()!="" ){
+				
+			
+			if(!FechaValida){
+				MessageBox.show("Error","","Error Fecha incorrecta",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css")); 
+				return;
+			}	
+				
+				
 			if(this.lblIdPaciente.getText()==""){
+				
+//				if(this.txtNoEmpleadoPaciente.getText()!=""){
+//					MessageBox.show("Error","","Flantan datos Obligatorios",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//				return;
+//				}
+				
 				strMySqlQuery="INSERT INTO `magiei_db`.`t_paciente` (`Nombre`, `ApPat`, `ApMat`, `Sexo`, `Posicion`, `FechNac`, `NoEmpleado`, `Activo`) VALUES ('" + txtNombrePaciente.getText() + "', '" + txtApellidoPaternoPaciente.getText() + "', '" + txtApellidoMaternoPaciente.getText() + "', '" + cboSexoPaciente.getValue() + "', '" + txtPosicionPaciente.getText() + "', '" +  ft.format(calendar.getTime()) + "', '" + txtNoEmpleadoPaciente.getText() + "', '" + cboEstatusPaciente.getValue() + "'); ";
 			} 
 			else{
@@ -1143,13 +1153,13 @@ public class ComboBoxAutoComplete2<T> {
  			cmb.getTooltip().hide(); 
  		} else { 
  			Stream<T> itens = cmb.getItems().stream(); 
- 			String txtUsr = filter.toString().toLowerCase(); 
+ 			String txtUsr = filter.toLowerCase(); 
  			itens.filter(el -> el.toString().toLowerCase().contains(txtUsr)).forEach(filteredList::add); 
  			cmb.getTooltip().setText(txtUsr); 
  			Window stage = cmb.getScene().getWindow(); 
  			double posX = stage.getX() + cmb.getBoundsInParent().getMinX(); 
  			double posY = stage.getY() + cmb.getBoundsInParent().getMinY(); 
- 			cmb.getTooltip().show(stage, posX, posY); 
+ 			cmb.getTooltip().show(stage, posX, posY+500); 
  			cmb.show(); 
  		} 
  		cmb.getItems().setAll(filteredList); 
@@ -1160,7 +1170,7 @@ public class ComboBoxAutoComplete2<T> {
  		cmb.getTooltip().hide(); 
  		T s = cmb.getSelectionModel().getSelectedItem(); 
  		cmb.getItems().setAll(originalItems); 
- 		cmb.getSelectionModel().select(s); 
+ 		cmb.getSelectionModel().select(s);
  	} 
 
 }
