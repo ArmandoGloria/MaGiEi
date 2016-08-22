@@ -128,10 +128,10 @@ public class MDIController implements Initializable {
 		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
 		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
 		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(5,cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1),cboAnioFechaNacPaciente.getItems().get(0)));
-		cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(11));
+		//cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(11));
 		//********FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
-		new AutoCompleteComboBoxListener<>(cboAnioFechaNacPaciente);
-		new AutoCompleteComboBoxListener<>(cboMesFechaNacPaciente);
+		new AutoCompleteComboBoxListener<MesObj>(cboAnioFechaNacPaciente);
+		new AutoCompleteComboBoxListener<MesObj>(cboMesFechaNacPaciente);
 		
 		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
 		
@@ -1132,6 +1132,7 @@ public class ComboBoxAutoComplete2<T> {
  		cmb.setTooltip(new Tooltip()); 
  		cmb.setOnKeyPressed(this::handleOnKeyPressed); 
  		cmb.setOnHidden(this::handleOnHiding); 
+//		cmb.visibleRowCountProperty().setValue(3);
  	} 
   
  	public void handleOnKeyPressed(KeyEvent e) { 
@@ -1159,9 +1160,10 @@ public class ComboBoxAutoComplete2<T> {
  			Window stage = cmb.getScene().getWindow(); 
  			double posX = stage.getX() + cmb.getBoundsInParent().getMinX(); 
  			double posY = stage.getY() + cmb.getBoundsInParent().getMinY(); 
- 			cmb.getTooltip().show(stage, posX, posY+500); 
+ 			cmb.getTooltip().show(stage, posX, posY); 
  			cmb.show(); 
  		} 
+//		cmb.visibleRowCountProperty().setValue(3);
  		cmb.getItems().setAll(filteredList); 
  	} 
   
@@ -1171,6 +1173,7 @@ public class ComboBoxAutoComplete2<T> {
  		T s = cmb.getSelectionModel().getSelectedItem(); 
  		cmb.getItems().setAll(originalItems); 
  		cmb.getSelectionModel().select(s);
+//		cmb.visibleRowCountProperty().setValue(3);
  	} 
 
 }
