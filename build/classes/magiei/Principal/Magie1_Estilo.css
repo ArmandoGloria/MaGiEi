@@ -10,8 +10,8 @@ src: url("centurygothic.ttf");
 }*/
 
  *{   
-/*-fx-font-family: "Century Gothic";*/
--fx-font-family: url("../../Resources/Fuentes/centurygothic.ttf");
+-fx-font-family: "Century Gothic";
+/*-fx-font-family: url("../../Resources/Fuentes/centurygothic.ttf");*/
 -fx-maincolor: #24BE58;
 -fx-hovercolor:#39e600;
 -fx-backgroundcolor: white;
@@ -494,6 +494,17 @@ src: url("centurygothic.ttf");
     -fx-padding: 0;
 }
 
+.combo-box .combo-box-popup>.list-view {
+    -fx-min-height: 100;
+}
+
+.combo-box .list-view {
+-height: 200;
+}
+
+.combo-box .list-view .list-cell{
+-fx-cell-size: 25;
+}
 
 .combo-box > .list-cell {
     
