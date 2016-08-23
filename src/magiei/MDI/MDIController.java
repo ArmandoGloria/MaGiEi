@@ -791,7 +791,7 @@ public void setDataPane(Node node) {
 
 	@FXML
     public void loadPane(ActionEvent event) throws IOException {
-        setDataPane(fadeAnimate("/magiei/ExamenNvoIngreso/ExamenNvoIngreso.fxml"));
+        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
     }
 
 //    public void loadPane2(ActionEvent event) throws IOException {
