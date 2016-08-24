@@ -498,9 +498,9 @@ src: url("centurygothic.ttf");
     -fx-min-height: 100;
 }
 
-.combo-box .list-view {
+/*.combo-box .list-view {
 -height: 200;
-}
+}*/
 
 .combo-box .list-view .list-cell{
 -fx-cell-size: 25;
@@ -775,11 +775,29 @@ src: url("centurygothic.ttf");
 }
    
 .textInputBold {
-    -fx-background-color: #ECECEC;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #ECECEC transparent;
+    -fx-border-width: 1.5px;
     -fx-font-size: 13;
     -fx-padding: 2 0 2 0;
     -fx-background-radius: 0;    
     -fx-font-weight: bold ;
+}
+
+#textInputBoxBold {
+      -fx-background-color: #ECECEC;
+      -fx-font-size: 13;
+      -fx-padding: 2 0 2 0;
+      -fx-background-radius: 0;  
+      -fx-font-weight: bold ;   
+}
+
+#textInputBox {
+      -fx-background-color: #ECECEC;
+      -fx-font-size: 13;
+      -fx-padding: 2 0 2 0;
+      -fx-background-radius: 0;  
+      
 }
 
 .header {
@@ -977,3 +995,5 @@ src: url("centurygothic.ttf");
     -fx-font-style: italic;
     -fx-fill: #292929;
 }*/
+
+
