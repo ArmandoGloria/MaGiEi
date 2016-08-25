@@ -97,10 +97,13 @@
                   <VBox fx:id="dataPane" layoutY="-2.0" prefHeight="601.0" prefWidth="607.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane minHeight="-Infinity" prefHeight="564.0" prefWidth="212.0">
                <children>
-                  <Button fx:id="btnMenuBar" layoutX="65.0" layoutY="326.0" mnemonicParsing="false" onAction="#loadPane" text="Button" />
-                  <Button layoutX="65.0" layoutY="438.0" mnemonicParsing="false" text="Button" />
+                  <AnchorPane id="Green" layoutX="-2.0" layoutY="108.0" prefHeight="492.0" prefWidth="200.0">
+                     <children>
+                        <Button id="VisitasEnfermeriaButton" fx:id="btnMenuBar" layoutX="45.0" layoutY="24.0" mnemonicParsing="false" onAction="#loadPane" prefHeight="99.0" prefWidth="112.0" />
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </items>

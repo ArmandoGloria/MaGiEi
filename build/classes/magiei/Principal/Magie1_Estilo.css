@@ -371,7 +371,18 @@ src: url("centurygothic.ttf");
 }
 /* -------------------------------------------*/
 
+#VisitasEnfermeriaButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/BotonVisitasEnf.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}
 
+#Green {
+    -fx-background-color: -fx-maincolor;
+}
 .menu-item {
     
     
