@@ -985,15 +985,15 @@ src: url("centurygothic.ttf");
     -fx-background-color: transparent;
 }
 
-/*@font-face {
+@font-face {
     
     src: url("../../Resources/Fuentes/MDfont.ttf");
 } 
 
-#myDialog .label {
-    -fx-font-family: "Guru Meditation NBP";
+#myDialog  .label *{
+    -fx-font-family : "Guru Meditation NBP" ;
     -fx-font-size: 15px;
-    -fx-text-fill: rgba(0, 158, 170, .7);
+    -fx-fill: rgba(0, 158, 170, .7);
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-background-image-radius: 10px;
@@ -1014,7 +1014,7 @@ src: url("centurygothic.ttf");
     -fx-border-radius: 5px; 
 }
 /*
-#myDialog > *.button-bar > *.container{
+#myDialog > *.button-bar > *.container rgba(0, 158, 170, .7);{
     -fx-background-color: #a9e200;
 }
 #myDialog > *.label.content{

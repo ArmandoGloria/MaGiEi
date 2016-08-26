@@ -43,8 +43,7 @@ public class MaGiEi1 extends Application {
     public void start(Stage stage) throws Exception {
 	
 	 
-        Font.loadFont(getClass().getResourceAsStream("MDfont.ttf"), 14);
-         //Font.loadFont(MaGiEi1.class.getResource("../../Resources/Fuentes/MDfont.ttf").toExternalForm(), 10);
+        
      
 	// load main form in to VBox (Root)
         VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
