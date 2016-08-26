@@ -33,11 +33,11 @@
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="211.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
                                        <children>
                                           <Label layoutY="10.0" prefHeight="18.0" prefWidth="150.0" text="No. de Empleado" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField id="textInputBoxBold" fx:id="txtNoEmpleadoPaciente" layoutY="30.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="93.0" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" />
+                                          <TextField id="textInputBoxBold" fx:id="txtNoEmpleadoPaciente" layoutX="12.0" layoutY="30.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="112.0" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="11.0" />
                                           <ComboBox id="CBstatus" fx:id="cboEstatusPaciente" accessibleRole="LIST_VIEW" disable="true" layoutX="118.0" layoutY="92.0" onAction="#CambiarColor" prefHeight="35.0" prefWidth="78.0" promptText="Estatus" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.rightAnchor="16.0" />
-                                          <Button fx:id="btnAgregarPaciente" layoutX="149.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
+                                          <Button fx:id="btnAgregarPaciente" layoutX="155.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
                                           <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="23.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
-                                          <Button fx:id="btnBuscarPaciente" layoutX="119.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
+                                          <Button fx:id="btnBuscarPaciente" layoutX="132.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
                                           <Label layoutX="17.0" layoutY="179.0" prefHeight="18.0" prefWidth="82.0" text="Nombres" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField fx:id="txtNombrePaciente" layoutX="17.0" layoutY="199.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label layoutX="17.0" layoutY="229.0" prefHeight="18.0" prefWidth="127.0" text="Apellido Paterno" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
