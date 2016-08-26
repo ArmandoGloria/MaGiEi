@@ -380,7 +380,7 @@ public class MDIController implements Initializable {
 		    }
 		    else{
 			   MessageBox msj = new MessageBox();
-			 msj.show("Error","","Debe seleccionar un registro prmero ",Alert.AlertType.WARNING,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+			 msj.show("Error","","Debe seleccionar un registro primero.",Alert.AlertType.WARNING,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 			 //msj.show("fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff\n fddgfffffffffffffffffffffffffff", "fgghhhhhhhhhhhhhhhhhhhhhhhhhhhg",getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 			 
 
@@ -404,7 +404,7 @@ public class MDIController implements Initializable {
 		}
 		catch(Exception ex){
 //			    global.MessageBox.show("Error","Error al Editar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
-           MessageBox.show("Error","","Error al Editar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+           MessageBox.show("Error","","Error al editar la informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 		}
 	}
 
@@ -529,7 +529,7 @@ public class MDIController implements Initializable {
 //					}
 				}
 				catch(Exception ex) {
-					MessageBox.show("Error","","Error al guargar estacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+					MessageBox.show("Error","","Error al guardar estacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 				}
 				
 				MessageBox.show("Guardar","","Informacion Almacenada ",Alert.AlertType.INFORMATION,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
@@ -548,11 +548,11 @@ public class MDIController implements Initializable {
 			
 		}
 		else{
-			MessageBox.show("Error","","Flantan datos Obligatorios",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+			MessageBox.show("Error","","Faltan datos Obligatorios",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 		}
 		}
 		catch (Exception ex) {
-			MessageBox.show("Error","","Error al guargar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+			MessageBox.show("Error","","Error al guardar informacion \n ERROR : " + ex.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 		}
 	}
 
