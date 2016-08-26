@@ -371,6 +371,36 @@ src: url("centurygothic.ttf");
 }
 /* -------------------------------------------*/
 
+#VisitasEnfermeriaButton{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/BotonVisitasEnf.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}
+
+#VisitasEnfermeriaButton:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/BotonVisitasEnfHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}
+
+#HomeButton {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/Logo.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;  
+}
+
+
+#Green {
+    -fx-background-color: -fx-maincolor;
+}
 
 .menu-item {
     
@@ -756,6 +786,11 @@ src: url("centurygothic.ttf");
     
 }
 
+#LabelChartMDI{
+    -fx-text-fill: #808080;
+    -fx-font-size:30px; 
+    
+}
 
 /*others*/
 
@@ -950,10 +985,10 @@ src: url("centurygothic.ttf");
     -fx-background-color: transparent;
 }
 
-@font-face {
+/*@font-face {
     
     src: url("../../Resources/Fuentes/MDfont.ttf");
-}
+} 
 
 #myDialog .label {
     -fx-font-family: "Guru Meditation NBP";
