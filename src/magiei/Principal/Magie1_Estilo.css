@@ -20,9 +20,9 @@ src: url("centurygothic.ttf");
 -fx-linecolor: #DADADA;
 -fx-interacttext:#808080;
 -fx-warningcolor:#ff0000;
- }
-
+-fx-scrollthumbcolor: linear-gradient(to right,#ececec);
  /* Containers */
+ }
  
  .split-pane {
      -fx-background-color: -fx-backgroundcolor;   
@@ -84,27 +84,65 @@ src: url("centurygothic.ttf");
     -fx-border-color: white;
 }
 
+
+
 .scroll-pane > .scroll-bar{
-    -fx-border-color: white;
+    -fx-border-color: -fx-backgroundcolor;
 }
+
 
 .scroll-pane > .scroll-bar:vertical > .track{
     -fx-background-color:   -fx-backgroundcolor;
 }
 
 .scroll-pane > .scroll-bar:vertical > .track-background{
-    -fx-background-color:white
+    -fx-background-color: -fx-backgroundcolor;
 }
 
 .scroll-pane > .scroll-bar:vertical > .thumb{
-    -fx-opacity: .5;
+    -fx-background-color: transparent;
+   
+    
+}
+
+.scroll-pane:hover > .scroll-bar:vertical > .thumb{
+    
+    -fx-opacity: .3;
+    -fx-background-color: derive(#ececec, -23%),linear-gradient(to bottom,
+                ladder(
+                    #ECECEC,
+                    derive(#ECECEC,30%) 0%,
+                    derive(#ECECEC,20%) 40%,
+                    derive(#ECECEC,25%) 60%,
+                    derive(#ECECEC,55%) 80%,
+                    derive(#ECECEC,55%) 90%,
+                    derive(#ECECEC,75%) 100%
+                ),
+                ladder(
+                    #ECECEC,
+                    derive(#ECECEC,20%) 0%,
+                    derive(#ECECEC,10%) 20%,
+                    derive(#ECECEC,5%) 40%,
+                    derive(#ECECEC,-2%) 60%,
+                    derive(#ECECEC,-5%) 100%
+                )), linear-gradient(to right, derive(#ECECEC,40%) ,derive(#ECECEC,0%));
+   
+    
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
+    -fx-background-color: transparent;
+}
+
+.scroll-pane:hover > .scroll-bar:vertical > .increment-button > .increment-arrow{
     -fx-background-color: -fx-maincolor;
 }
 
 .scroll-pane > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
+    -fx-background-color: transparent;
+}
+
+.scroll-pane:hover > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
     -fx-background-color: -fx-maincolor;
 }
 /* Buttons */ 
