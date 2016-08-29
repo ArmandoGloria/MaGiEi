@@ -20,7 +20,7 @@ src: url("centurygothic.ttf");
 -fx-linecolor: #DADADA;
 -fx-interacttext:#808080;
 -fx-warningcolor:#ff0000;
--fx-scrollthumbcolor: linear-gradient(to right,#ececec);
+/*-fx-scrollthumbcolor: linear-gradient(to right,#ececec);******Daba error*******************/
  /* Containers */
  }
  

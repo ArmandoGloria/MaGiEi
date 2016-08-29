@@ -8,20 +8,14 @@ package magiei.ExamenNvoIngreso;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 
 /**
  *
  * @author SergioHome
  */
 public class ExamenNvoIngresoController implements Initializable {
-    
-    
+
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
         
@@ -31,6 +25,4 @@ public class ExamenNvoIngresoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    
 }

@@ -46,6 +46,8 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 import javafx.animation.FadeTransition;
+import javafx.application.ConditionalFeature;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -58,9 +60,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tooltip;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
@@ -125,12 +131,14 @@ public class MDIController implements Initializable {
 		CargarCombos();
 		
 		txtNoEmpleadoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
-		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(10));
+		txtNombrePaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(100));
+		txtApellidoPaternoPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(100));
+		txtApellidoMaternoPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(100));
 		cboDiaFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(2,31,1));
 		cboAnioFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_ValidationCbo(5,cboAnioFechaNacPaciente.getItems().get(cboAnioFechaNacPaciente.getItems().size()-1),cboAnioFechaNacPaciente.getItems().get(0)));
 		//cboMesFechaNacPaciente.addEventFilter(KeyEvent.KEY_TYPED , letter_ValidationCbo(11));
 		//********FxUtil.autoCompleteComboBox(cboAnioFechaNacPaciente, FxUtil.AutoCompleteMode.STARTS_WITH);
-		new AutoCompleteComboBoxListener<MesObj>(cboAnioFechaNacPaciente);
+		new AutoCompleteComboBoxListener<Integer>(cboAnioFechaNacPaciente);
 		new AutoCompleteComboBoxListener<MesObj>(cboMesFechaNacPaciente);
 		
 		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
@@ -268,6 +276,26 @@ public class MDIController implements Initializable {
 		    }catch(Exception ex){}
 		  
 		    btnImgPaciente.setText("");
+		    Circle  clip = new Circle  (
+                imgPaciente.getFitWidth()/3, imgPaciente.getFitHeight()/3,imgPaciente.getFitHeight()/3
+            );
+		     Circle circ2 = new Circle(50);
+//        circ2.setTranslateX(120);
+//        circ2.setTranslateY(10);
+//        circ2.setCenterX(50);
+//        circ2.setCenterY(50);
+        circ2.setFill(new ImagePattern(imagen, 20, 20, 40, 40, false));
+
+            /*clip.setArcWidth(20);
+            clip.setArcHeight(20);*/
+	    Circle circle = new Circle(14,10,10);
+ImagePattern pattern = new ImagePattern(imagen);
+circle.setFill(pattern);
+if (Platform.isSupported(ConditionalFeature.EFFECT)) {
+    circle.setEffect(new DropShadow(8, Color.rgb(0, 0, 0, 0.8)));
+}
+            imgPaciente.setClip(circ2);
+
 			    imgPaciente.setImage(imagen);
 			    imgPaciente.setVisible(true);
 		    }
@@ -902,7 +930,7 @@ public void setDataPane(Node node) {
 		    if (txt_TextField.getText().length() >= max_Lengh) {                    
 			e.consume();
 		    }
-		    if(e.getCharacter().matches("[A-Za-z]||\u00F1||\u00D1")){ 
+		    if(e.getCharacter().matches("[A-Za-z ]||\u00F1||\u00D1")){ 
 		    }else{
 			e.consume();
 		    }
