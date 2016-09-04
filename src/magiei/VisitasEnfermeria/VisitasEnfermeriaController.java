@@ -10,7 +10,6 @@ import Resources.MessageBox;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.net.URL;
-//import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,9 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -73,9 +70,17 @@ public class VisitasEnfermeriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-	
+//	Date today;
+	String result;
+	SimpleDateFormat formatter;
 	Calendar calendar = Calendar.getInstance();
-	cboFechaVisitasP.setPromptText(calendar.getTime().toLocaleString());
+	
+	formatter = new SimpleDateFormat("dd . MMMM . yyyy");
+//	today = new Date();
+	result = formatter.format(calendar.getTime());
+	
+	cboFechaVisitasP.setPromptText(result.replace(".", "de"));
+//	cboFechaVisitasP.setPromptText(calendar.getTime().toLocaleString());
 	txtVisitasNoPaciente.addEventFilter(KeyEvent.KEY_TYPED , numeric_Validation(10));
 	txtVisitasNombreP.addEventFilter(KeyEvent.KEY_TYPED , letter_Validation(100));
     }
@@ -108,7 +113,7 @@ public class VisitasEnfermeriaController implements Initializable {
 
 
 		    DefaultTableModel dt;
-		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtVisitasNoPaciente.getText() + "%' and (Nombre + ' ' + ApPat + ' ' + ApMat) like'%" + txtVisitasNombreP.getText() + "%' order by NoEmpleado  limit 1;  "));
+		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtVisitasNoPaciente.getText() + "' or (Nombre + ' ' + ApPat + ' ' + ApMat) like'%" + txtVisitasNombreP.getText() + "%' order by NoEmpleado  limit 1;  "));
     //	    table = new JTable(test.GetTable("SELECT * FROM magiei_db.t_paciente where nombre like'%" + txtNoPaciente.getText() + "%'; "));
 		    if(dt.getRowCount()>0)
 		    {
@@ -310,7 +315,7 @@ public class VisitasEnfermeriaController implements Initializable {
 							"where t_paciente.idPaciente="+ id +" ; "));
 			
 		for (Integer a=0;a<dt.getRowCount() ;a++){
-		StrStations += dt.getValueAt(a, 0).toString() + ", " + dt.getValueAt(a, 1).toString() + "; ";
+		StrStations += dt.getValueAt(a, 0).toString() + "-" + dt.getValueAt(a, 1).toString() + "; ";
 		}
 		StrStations=StrStations.substring(0, StrStations.length()-2);
 		}

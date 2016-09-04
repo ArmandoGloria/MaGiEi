@@ -30,7 +30,7 @@ src: url("centurygothic.ttf");
  
  .split-pane > .split-pane-divider{
      -fx-background-color: -fx-linecolor;
-     -fx-min-widht: -fx-linewidth;
+     /*-fx-min-widht: -fx-linewidth;*/
      -fx-max-width: -fx-linewidth;
      -fx-pref-width: -fx-linewidth;
  }
@@ -43,7 +43,7 @@ src: url("centurygothic.ttf");
 
 .titled-pane {
     -fx-color: -fx-backgroundcolor;
-    -fx-padding: -1 -1 -1 -1;
+    /*-fx-padding: -1 -1 -1 -1;*/
     -fx-text-fill:#808080;   
 }
 
@@ -51,7 +51,7 @@ src: url("centurygothic.ttf");
 
 .titled-pane:expanded {
     -fx-color: white;
-    -fx-padding:-1 -1 -2 -1;   
+    /*-fx-padding:-1 -1 -2 -1; */  
 }   
 
 
@@ -108,7 +108,7 @@ src: url("centurygothic.ttf");
 .scroll-pane:hover > .scroll-bar:vertical > .thumb{
     
     -fx-opacity: .3;
-    -fx-background-color: derive(#ececec, -23%),linear-gradient(to bottom,
+/*    -fx-background-color: derive(#ececec, -23%),linear-gradient(to bottom,
                 ladder(
                     #ECECEC,
                     derive(#ECECEC,30%) 0%,
@@ -127,7 +127,7 @@ src: url("centurygothic.ttf");
                     derive(#ECECEC,-5%) 100%
                 )), linear-gradient(to right, derive(#ECECEC,40%) ,derive(#ECECEC,0%));
    
-    
+   */ 
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{

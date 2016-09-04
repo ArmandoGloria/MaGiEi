@@ -54,20 +54,23 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javafx.util.Duration;
@@ -101,7 +104,15 @@ public class MDIController implements Initializable {
 	@FXML
 	private Label lblEstaciones;
 	@FXML
-	private Rectangle imgRectangulo;
+	private Circle imgCirculo;
+	@FXML
+	private SplitPane SplitPanelMDI;
+	@FXML
+	private Accordion AcordionMDI;
+	@FXML
+	private TitledPane tituloPaciente;
+	@FXML
+	private AnchorPane PanelMenus;
 	
 	//protected ObservableList<CheckItem> items =FXCollections.observableArrayList(); ;//= fetchItems();
 
@@ -228,7 +239,7 @@ public class MDIController implements Initializable {
 
 
 		    DefaultTableModel dt;
-		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "%' and Nombre like'" + txtNombrePaciente.getText() + "%' and ApPat like'" + txtApellidoPaternoPaciente.getText() + "%' and ApMat like'" + txtApellidoMaternoPaciente.getText() + "%' order by NoEmpleado  limit 1;  "));
+		    dt=(MySqlJavaCon.GetTable("SELECT * FROM magiei_db.t_paciente where NoEmpleado like'" + txtNoEmpleadoPaciente.getText() + "' or Nombre like'" + txtNombrePaciente.getText() + "%' and ApPat like'" + txtApellidoPaternoPaciente.getText() + "%' and ApMat like'" + txtApellidoMaternoPaciente.getText() + "%' order by NoEmpleado  limit 1;  "));
     //	    table = new JTable(test.GetTable("SELECT * FROM magiei_db.t_paciente where nombre like'%" + txtNoPaciente.getText() + "%'; "));
 		    if(dt.getRowCount()>0)
 		    {
@@ -276,28 +287,28 @@ public class MDIController implements Initializable {
 		    }catch(Exception ex){}
 		  
 		    btnImgPaciente.setText("");
-		    Circle  clip = new Circle  (
-                imgPaciente.getFitWidth()/3, imgPaciente.getFitHeight()/3,imgPaciente.getFitHeight()/3
-            );
-		     Circle circ2 = new Circle(50);
+//		    Circle  clip = new Circle  (
+//                imgPaciente.getFitWidth()/3, imgPaciente.getFitHeight()/3,imgPaciente.getFitHeight()/3
+//            );
+//		     Circle circ2 = new Circle(50);
 //        circ2.setTranslateX(120);
 //        circ2.setTranslateY(10);
 //        circ2.setCenterX(50);
 //        circ2.setCenterY(50);
-        circ2.setFill(new ImagePattern(imagen, 20, 20, 40, 40, false));
+//        imgCirculo.setFill(new ImagePattern(imagen, 20, 20, 40, 40, false));
 
             /*clip.setArcWidth(20);
             clip.setArcHeight(20);*/
-	    Circle circle = new Circle(14,10,10);
+//	    Circle circle = new Circle(14,10,10);
 ImagePattern pattern = new ImagePattern(imagen);
-circle.setFill(pattern);
-if (Platform.isSupported(ConditionalFeature.EFFECT)) {
-    circle.setEffect(new DropShadow(8, Color.rgb(0, 0, 0, 0.8)));
-}
-            imgPaciente.setClip(circ2);
+imgCirculo.setFill(pattern);
+//if (Platform.isSupported(ConditionalFeature.EFFECT)) {
+//    circle.setEffect(new DropShadow(8, Color.rgb(0, 0, 0, 0.8)));
+//}
+//            imgPaciente.setClip(circ2);
 
-			    imgPaciente.setImage(imagen);
-			    imgPaciente.setVisible(true);
+//			    imgPaciente.setImage(imagen);
+//			    imgPaciente.setVisible(true);
 		    }
 		    //MySqlJavaCon.CerrarConexion();
 		}
@@ -819,7 +830,14 @@ public void setDataPane(Node node) {
 
 	@FXML
     public void loadPane(ActionEvent event) throws IOException {
+	    
+//	SplitPanelMDI.setDividerPosition(1,0.5);
+//	SplitPanelMDI.setDividerPositions(0.1);
         setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+	
+//	AcordionMDI;
+//	tituloPaciente;
+//	PanelMenus;
     }
 
 //    public void loadPane2(ActionEvent event) throws IOException {

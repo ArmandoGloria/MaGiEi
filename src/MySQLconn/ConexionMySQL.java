@@ -49,12 +49,14 @@ public class ConexionMySQL
         }
         catch(SQLException SQLE)
         {
-		MessageBox.show("Error","","No se pudo conectar a la base de datos \nERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+		MessageBox.show("Error",""," \nERROR : " + "S-00001",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//		MessageBox.show("Error","","No se pudo conectar a la base de datos \nERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            // JOptionPane.showMessageDialog(null,"ERROR EN LA CONEXION CON BD\nERROR : " + SQLE.getMessage());
         }
         catch(ClassNotFoundException CNFE)
         {
-            MessageBox.show("Error","","ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error","","\nERROR : " + "S-00002",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//	    MessageBox.show("Error","","ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR DRIVER BD JAVA\nERROR : " + CNFE.getMessage());
         }
     }
@@ -84,7 +86,8 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            MessageBox.show("Error","","No se pudo insertar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error","","\n ERROR : " + "S-00007",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//            MessageBox.show("Error","","No se pudo insertar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }
 	finally{
@@ -103,7 +106,8 @@ public class ConexionMySQL
     } 
         catch (SQLException SQLE)
         {
-            MessageBox.show("Error","","Error al guardar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error","","\n ERROR : " + "S-00006",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//            MessageBox.show("Error","","Error al guardar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR AL INSERTAR EN LA BD \n ERROR : " + SQLE.getMessage());
         }finally {
 		try {
@@ -129,7 +133,8 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            MessageBox.show("Error","","No se pudo modificar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error","","\n ERROR : " + "S-00005",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//	    MessageBox.show("Error","","No se pudo modificar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR AL MODIFICAR LA TABLA DE LA BD \n ERROR : " + SQLE.getMessage());
         }
     }
@@ -187,7 +192,8 @@ public class ConexionMySQL
         }
         catch (SQLException SQLE)
         {
-            MessageBox.show("Error","","No se pudo cargar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error",""," \n ERROR : " + "S-00004",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//	    MessageBox.show("Error","","No se pudo cargar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
         }
 
@@ -200,7 +206,8 @@ public class ConexionMySQL
 	}
 	catch(SQLException SQLE)
         {
-            MessageBox.show("Error","","No se pudo cargar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+            MessageBox.show("Error","","\n ERROR : " + "S-00003",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
+//	    MessageBox.show("Error","","No se pudo cargar la informacion \n ERROR : " + SQLE.getMessage(),Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
            //JOptionPane.showMessageDialog(null,"ERROR AL CARGAR LOS DATOS DE LA BD \n ERROR : " + SQLE.getMessage());
 	}
     }
