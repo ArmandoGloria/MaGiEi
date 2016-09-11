@@ -205,8 +205,8 @@ public class MDIController implements Initializable {
 	private Button btnGuardarNvoPaciente;
 	@FXML
 	private Button btnCancelarAltaPaciente;
-	@FXML
-	private ImageView imgPaciente;
+//	@FXML
+//	private ImageView imgPaciente;
 	
 	protected ObservableList<String> status =FXCollections.observableArrayList("Activo","Inactivo");
 	@FXML
@@ -305,8 +305,9 @@ imgCirculo.setFill(pattern);
 //if (Platform.isSupported(ConditionalFeature.EFFECT)) {
 //    circle.setEffect(new DropShadow(8, Color.rgb(0, 0, 0, 0.8)));
 //}
-//            imgPaciente.setClip(circ2);
+//            imgPaciente.setClip(imgCirculo);
 
+			
 //			    imgPaciente.setImage(imagen);
 //			    imgPaciente.setVisible(true);
 		    }
@@ -343,7 +344,8 @@ imgCirculo.setFill(pattern);
 		    cboEstatusPaciente.setId("CBstatus");
 		   //cboEstatusPaciente.setValue("Estaciones"); 
 		    txtNoEmpleadoPaciente.clear();
-		    imgPaciente.setImage(null);
+//		    imgPaciente.setImage(null);
+imgCirculo.setFill(null);
 		    //cboEstatusPaciente.getValue(dt.getValueAt(0,9));
 		    fileImage=null;
 		    
@@ -375,7 +377,7 @@ imgCirculo.setFill(pattern);
 		  //txtNombrePaciente.disableProperty().set(deshabilitar);     
 		  //txtNoEmpleadoPaciente.disableProperty().set(deshabilitar);
 		  cboEstatusPaciente.disableProperty().set(deshabilitar);
-		  imgPaciente.disableProperty().set(deshabilitar);
+//		  imgPaciente.disableProperty().set(deshabilitar);
 		  btnImgPaciente.disableProperty().set(deshabilitar);
 		  
 		  cboEstacionesPaciente.disableProperty().set(deshabilitar);
@@ -636,9 +638,12 @@ imgCirculo.setFill(pattern);
 
 			Image imagen = SwingFXUtils.toFXImage(read, null);
 			
-			imgPaciente.setImage(imagen);
+//			imgPaciente.setImage(imagen);			
+//			imgPaciente.setVisible(true);
 			
-			imgPaciente.setVisible(true);
+ImagePattern pattern = new ImagePattern(imagen);
+imgCirculo.setFill(pattern);
+			
 			fileImage=new File(get.toString());
 			
 			
@@ -831,7 +836,7 @@ public void setDataPane(Node node) {
 	@FXML
     public void loadPane(ActionEvent event) throws IOException {
 	    
-//	SplitPanelMDI.setDividerPosition(1,0.5);
+	SplitPanelMDI.setDividerPosition(0,0.043);
 //	SplitPanelMDI.setDividerPositions(0.1);
         setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
 	

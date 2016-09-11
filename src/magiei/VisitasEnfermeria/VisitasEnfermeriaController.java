@@ -30,7 +30,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javax.imageio.ImageIO;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,11 +52,7 @@ public class VisitasEnfermeriaController implements Initializable {
 	@FXML
 	private TextField txtVisitasNoPaciente;
 	@FXML
-	private Button btnImgPaciente;
-	@FXML
 	private ImageView imgVisitasPaciente;
-	@FXML
-	private Rectangle imgRectangulo;
 	@FXML
 	private Label lblVisitasEdadSexo;
 	@FXML
@@ -64,6 +61,10 @@ public class VisitasEnfermeriaController implements Initializable {
 	private Button btnVisitasBuscarP;
 	@FXML
 	private ComboBox<Date> cboFechaVisitasP;
+	@FXML
+	private Button btnImgPaciente2;
+	@FXML
+	private Circle imgCirculo2;
     /**
      * Initializes the controller class.
      */
@@ -153,9 +154,11 @@ public class VisitasEnfermeriaController implements Initializable {
 			    imagen = SwingFXUtils.toFXImage(read, null);
 		    }catch(Exception ex){}
 		  
-		    btnImgPaciente.setText("");
-			    imgVisitasPaciente.setImage(imagen);
-			    imgVisitasPaciente.setVisible(true);
+//		    btnImgPaciente2.setText("");
+ImagePattern pattern = new ImagePattern(imagen);
+imgCirculo2.setFill(pattern);
+//			    imgVisitasPaciente.setImage(imagen);
+//			    imgVisitasPaciente.setVisible(true);
 		    }
 		    //MySqlJavaCon.CerrarConexion();
 		}
@@ -174,6 +177,7 @@ public class VisitasEnfermeriaController implements Initializable {
 		    lblVisitasEdadSexo.setText("");
 		    lblVistasPuestoEstaArea.setText("");
 	
+imgCirculo2.setFill(null);
 //		    txtNombrePaciente.clear();
 //		    txtApellidoPaternoPaciente.clear();
 //		    txtApellidoMaternoPaciente.clear();

@@ -11,7 +11,6 @@ src: url("centurygothic.ttf");
 
  *{   
 -fx-font-family: "Century Gothic";
-/*-fx-font-family: url("../../Resources/Fuentes/centurygothic.ttf");*/
 -fx-maincolor: #24BE58;
 -fx-hovercolor:#39e600;
 -fx-backgroundcolor: white;
@@ -27,14 +26,14 @@ src: url("centurygothic.ttf");
  .split-pane {
      -fx-background-color: -fx-backgroundcolor;   
  }
- 
+ /*
  .split-pane > .split-pane-divider{
      -fx-background-color: -fx-linecolor;
-     /*-fx-min-widht: -fx-linewidth;*/
+     /*-fx-min-widht: -fx-linewidth;*//*
      -fx-max-width: -fx-linewidth;
      -fx-pref-width: -fx-linewidth;
  }
-
+*/
  .AnchorPane{
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-color:  transparent;
@@ -51,7 +50,7 @@ src: url("centurygothic.ttf");
 
 .titled-pane:expanded {
     -fx-color: white;
-    /*-fx-padding:-1 -1 -2 -1; */  
+    /*-fx-padding:-1 -1 -2 -1; **/ 
 }   
 
 
@@ -127,7 +126,7 @@ src: url("centurygothic.ttf");
                     derive(#ECECEC,-5%) 100%
                 )), linear-gradient(to right, derive(#ECECEC,40%) ,derive(#ECECEC,0%));
    
-   */ 
+   */
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
@@ -336,13 +335,12 @@ src: url("centurygothic.ttf");
     -fx-cursor: hand;
     -fx-padding: 5 5 5 5;   
 }
-
-
+/************************************************************
 .menu-button .check-box > .box {
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-color: -fx-maincolor;
 }
-
+*/
 .menu-button .check-box > .box:selected > .mark {
     -fx-background-color: -fx-maincolor;
 }
@@ -381,8 +379,6 @@ src: url("centurygothic.ttf");
     -fx-text-fill: #39e600;
 }
 
-
-
 #addPictureButton{
     -fx-background-color:  transparent;
     -fx-text-fill: -fx-maincolor;
@@ -393,20 +389,19 @@ src: url("centurygothic.ttf");
 /*    -fx-padding: 18 15 18 15;  */
     
 }
-
+/*********************************************
 #PictureRect{
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-font-size: 14;
-/*    -fx-padding: 18 15 18 15;  */
-    
-}
-
+/*    -fx-padding: 18 15 18 15;  *//*
+}*/
+/*
 #Margen{
     -fx-fill: transparent;
     -fx-stroke: -fx-maincolor;
     -fx-stroke-width:1px;
-}
+}*/
 /* -------------------------------------------*/
 
 #VisitasEnfermeriaButton{

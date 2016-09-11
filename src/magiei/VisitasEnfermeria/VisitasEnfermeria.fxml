@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.VisitasEnfermeria.VisitasEnfermeriaController">
@@ -34,19 +34,20 @@
                         <Insets bottom="2.0" top="2.0" />
                      </padding>
                   </TextField>
-                  <Button id="addPictureButton" fx:id="btnImgPaciente" contentDisplay="CENTER" disable="true" layoutX="33.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="93.0" prefWidth="88.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Agregar Foto" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="33.0">
-                                             <graphic>
-                                                <ImageView fx:id="imgVisitasPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
-                                                   <viewport>
-                                                      <Rectangle2D />
-                                                   </viewport>
-                                                </ImageView>
-                                             </graphic></Button>
-                  <Rectangle id="Margen" fx:id="imgRectangulo" arcHeight="10.0" arcWidth="10.0" fill="DODGERBLUE" height="95.0" layoutX="21.0" layoutY="-52.0" stroke="BLACK" strokeType="INSIDE" width="90.0" x="12.0" y="70.0" />
+                                          <ImageView fx:id="imgVisitasPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
+                                             <viewport>
+                                                <Rectangle2D />
+                                             </viewport>
+                                          </ImageView>
                   <Label fx:id="lblVisitasEdadSexo" layoutX="142.0" layoutY="69.0" prefHeight="25.0" prefWidth="231.0" styleClass="temp" text="30 años, Masculino" />
                   <Label fx:id="lblVistasPuestoEstaArea" layoutX="142.0" layoutY="89.0" prefHeight="25.0" prefWidth="231.0" styleClass="temp" text="Operador, BMW-ME301" />
                   <ComboBox fx:id="cboFechaVisitasP" layoutX="28.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="combobox" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="360.0" />
                   <Button fx:id="btnVisitasBuscarP" layoutX="238.0" layoutY="23.0" mnemonicParsing="false" onAction="#CargarVisitaPaciente" styleClass="searchButton" />
+                  <Button id="addPictureButton" fx:id="btnImgPaciente2" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="95.0" prefWidth="90.0" style="-fx-background-color: Trasnsparent; -fx-border-color: Trasnsparent;" stylesheets="@../Principal/Magie1_Estilo.css" textAlignment="CENTER" wrapText="true">
+                     <graphic>
+                        <Circle id="Margen" fx:id="imgCirculo2" fill="TRANSPARENT" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="588.0" layoutY="60.0" prefHeight="660.0" prefWidth="373.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
