@@ -26,7 +26,7 @@
                <children>
                   <Accordion fx:id="AcordionMDI" layoutX="-10.0" layoutY="200.0" maxWidth="-Infinity" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
-                        <TitledPane fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" text="Pacientes">
+                        <TitledPane fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false">
                            <content>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                 <content>
@@ -80,12 +80,12 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                      <TitledPane animated="false" text="Incapacidades">
+                      <TitledPane animated="false">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false" text="Sustancias Peligrosas">
+                      <TitledPane animated="false">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
@@ -114,6 +114,8 @@
                   <AnchorPane id="Green" fx:id="PanelMenus" layoutX="-2.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="246.0">
                      <children>
                         <Button id="VisitasEnfermeriaButton" fx:id="btnMenuBar" layoutX="67.0" layoutY="20.0" mnemonicParsing="false" onAction="#loadPane" prefHeight="99.0" prefWidth="112.0" />
+                        <Button fx:id="btntstXX" layoutX="67.0" layoutY="150.0" mnemonicParsing="false" onAction="#unloadPaneMDI" prefHeight="99.0" prefWidth="112.0" text="test" />
+                        <Button fx:id="btntstXX1" layoutX="58.0" layoutY="275.0" mnemonicParsing="false" onAction="#unloadPaneMDI2" prefHeight="99.0" prefWidth="112.0" text="test" />
                      </children>
                   </AnchorPane>
                </children>
