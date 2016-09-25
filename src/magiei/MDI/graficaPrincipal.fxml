@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.graficaPrincipalController">
+   <children>
+      <AnchorPane maxHeight="720.0" maxWidth="960.0" minHeight="720.0" minWidth="960.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: #24BE58;" stylesheets="@../Principal/Magie1_Estilo.css">
+         <children>
+            <Label fx:id="lblIdPaciente" disable="true" layoutX="40.0" layoutY="210.0" prefHeight="16.0" prefWidth="0.0" visible="false" />
+            <Label layoutX="366.0" prefHeight="58.0" prefWidth="229.0" styleClass="header" stylesheets="@../Principal/Magie1_Estilo.css" text="Graficax" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutY="60.0" prefHeight="640.0" prefWidth="960.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+               <children>
+                  <Label fx:id="lblVistasPuestoEstaArea" alignment="CENTER" layoutX="101.0" layoutY="451.0" prefHeight="25.0" prefWidth="448.0" style="-fx-font-size: 20;" text="txt" textAlignment="CENTER" />
+                  <TextField id="textInputBox" fx:id="txtVisitasNoPaciente" layoutX="142.0" layoutY="24.0" onAction="#CargarVisitaPacienteN" onKeyPressed="#BuscarVisitasPacienteN" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="87.0" promptText="No. Paciente" stylesheets="@../Principal/Magie1_Estilo.css" visible="false">
+                     <padding>
+                        <Insets bottom="2.0" top="2.0" />
+                     </padding>
+                  </TextField>
+                  <PieChart fx:id="graficaPrincipal" layoutX="101.0" layoutY="44.0" title="titulo" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
