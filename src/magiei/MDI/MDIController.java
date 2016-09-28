@@ -43,11 +43,14 @@ import javax.swing.table.DefaultTableModel;
 import java.io.IOException;
 import java.util.GregorianCalendar;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import javafx.animation.FadeTransition;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -86,6 +89,8 @@ public class MDIController implements Initializable {
 	
         ConexionMySQL MySqlJavaCon =new ConexionMySQL();
 	
+//	Thread task;//=new Thread(Tarea2doPlano());
+	
 //	GlobalClass1 global;
 	
 	File fileImage; 
@@ -113,6 +118,12 @@ public class MDIController implements Initializable {
 	private TitledPane tituloPaciente;
 	@FXML
 	private AnchorPane PanelMenus;
+	@FXML
+	private ImageView imgPaciente;
+	@FXML
+	private Button btntstXX;
+	@FXML
+	private Button btntstXX1;
 	
 	//protected ObservableList<CheckItem> items =FXCollections.observableArrayList(); ;//= fetchItems();
 
@@ -135,7 +146,7 @@ public class MDIController implements Initializable {
 		cboEstatusPaciente.setItems(status);
 		cboSexoPaciente.setItems(sexo);
 		
-		
+//		task=new Thread(MDIController::Tarea2doPlano);
 			
 		MenuItem[] col = null;
 		
@@ -217,8 +228,7 @@ public class MDIController implements Initializable {
 	protected ComboBox<String> cboSexoPaciente;
 	
 	@FXML
-	private Button btnImgPaciente;
-	
+	private Button btnImgPaciente;	
 	
 	@FXML
 	private MenuButton cboEstacionesPaciente;
@@ -838,7 +848,9 @@ public void setDataPane(Node node) {
 	    
 	SplitPanelMDI.setDividerPosition(0,0.043);
 //	SplitPanelMDI.setDividerPositions(0.1);
-        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+        //setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+	
+        setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
 	
 //	AcordionMDI;
 //	tituloPaciente;
@@ -1044,6 +1056,100 @@ public void setDataPane(Node node) {
 		cboDiaFechaNacPaciente.setItems(DiaFecha);
 	}
 
+	@FXML
+	private void unloadPaneMDI(ActionEvent event) {
+		
+//	SplitPanelMDI.setDividerPositions(0.1);
+//        setDataPane(fadeAnimate(""));
+	
+//        setDataPane(null);
+	task.run();
+//		createWorker();
+//	AcordionMDI;
+//	tituloPaciente;
+//	PanelMenus;
+
+		
+	}
+	
+	
+//public Task createWorker() {
+//        return new Task() {
+//            @Override
+//            protected Object call() throws Exception {
+//                for (int i = 0; i < 10; i++) {
+//                    Thread.sleep(2000);
+////                    updateMessage("2000 milliseconds");
+////                    updateProgress(i + 1, 10);
+//		    setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
+//                }
+//                return true;
+//            }
+//        };
+//    }
+
+
+//Task task = new Task<Void>() {
+//    @Override public Void call() {
+////        static final 
+//	int max = 4;
+//        for (int i=1; i<=max; i++) {
+//            if (isCancelled()) {
+//               break;
+//            }
+////            updateProgress(i, max);
+//		try{
+//                    Thread.sleep(5000);
+//		    setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
+//		    
+//		}
+//		catch(Exception ex) {
+//		}
+//	}
+//        return null;
+//    }
+//};
+
+
+Task task = new Task<Void>() {
+    @Override public Void call() {
+       int max = 10;
+        for (int i=1; i<=max; i++) {
+	       try {
+		       Thread.sleep(5000);
+//		    setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
+	       } catch (InterruptedException ex) {
+		       Logger.getLogger(MDIController.class.getName()).log(Level.SEVERE, null, ex);
+//	       } catch (IOException ex) {
+//		       Logger.getLogger(MDIController.class.getName()).log(Level.SEVERE, null, ex);
+	       }
+//            updateProgress(i, max);
+        }
+        return null;
+    }
+};
+
+	@FXML
+	private void unloadPaneMDI2(ActionEvent event) {
+		task.cancel();
+		
+	}
+	
+	
+	private void Tarea2doPlano(){
+		
+		try {
+			SplitPanelMDI.setDividerPosition(0,0.043);
+			setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
+		} catch (Exception ex) {
+			
+		}
+		
+	}
+	
+	
+
+
 	
 	public static class MesObj {
 
@@ -1166,6 +1272,7 @@ public class AutoCompleteComboBoxListener<T> implements EventHandler<KeyEvent> {
         }
         moveCaretToPos = false;
     }
+    
 
 }
 	
