@@ -7,27 +7,27 @@ package magiei.Principal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-//import javafx.scene.Parent;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-//import javafx.scene.image.Image;
-//import javafx.scene.text.Font;
+import javafx.scene.image.Image;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-//import javafx.stage.Screen;
-//
-//
-//import MySQLconn.ConexionMySQL;
-//import Resources.MessageBox;
-////import br.com.supremeforever.suprememdiwindow.*;
-//import java.io.IOException;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
-//
-//
-//
-//import javafx.event.ActionEvent;
-//import javafx.scene.control.Button;
-//import javafx.scene.image.ImageView;
-//import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
+
+
+import MySQLconn.ConexionMySQL;
+import Resources.MessageBox;
+//import br.com.supremeforever.suprememdiwindow.*;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -41,13 +41,16 @@ public class MaGiEi1 extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
-	    
+	
+	 
+        
+     
 	// load main form in to VBox (Root)
         VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
         // add main form into the scene
         Scene scene = new Scene(mainPane);
         
-        stage.setTitle("MaGiEi 1.1 powered by InteliGene");
+        stage.setTitle("MaGiEi 1.0 powered by InteliGene");
         stage.setScene(scene);
         stage.setMaximized(false);    // make the main form fit to the screen
         stage.setResizable(false);
