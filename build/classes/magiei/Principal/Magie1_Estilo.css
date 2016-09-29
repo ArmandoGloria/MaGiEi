@@ -16,24 +16,42 @@ src: url("centurygothic.ttf");
 -fx-backgroundcolor: white;
 
 -fx-linewidth:0.5px;
--fx-linecolor: #DADADA;
+-fx-linecolor: #B4B5B4; /*#DADADA*/
 -fx-interacttext:#808080;
 -fx-warningcolor:#ff0000;
 /*-fx-scrollthumbcolor: linear-gradient(to right,#ececec);******Daba error*******************/
  /* Containers */
  }
  
+ #TopPane {
+     -fx-background-color: linear-gradient(white, #FFFDFC, #D7D7D7)/*white #EBEBEA #D7D7D7)*/;
+     -fx-border-color: transparent transparent -fx-linecolor transparent;
+     -fx-border-width: 2.5px;
+     
+ }
+ 
+ #Agenda {
+     -fx-background-color: -fx-backgroundcolor;
+     -fx-border-radius: 0;
+     -fx-border-color: -fx-linecolor;
+     -fx-border-width: 1px;
+     -fx-padding: 10 20 10 40;
+  
+ }
+ 
+ 
  .split-pane {
      -fx-background-color: -fx-backgroundcolor;   
  }
- /*
+ 
+ 
  .split-pane > .split-pane-divider{
      -fx-background-color: -fx-linecolor;
-     /*-fx-min-widht: -fx-linewidth;*//*
+     -fx-min-widht: -fx-linewidth;
      -fx-max-width: -fx-linewidth;
      -fx-pref-width: -fx-linewidth;
  }
-*/
+                                      
  .AnchorPane{
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-color:  transparent;
