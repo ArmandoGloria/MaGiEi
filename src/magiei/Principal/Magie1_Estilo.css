@@ -19,6 +19,8 @@ src: url("centurygothic.ttf");
 -fx-linecolor: #B4B5B4; /*#DADADA*/
 -fx-interacttext:#808080;
 -fx-warningcolor:#ff0000;
+-fx-fontcolor: #737373;
+
 /*-fx-scrollthumbcolor: linear-gradient(to right,#ececec);******Daba error*******************/
  /* Containers */
  }
@@ -64,12 +66,13 @@ src: url("centurygothic.ttf");
 .accordion {
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-width: 0;
+    -fx-text-fill: red;
 }
 
 .titled-pane {
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-text-fill:#808080;   
+    -fx-text-fill: -fx-maincolor;   
 }
 
 
@@ -80,13 +83,57 @@ src: url("centurygothic.ttf");
     /*-fx-padding:-1 -1 -2 -1; **/ 
 }   
 
+.titled-pane:hover {
+    -fx-color: white;
+    -fx-border-width: 0;
+    /*-fx-padding:-1 -1 -2 -1; **/ 
+}   
+
+.titled-pane > .title {
+    
+    -fx-background-color: linear-gradient(white, #FFFDFC, #D7D7D7);
+    -fx-border-color: -fx-linecolor;
+    -fx-font-size: 12;
+    
+    -fx-border-width: 0 0 1 0;
+}
+
+
+.titled-pane > .content {
+    -fx-background-color: yellow;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-padding: 0 20 0 0;
+}
+
+
+.titled-pane >  .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-maincolor;
+    -fx-cursor:hand;
+}
+
+.titled-pane >  .title > .arrow-button:hover > .arrow {
+    -fx-background-color: -fx-hovercolor;
+    -fx-cursor:hand;
+}
+
+.titled-pane:focused >  .title > .arrow-button > .arrow {
+    -fx-background-color: -fx-maincolor;
+    -fx-effect:dropshadow(two-pass-box , -fx-hovercolor, 5, 0.2 , 0, 0);
+}
+
+
 #AcordeonPaciente {
-    -fx-border-width: 0;  
+    -fx-border-width: 0; 
+    
 }
 
 #AcordeonPaciente > .title {
     -fx-padding: 10 10 10 3;
+    -fx-font-weight: bold;
 }
+
+
 
 #AcordeonPaciente > .title > .arrow-button {
     
@@ -112,7 +159,8 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonMedicamentos {
-    -fx-border-width: 0;  
+    -fx-border-width: 0; 
+    -fx-font-weight: bold;
 }
 
 #AcordeonMedicamentos > .title {
@@ -143,7 +191,8 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonSustanciasPeligrosas {
-    -fx-border-width: 0;  
+    -fx-border-width: 0; 
+    -fx-font-weight: bold;
 }
 
 #AcordeonSustanciasPeligrosas > .title {
@@ -174,84 +223,64 @@ src: url("centurygothic.ttf");
 }
 
 
-.titled-pane > .title {
-    -fx-background-color: white;
-    -fx-border-color: -fx-linecolor;
-    -fx-font-size: 18;
-    -fx-border-width: .5 0 .5 0;
-}
-.titled-pane > .content {
-    -fx-border-width: 0;
-    -fx-border-color: transparent;
-}
-
-
-.titled-pane >  .title > .arrow-button > .arrow {
-    -fx-background-color: -fx-maincolor;
-    -fx-cursor:hand;
-}
-
-.titled-pane >  .title > .arrow-button:hover > .arrow {
-    -fx-background-color: -fx-hovercolor;
-    -fx-cursor:hand;
-}
-
-.titled-pane:focused >  .title > .arrow-button > .arrow {
-    -fx-background-color: -fx-maincolor;
-    -fx-effect:dropshadow(two-pass-box , -fx-hovercolor, 5, 0.2 , 0, 0);
-}
 
 
 .scroll-pane{
     -fx-border-color: transparent;
     -fx-border-width: 0;
+    
+    
 }
 
 
 
 .scroll-pane > .scroll-bar{
-    -fx-border-color: -fx-backgroundcolor;
-    -fx-padding: 20 5 10 5;
+    -fx-background-color: red;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 20 0 10 0;
+    
 }
 
 
+
 .scroll-pane > .scroll-bar:vertical > .track{
-    -fx-background-color:   -fx-backgroundcolor;
+    -fx-background-color:   blue;
+    -fx-border-width: 0;
+    -fx-max-width:.5;
+    -fx-min-width:.5;
+    -fx-pref-width:.5;
+    -fx-padding: 10 10 10 10;
 }
 
 .scroll-pane > .scroll-bar:vertical > .track-background{
     -fx-background-color: -fx-backgroundcolor;
+    -fx-border-width: 0;
+    -fx-max-width:.5;
+    -fx-min-width:.5;
+    -fx-pref-width:.5;
+    -fx-padding: 40 50 60 70;
 }
 
 .scroll-pane > .scroll-bar:vertical > .thumb{
-    -fx-background-color: transparent;
+    -fx-background-color: -fx-maincolor;
+    -fx-border-width: 0;
+    -fx-max-width:.5;
+    -fx-min-width:.5;
+    -fx-pref-width:.5;
+    -fx-padding: 10 10 10 10;
    
     
 }
 
 .scroll-pane:hover > .scroll-bar:vertical > .thumb{
     
-    -fx-opacity: .3;
-/*    -fx-background-color: derive(#ececec, -23%),linear-gradient(to bottom,
-                ladder(
-                    #ECECEC,
-                    derive(#ECECEC,30%) 0%,
-                    derive(#ECECEC,20%) 40%,
-                    derive(#ECECEC,25%) 60%,
-                    derive(#ECECEC,55%) 80%,
-                    derive(#ECECEC,55%) 90%,
-                    derive(#ECECEC,75%) 100%
-                ),
-                ladder(
-                    #ECECEC,
-                    derive(#ECECEC,20%) 0%,
-                    derive(#ECECEC,10%) 20%,
-                    derive(#ECECEC,5%) 40%,
-                    derive(#ECECEC,-2%) 60%,
-                    derive(#ECECEC,-5%) 100%
-                )), linear-gradient(to right, derive(#ECECEC,40%) ,derive(#ECECEC,0%));
-   
-   */
+    -fx-background-color: -fx-maincolor;
+    -fx-pref-width: 3;
+    -fx-min-width: 3;
+    -fx-max-width: 3;
+    
+
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
@@ -885,18 +914,20 @@ src: url("centurygothic.ttf");
 
 
 
-.label.labelRegular {
-    -fx-font-size: 14;
+.label.labelGeneral {
+    -fx-font-size: 13;
     -fx-padding: 0 0 0 0;
     -fx-background-color: transparent;
-    -fx-font-weight: lighter;   
+    -fx-font-weight: lighter;  
+    -fx-text-fill: -fx-fontcolor;
 }
 
-.label.labelBold {
-    -fx-font-size: 14;
+.label.labelGeneralBold {
+    -fx-font-size: 13;
     -fx-padding: 0 0 0 0;
     -fx-background-color: transparent;
-    -fx-font-weight: bold;   
+    -fx-font-weight: bold; 
+    -fx-text-fill: -fx-fontcolor;
 }
 
 .label.labelSmall {
@@ -956,10 +987,17 @@ src: url("centurygothic.ttf");
 
 
 .textInput {
-      -fx-background-color: #ECECEC;
-      -fx-font-size: 13;
-      -fx-padding: 2 0 2 0;
-      -fx-background-radius: 0;      
+     -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -fx-linecolor -fx-linecolor;
+    -fx-border-width: -fx-linewidth;
+    -fx-font-size: 13;
+    -fx-padding: 0 5 0 5;
+    -fx-background-radius: 0; 
+    -fx-pref-height:20;
+    -fx-min-height:20;
+    -fx-max-height:20;
+    
+     
 }
    
 .textInputBold {
@@ -972,21 +1010,24 @@ src: url("centurygothic.ttf");
     -fx-font-weight: bold ;
 }
 
-#textInputBoxBold {
+#textDirectIDInput {
       -fx-background-color: #ECECEC;
       -fx-font-size: 13;
-      -fx-padding: 2 0 2 0;
-      -fx-background-radius: 0;  
+      -fx-padding: 2 15 2 15;
+      -fx-background-radius: 10;  
       -fx-font-weight: bold ;   
 }
 
-#textInputBox {
-      -fx-background-color: #ECECEC;
-      -fx-font-size: 13;
-      -fx-padding: 2 0 2 0;
-      -fx-background-radius: 0;  
-      
+#labelDirectIDInput {
+    -fx-font-size: 12;
+    -fx-padding: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-font-weight: lighter;  
+    -fx-text-fill: black;
+    
 }
+
+
 
 .header {
     
