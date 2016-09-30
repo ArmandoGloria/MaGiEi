@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
@@ -27,40 +26,40 @@
                   <Insets />
                </opaqueInsets>
             </ComboBox>
-            <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" />
+            <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" />
          </children>
       </AnchorPane>
       <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.2964774951076321, 0.761252446183953" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
          <items>
-            <AnchorPane id="AllWhite" maxWidth="300.0" prefHeight="500.0" prefWidth="127.0">
+            <AnchorPane maxWidth="300.0" prefHeight="500.0" prefWidth="127.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
                   <Accordion fx:id="AcordionMDI" layoutX="-10.0" layoutY="200.0" maxWidth="-Infinity" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
-                        <TitledPane fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false">
+                        <TitledPane id="AcordeonPaciente" fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="PACIENTES">
                            <content>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="211.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="263.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
                                        <children>
-                                          <Label layoutY="10.0" prefHeight="18.0" prefWidth="150.0" text="No. de Empleado" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField id="textInputBoxBold" fx:id="txtNoEmpleadoPaciente" layoutX="12.0" layoutY="30.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="112.0" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="11.0" />
+                                          <Label id="labelDirectIDInput" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="20.0" stylesheets="@../Principal/Magie1_Estilo.css" text="No. de Empleado" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="10.0" />
+                                          <TextField id="textDirectIDInput" fx:id="txtNoEmpleadoPaciente" layoutX="12.0" layoutY="30.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="112.0" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="15.0" />
                                           <ComboBox id="CBstatus" fx:id="cboEstatusPaciente" accessibleRole="LIST_VIEW" disable="true" layoutX="130.0" layoutY="97.0" onAction="#CambiarColor" prefHeight="35.0" prefWidth="78.0" promptText="Estatus" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.rightAnchor="10.0" />
                                           <Button fx:id="btnAgregarPaciente" layoutX="155.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
                                           <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="23.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
                                           <Button fx:id="btnBuscarPaciente" layoutX="132.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
-                                          <Label layoutX="17.0" layoutY="179.0" prefHeight="18.0" prefWidth="82.0" text="Nombres" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField fx:id="txtNombrePaciente" layoutX="17.0" layoutY="199.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <Label layoutX="17.0" layoutY="229.0" prefHeight="18.0" prefWidth="127.0" text="Apellido Paterno" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField fx:id="txtApellidoPaternoPaciente" layoutX="17.0" layoutY="249.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <Label layoutX="17.0" layoutY="279.0" prefHeight="18.0" prefWidth="127.0" text="Apellido Materno " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField fx:id="txtApellidoMaternoPaciente" layoutX="17.0" layoutY="299.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <Label layoutX="17.0" layoutY="329.0" prefHeight="18.0" prefWidth="127.0" text="Fecha de Nacimiento" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutX="17.0" layoutY="179.0" prefHeight="18.0" prefWidth="82.0" styleClass="labelGeneralBold" text="Nombres" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <TextField fx:id="txtNombrePaciente" layoutX="17.0" layoutY="199.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInput" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutX="17.0" layoutY="229.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" text="Apellido Paterno" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <TextField fx:id="txtApellidoPaternoPaciente" layoutX="17.0" layoutY="249.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInput" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutX="17.0" layoutY="279.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" text="Apellido Materno " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <TextField fx:id="txtApellidoMaternoPaciente" layoutX="17.0" layoutY="299.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInput" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutX="17.0" layoutY="329.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" text="Fecha de Nacimiento" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <ComboBox fx:id="cboDiaFechaNacPaciente" disable="true" editable="true" layoutX="6.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#coboClickLimpiarDia" prefHeight="20.0" prefWidth="40.0" promptText="Dia" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="15" AnchorPane.rightAnchor="10.0" />
                                           <ComboBox fx:id="cboMesFechaNacPaciente" disable="true" editable="true" layoutX="55.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#coboClickLimpiarMes" prefHeight="20.0" prefWidth="95.0" promptText="Mes" style="-fx-background-radius: 0;" styleClass="ComBxEditable" visibleRowCount="5" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="54.0" />
                                           <ComboBox fx:id="cboAnioFechaNacPaciente" disable="true" editable="true" layoutX="12.0" layoutY="349.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#coboClickLimpiarAnio" prefHeight="20.0" prefWidth="47.0" promptText="Año" style="-fx-background-radius: 0;" styleClass="ComBxEditable" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="153.0" />
                                           <ComboBox fx:id="cboSexoPaciente" disable="true" layoutX="13.0" layoutY="399.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="187.0" promptText="Genero" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="comboboxBold" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <Label layoutY="425.0" prefHeight="18.0" prefWidth="127.0" text="Posicion/Titulo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <TextField fx:id="txtPosicionPaciente" disable="true" layoutY="445.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInputBold" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutY="425.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" text="Posicion/Titulo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <TextField fx:id="txtPosicionPaciente" disable="true" layoutY="445.0" prefHeight="20.0" prefWidth="197.0" styleClass="textInput" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <MenuButton fx:id="cboEstacionesPaciente" layoutY="475.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" text="Estaciones" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
                                              <padding>
                                                 <Insets left="-9.0" top="-4.0" />
@@ -69,8 +68,8 @@
                                                 <Font name="System Bold" size="13.0" />
                                              </font>
                                           </MenuButton>   
-                                          <Label fx:id="lblEstaciones" layoutY="495.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelBold" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                          <Label fx:id="lblIdPaciente" disable="true" layoutX="30.0" layoutY="200.0" prefHeight="16.0" prefWidth="0.0" visible="false" />
+                                          <Label fx:id="lblEstaciones" layoutY="495.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label fx:id="lblIdPaciente" disable="true" layoutX="30.0" layoutY="200.0" prefHeight="16.0" prefWidth="0.0" styleClass="labelGeneralBold" visible="false" />
                                           <Button fx:id="btnGuardarNvoPaciente" disable="true" mnemonicParsing="false" onAction="#GuardarPaciente" styleClass="commitButtonSmall" text="Guardar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Button fx:id="btnCancelarAltaPaciente" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CancelarPaciente" prefHeight="25.0" prefWidth="76.0" styleClass="selectButtonSmall" text="Cancelar" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="90.0" />
                                           <ImageView fx:id="imgPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
@@ -83,19 +82,19 @@
                                                 <Circle id="Margen" fx:id="imgCirculo" fill="TRANSPARENT" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
                                              </graphic>
                                           </Button>
-                                          <Label layoutX="41.0" layoutY="379.0" text="Sexo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label layoutX="41.0" layoutY="379.0" styleClass="labelGeneralBold" text="Sexo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                      <TitledPane animated="false">
+                      <TitledPane id="AcordeonMedicamentos" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="MEDICAMENTOS">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false">
+                      <TitledPane id="AcordeonSustanciasPeligrosas" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="SUSTANCIAS PELIGROSAS">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
@@ -108,12 +107,7 @@
                <children>
                   <VBox fx:id="dataPane" layoutY="-2.0" prefHeight="601.0" prefWidth="554.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0">
-                           <children>
-                              <Line endX="250.0" layoutX="185.0" layoutY="140.0" startX="-70.0" stroke="#dadada" />
-                              <Line endX="250.0" layoutX="185.0" layoutY="550.0" startX="-70.0" stroke="#dadada" />
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0" />
                      </children></VBox>
                </children>
             </AnchorPane>
