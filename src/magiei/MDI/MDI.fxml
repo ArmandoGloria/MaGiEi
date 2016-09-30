@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
@@ -27,7 +26,7 @@
                   <Insets />
                </opaqueInsets>
             </ComboBox>
-            <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" />
+            <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" />
          </children>
       </AnchorPane>
       <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.2964774951076321, 0.761252446183953" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
@@ -36,7 +35,7 @@
                <children>
                   <Accordion fx:id="AcordionMDI" layoutX="-10.0" layoutY="200.0" maxWidth="-Infinity" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
-                        <TitledPane id="AccPaciente" fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" stylesheets="@../Principal/Magie1_Estilo.css">
+                        <TitledPane id="AcordeonPaciente" fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="Pacientes">
                            <content>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                 <content>
@@ -90,12 +89,12 @@
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                      <TitledPane animated="false">
+                      <TitledPane id="AcordeonMedicamentos" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="Medicamentos">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
-                      <TitledPane animated="false">
+                      <TitledPane id="AcordeonSustanciasPeligrosas" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="Sustancias Peligrosas">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
@@ -108,12 +107,7 @@
                <children>
                   <VBox fx:id="dataPane" layoutY="-2.0" prefHeight="601.0" prefWidth="554.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0">
-                           <children>
-                              <Line endX="250.0" layoutX="185.0" layoutY="140.0" startX="-70.0" stroke="#dadada" />
-                              <Line endX="250.0" layoutX="185.0" layoutY="550.0" startX="-70.0" stroke="#dadada" />
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0" />
                      </children></VBox>
                </children>
             </AnchorPane>

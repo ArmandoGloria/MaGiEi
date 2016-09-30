@@ -81,16 +81,108 @@ src: url("centurygothic.ttf");
 }   
 
 #AcordeonPaciente {
-    -fx-border-color: red;
-    -fx-border-width: 1;
+    -fx-border-width: 0;  
+}
+
+#AcordeonPaciente > .title {
+    -fx-padding: 10 10 10 3;
+}
+
+#AcordeonPaciente > .title > .arrow-button {
+    
+    -fx-min-height: 20;
+    -fx-max-height:20;
+    -fx-pref-height: 20;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconPaciente.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30;
+    -fx-padding: 5 5 5 5;
+    
+    -fx-background-insets: 5 60 60 20;
     
 }
 
+#AcordeonPaciente > .title > .arrow-button > .arrow {
+    
+    -fx-background-color: transparent;   
+}
+
+#AcordeonMedicamentos {
+    -fx-border-width: 0;  
+}
+
+#AcordeonMedicamentos > .title {
+    -fx-padding: 10 10 10 3;
+}
+
+#AcordeonMedicamentos > .title > .arrow-button {
+    
+    -fx-min-height: 20;
+    -fx-max-height:20;
+    -fx-pref-height: 20;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconMedicamento.jpg");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30;
+    -fx-padding: 5 5 5 5;
+    
+    -fx-background-insets: 5 60 60 20;
+    
+}
+
+#AcordeonMedicamentos > .title > .arrow-button > .arrow {
+    
+    -fx-background-color: transparent;   
+}
+
+#AcordeonSustanciasPeligrosas {
+    -fx-border-width: 0;  
+}
+
+#AcordeonSustanciasPeligrosas > .title {
+    -fx-padding: 10 10 10 3;
+}
+
+#AcordeonSustanciasPeligrosas > .title > .arrow-button {
+    
+    -fx-min-height: 20;
+    -fx-max-height:20;
+    -fx-pref-height: 20;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconSustPelig.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 30;
+    -fx-padding: 5 5 5 5;
+    
+    -fx-background-insets: 5 60 60 20;
+    
+}
+
+#AcordeonSustanciasPeligrosas > .title > .arrow-button > .arrow {
+    
+    -fx-background-color: transparent;   
+}
+
+
 .titled-pane > .title {
     -fx-background-color: white;
-    -fx-border-color:-fx-linecolor;
-    -fx-font-size:18;
-    -fx-border-width: .5px;
+    -fx-border-color: -fx-linecolor;
+    -fx-font-size: 18;
+    -fx-border-width: .5 0 .5 0;
+}
+.titled-pane > .content {
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
 }
 
 
@@ -111,13 +203,15 @@ src: url("centurygothic.ttf");
 
 
 .scroll-pane{
-    -fx-border-color: white;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 
 
 .scroll-pane > .scroll-bar{
     -fx-border-color: -fx-backgroundcolor;
+    -fx-padding: 20 5 10 5;
 }
 
 
@@ -455,7 +549,7 @@ src: url("centurygothic.ttf");
 
 #HomeButton {
     -fx-background-color: transparent;
-    -fx-background-image: url("../../Resources/Imagenes/Logo.png");
+    -fx-background-image: url("../../Resources/Imagenes/Logo1.png");
     -fx-background-size: 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;  
@@ -859,13 +953,7 @@ src: url("centurygothic.ttf");
 /*others*/
 
 
-#AllWhite{
-    -fx-background-color: white;
-    -fx-border-width: -1;
-    -fx-border-color: transparent;
-    
-    
-}
+
 
 .textInput {
       -fx-background-color: #ECECEC;
