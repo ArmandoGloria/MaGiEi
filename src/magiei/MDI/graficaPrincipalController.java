@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -43,6 +44,10 @@ public class graficaPrincipalController implements Initializable {
 	private ObservableList data; 
 	
 //	ObservableList<Data> pieChartData = FXCollections.observableArrayList();
+	@FXML
+	private Pane panelGrafiica;
+	@FXML
+	private Pane panelSiniestro;
 
 
 	/**

@@ -46,17 +46,30 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+import javafx.animation.Animation;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
+import javafx.animation.Transition;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -74,6 +87,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBoundsType;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javafx.util.Duration;
@@ -93,7 +109,8 @@ public class MDIController implements Initializable {
 	
 //	GlobalClass1 global;
 	
-	File fileImage; 
+	File fileImage;
+	static String[] strTitulos=new String[3] ;
 	
 	String strMySqlQuery = "";
 	
@@ -117,6 +134,10 @@ public class MDIController implements Initializable {
 	@FXML
 	private TitledPane tituloPaciente;
 	@FXML
+	private TitledPane tituloMedicamentos;
+	@FXML
+	private TitledPane tituloSustancias;
+	@FXML
 	private AnchorPane PanelMenus;
 	@FXML
 	private ImageView imgPaciente;
@@ -124,6 +145,8 @@ public class MDIController implements Initializable {
 	private Button btntstXX;
 	@FXML
 	private Button btntstXX1;
+	@FXML
+	private AnchorPane PanelCentral;
 	
 	//protected ObservableList<CheckItem> items =FXCollections.observableArrayList(); ;//= fetchItems();
 
@@ -164,7 +187,7 @@ public class MDIController implements Initializable {
 		new AutoCompleteComboBoxListener<MesObj>(cboMesFechaNacPaciente);
 		
 		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
-		
+		loadPane2();
 		
 	}
 	catch(Exception ex){
@@ -845,25 +868,168 @@ public void setDataPane(Node node) {
 
 	@FXML
     public void loadPane(ActionEvent event) throws IOException {
-	    
-	SplitPanelMDI.setDividerPosition(0,0.043);
+	  
 //	SplitPanelMDI.setDividerPositions(0.1);
         //setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
-	
-        setDataPane(fadeAnimate("/magiei/MDI/graficaPrincipal.fxml"));
+	hideAcordion();
+        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
 	
 //	AcordionMDI;
 //	tituloPaciente;
 //	PanelMenus;
     }
+    
+    public void hideAcordion() {
+	  try{
+		  strTitulos[0]=tituloPaciente.getText();
+		  strTitulos[1]=tituloMedicamentos.getText();
+		  strTitulos[2]=tituloSustancias.getText();
+		  
+		  tituloPaciente.setText("");
+		  tituloMedicamentos.setText("");
+		  tituloSustancias.setText("");
+		  
+		  tituloPaciente.setExpanded(false);
+		  tituloMedicamentos.setExpanded(false);
+		  tituloSustancias.setExpanded(false);
+		  
+		  SplitPanelMDI.setDividerPosition(0,0.04);
+		    
+	  } catch(Exception ex)
+	  {
+		  
+	  }
+    }
+    
+    public void showAcordion() {
+	  try{
+		  tituloPaciente.setText(strTitulos[0]);
+		  tituloMedicamentos.setText(strTitulos[1]);
+		  tituloSustancias.setText(strTitulos[2]);
+		  
+		  SplitPanelMDI.setDividerPosition(0,0.2965);
+		  SplitPanelMDI.setDividerPosition(1,0.7613);
+		    
+	  } catch(Exception ex)
+		  
+	  {
+	    
+	  }
+    }
 
+    public void loadPane2() throws IOException {
+         
 //    public void loadPane2(ActionEvent event) throws IOException {
-//        setDataPane(fadeAnimate("/samplefx/view/FXML2.fxml"));
+//Group root = new Group(); 
+//Rectangle rect = new Rectangle(100, 100, 100, 100); 
+//rect.setFill(Color.BLUE); 
+//root.getChildren().add(rect); 
+//FadeTransition ft = new FadeTransition(Duration.millis(3000)); 
+//ft.setFromValue(1); 
+//ft.setToValue(0.1); 
+//ft.setCycleCount(Animation.INDEFINITE); 
+//ft.setAutoReverse(true); 
+//RotateTransition rt = new RotateTransition(Duration.seconds(5));
+//rt.setCycleCount(Animation.INDEFINITE); 
+//Scene scene = new Scene(root, 300, 300); 
+//stage.setScene(scene); 
+//stage.show(); 
+//ParallelTransition pt = new ParallelTransition(rect, ft, rt); 
+//pt.play(); 
+
 //    }
+	
+
+//    public VBox fadeAnimate(String url) throws IOException {
+
+ VBox[] v=new VBox[2];
+	v[0] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/Siniestrabilidad.fxml"));
+	v[1] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/graficaPrincipal.fxml"));
+        FadeTransition ft = new FadeTransition(Duration.millis(4000));
+        ft.setNode(v[0]);
+        ft.setFromValue(0.0);
+        ft.setToValue(1);
+        ft.setCycleCount(1);//Transition.INDEFINITE);
+//        ft.setAutoReverse(true);
+	FadeTransition ft2 = new FadeTransition(Duration.millis(4000));
+        ft2.setNode(v[1]);
+        ft2.setFromValue(1);
+        ft2.setToValue(0);
+        ft2.setCycleCount(1);//Transition.INDEFINITE);
+//        ft2.setAutoReverse(true);
+//	ParallelTransition pt = new ParallelTransition(ft2, ft); 
+//        pt.play();
+// PanelCentral.getChildren().setAll(v);
+ 
+ 
+ 
+ 
+ 
+ SequentialTransition slideshow = new SequentialTransition();
+
+    for (VBox vs : v) {
+
+        SequentialTransition sequentialTransition = new SequentialTransition();
+
+        FadeTransition fadeIn = ft;//Transition.getFadeTransition(ft, 0.0, 1.0, 2000);
+        FadeTransition stayOn = ft2;//Transition.getFadeTransition(ft2, 1.0, 1.0, 2000);
+//        FadeTransition fadeOut = Transition.getFadeTransition(slide, 1.0, 0.0, 2000);
+
+        sequentialTransition.getChildren().addAll(fadeIn, stayOn);//, fadeOut); 
+	sequentialTransition.setCycleCount(Animation.INDEFINITE); 
+	sequentialTransition.setAutoReverse(true);
+        slideshow.getChildren().add(sequentialTransition);    
+	
+        this.PanelCentral.getChildren().add(vs);
+//        slideshow.getChildren().add(sequentialTransition);
+	
+//        PanelCentral.getChildren().setAll(vs);   
+    }
+    slideshow.play();                  
+
+
+
+
+
 //
-//    public void loadPane3(ActionEvent event) throws IOException {
-//        setDataPane(fadeAnimate("/samplefx/view/FXML3.fxml"));
-//    }
+//Circle circle = new Circle(100, 100, 20); 
+//VBox vbox = new VBox(30); 
+//vbox.setPadding(new Insets(25, 25, 25, 25)); 
+//Timeline timeline = new Timeline(); 
+//Text currTimeText = new Text("Current time: 0 secs" ); 
+//currTimeText.setBoundsType(TextBoundsType.VISUAL); 
+//timeline.currentTimeProperty().addListener(new InvalidationListener() { 
+//    public void invalidated(Observable ov) { 
+//        int time = (int) timeline.getCurrentTime().toSeconds(); 
+//        currTimeText.setText("Current time: " + time + " secs"); 
+//    } 
+//
+//}); 
+//PanelCentral.getChildren().addAll(circle, currTimeText); 
+////Scene scene = new Scene(vbox, 500, 100); 
+////stage.setScene(scene); 
+////stage.show(); 
+//Duration time = new Duration(10000); 
+//KeyValue keyValue = new KeyValue(circle.translateXProperty(), 300); 
+//KeyFrame keyFrame = new KeyFrame(time, keyValue); 
+//timeline.getKeyFrames().add(keyFrame); 
+//timeline.setCycleCount(2); 
+//timeline.setAutoReverse(true); 
+//timeline.play(); 
+
+
+
+
+
+
+
+
+
+    }
+
+    public void loadPane3(ActionEvent event) throws IOException {
+        setDataPane(fadeAnimate("/samplefx/view/FXML3.fxml"));
+    }
 
 	private void ActivarControl(MouseEvent event) {
 		TextField x =(TextField) event.getSource();
@@ -1146,6 +1312,11 @@ Task task = new Task<Void>() {
 		}
 		
 	}
+
+	@FXML
+	private void DespliegaAcordion(MouseEvent event) {
+		showAcordion();
+	}
 	
 	
 
@@ -1335,6 +1506,23 @@ public class ComboBoxAutoComplete2<T> {
  	} 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	
