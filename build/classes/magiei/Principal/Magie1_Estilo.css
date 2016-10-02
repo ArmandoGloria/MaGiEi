@@ -100,7 +100,7 @@ src: url("centurygothic.ttf");
 
 
 .titled-pane > .content {
-    -fx-background-color: yellow;
+    -fx-background-color: -fx-backgroundcolor;
     -fx-border-width: 0;
     -fx-border-color: transparent;
     -fx-padding: 0 20 0 0;
@@ -223,81 +223,59 @@ src: url("centurygothic.ttf");
 }
 
 
-
-
 .scroll-pane{
     -fx-border-color: transparent;
-    -fx-border-width: 0;
-    
-    
+    -fx-border-width: 0;   
 }
-
 
 
 .scroll-pane > .scroll-bar{
-    -fx-background-color: red;
+    -fx-background-color: -fx-backgroundcolor;
     -fx-border-color: transparent;
     -fx-border-width: 0;
     -fx-padding: 20 0 10 0;
-    
+    -fx-pref-width: -fx-linewidth;
+    -fx-min-width: -fx-linewidth;
+    -fx-max-width: -fx-linewidth;   
 }
 
-
-
 .scroll-pane > .scroll-bar:vertical > .track{
-    -fx-background-color:   blue;
-    -fx-border-width: 0;
-    -fx-max-width:.5;
-    -fx-min-width:.5;
-    -fx-pref-width:.5;
-    -fx-padding: 10 10 10 10;
+    -fx-background-color:   -fx-linecolor; 
+    -fx-border-width: 0;   
 }
 
 .scroll-pane > .scroll-bar:vertical > .track-background{
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-width: 0;
-    -fx-max-width:.5;
-    -fx-min-width:.5;
-    -fx-pref-width:.5;
     -fx-padding: 40 50 60 70;
 }
 
 .scroll-pane > .scroll-bar:vertical > .thumb{
     -fx-background-color: -fx-maincolor;
     -fx-border-width: 0;
-    -fx-max-width:.5;
-    -fx-min-width:.5;
-    -fx-pref-width:.5;
-    -fx-padding: 10 10 10 10;
-   
-    
-}
-
-.scroll-pane:hover > .scroll-bar:vertical > .thumb{
-    
-    -fx-background-color: -fx-maincolor;
-    -fx-pref-width: 3;
-    -fx-min-width: 3;
-    -fx-max-width: 3;
-    
-
+    -fx-pref-height:5;
+    -fx-min-height: 5;
+    -fx-max-height: 5;
+    -fx-background-size: 5 5 5 5;
+    -fx-value:3;
+    -fx-background-insets: -.5 -.5 -.5 -.5;   
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
     -fx-background-color: transparent;
 }
 
-.scroll-pane:hover > .scroll-bar:vertical > .increment-button > .increment-arrow{
-    -fx-background-color: -fx-maincolor;
-}
 
 .scroll-pane > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
     -fx-background-color: transparent;
 }
 
-.scroll-pane:hover > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
-    -fx-background-color: -fx-maincolor;
+#MargenFoto{
+    -fx-fill: transparent;
+    -fx-stroke: -fx-maincolor;
+    -fx-stroke-width:2px;
 }
+
 /* Buttons */ 
 
 
@@ -550,12 +528,8 @@ src: url("centurygothic.ttf");
     -fx-font-size: 14;
 /*    -fx-padding: 18 15 18 15;  *//*
 }*/
-/*
-#Margen{
-    -fx-fill: transparent;
-    -fx-stroke: -fx-maincolor;
-    -fx-stroke-width:1px;
-}*/
+
+
 /* -------------------------------------------*/
 
 #VisitasEnfermeriaButton{
@@ -990,6 +964,7 @@ src: url("centurygothic.ttf");
      -fx-background-color: transparent;
     -fx-border-color: transparent transparent -fx-linecolor -fx-linecolor;
     -fx-border-width: -fx-linewidth;
+    -fx-border-top-height: 50%;
     -fx-font-size: 13;
     -fx-padding: 0 5 0 5;
     -fx-background-radius: 0; 

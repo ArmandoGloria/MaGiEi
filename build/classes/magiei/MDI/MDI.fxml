@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
+<VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
    <children>
       <AnchorPane id="TopPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefWidth="1024.0" stylesheets="@../Principal/Magie1_Estilo.css">
          <children>
@@ -29,13 +29,13 @@
             <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" />
          </children>
       </AnchorPane>
-      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.2964774951076321, 0.761252446183953" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
+      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.2965, 0.7613" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane maxWidth="300.0" prefHeight="500.0" prefWidth="127.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
                   <Accordion fx:id="AcordionMDI" layoutX="-10.0" layoutY="200.0" maxWidth="-Infinity" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
-                        <TitledPane id="AcordeonPaciente" fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="PACIENTES">
+                        <TitledPane id="AcordeonPaciente" fx:id="tituloPaciente" accessibleText="htfhgfjjhgjgj" animated="false" onMouseClicked="#DespliegaAcordion" stylesheets="@../Principal/Magie1_Estilo.css" text="PACIENTES">
                            <content>
                               <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                                 <content>
@@ -43,10 +43,10 @@
                                        <children>
                                           <Label id="labelDirectIDInput" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="20.0" stylesheets="@../Principal/Magie1_Estilo.css" text="No. de Empleado" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField id="textDirectIDInput" fx:id="txtNoEmpleadoPaciente" layoutX="12.0" layoutY="30.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="112.0" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="15.0" />
-                                          <ComboBox id="CBstatus" fx:id="cboEstatusPaciente" accessibleRole="LIST_VIEW" disable="true" layoutX="130.0" layoutY="97.0" onAction="#CambiarColor" prefHeight="35.0" prefWidth="78.0" promptText="Estatus" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.rightAnchor="10.0" />
-                                          <Button fx:id="btnAgregarPaciente" layoutX="155.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
-                                          <Button fx:id="btnEditarPaciente" layoutX="180.0" layoutY="23.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
-                                          <Button fx:id="btnBuscarPaciente" layoutX="132.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
+                                          <ComboBox id="CBstatus" fx:id="cboEstatusPaciente" accessibleRole="LIST_VIEW" disable="true" layoutX="140.0" layoutY="108.0" onAction="#CambiarColor" prefHeight="20.0" prefWidth="78.0" promptText="Estatus" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" />
+                                          <Button fx:id="btnAgregarPaciente" layoutX="166.0" layoutY="27.0" mnemonicParsing="false" onAction="#AgregarPaciente" styleClass="addButton" />
+                                          <Button fx:id="btnEditarPaciente" layoutX="195.0" layoutY="23.0" mnemonicParsing="false" onAction="#EditarPaciente" styleClass="editButtonSmall" />
+                                          <Button fx:id="btnBuscarPaciente" layoutX="139.0" layoutY="28.0" mnemonicParsing="false" onAction="#BuscarPaciente" styleClass="searchButton" />
                                           <Label layoutX="17.0" layoutY="179.0" prefHeight="18.0" prefWidth="82.0" styleClass="labelGeneralBold" text="Nombres" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <TextField fx:id="txtNombrePaciente" layoutX="17.0" layoutY="199.0" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="197.0" styleClass="textInput" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Label layoutX="17.0" layoutY="229.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneralBold" text="Apellido Paterno" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
@@ -72,29 +72,26 @@
                                           <Label fx:id="lblIdPaciente" disable="true" layoutX="30.0" layoutY="200.0" prefHeight="16.0" prefWidth="0.0" styleClass="labelGeneralBold" visible="false" />
                                           <Button fx:id="btnGuardarNvoPaciente" disable="true" mnemonicParsing="false" onAction="#GuardarPaciente" styleClass="commitButtonSmall" text="Guardar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                           <Button fx:id="btnCancelarAltaPaciente" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CancelarPaciente" prefHeight="25.0" prefWidth="76.0" styleClass="selectButtonSmall" text="Cancelar" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="90.0" />
-                                          <ImageView fx:id="imgPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
+                                          <ImageView fx:id="imgPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" layoutX="26.0" layoutY="72.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
                                              <viewport>
                                                 <Rectangle2D />
                                              </viewport>
                                           </ImageView>
-                                          <Button id="addPictureButton" fx:id="btnImgPaciente" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#AgregarImagenPacinete" prefHeight="95.0" prefWidth="90.0" style="-fx-background-color: Trasnsparent; -fx-border-color: Trasnsparent;" stylesheets="@../Principal/Magie1_Estilo.css" text="Agregar Foto" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="391.0" AnchorPane.leftAnchor="5.0">
-                                             <graphic>
-                                                <Circle id="Margen" fx:id="imgCirculo" fill="TRANSPARENT" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </graphic>
-                                          </Button>
+                                          <Button id="addPictureButton" fx:id="btnImgPaciente" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="26.0" layoutY="72.0" mnemonicParsing="false" onAction="#AgregarImagenPacinete" prefHeight="95.0" prefWidth="90.0" style="-fx-background-color: Trasnsparent; -fx-border-color: Trasnsparent;" stylesheets="@../Principal/Magie1_Estilo.css" text="Agregar Foto" textAlignment="CENTER" wrapText="true" />
                                           <Label layoutX="41.0" layoutY="379.0" styleClass="labelGeneralBold" text="Sexo" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Circle id="MargenFoto" fx:id="imgCirculo" fill="TRANSPARENT" layoutX="71.0" layoutY="120.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
                                        </children>
                                     </AnchorPane>
                                 </content>
                               </ScrollPane>
                            </content>
                         </TitledPane>
-                      <TitledPane id="AcordeonMedicamentos" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="MEDICAMENTOS">
+                      <TitledPane id="AcordeonMedicamentos" fx:id="tituloMedicamentos" animated="false" onMouseClicked="#DespliegaAcordion" stylesheets="@../Principal/Magie1_Estilo.css" text="MEDICAMENTOS">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
                       </TitledPane>
-                      <TitledPane id="AcordeonSustanciasPeligrosas" animated="false" stylesheets="@../Principal/Magie1_Estilo.css" text="SUSTANCIAS PELIGROSAS">
+                      <TitledPane id="AcordeonSustanciasPeligrosas" fx:id="tituloSustancias" animated="false" onDragDetected="#DespliegaAcordion" onMouseClicked="#DespliegaAcordion" stylesheets="@../Principal/Magie1_Estilo.css" text="SUSTANCIAS PELIGROSAS">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                         </content>
@@ -107,7 +104,7 @@
                <children>
                   <VBox fx:id="dataPane" layoutY="-2.0" prefHeight="601.0" prefWidth="554.0">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0" />
+                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0" />
                      </children></VBox>
                </children>
             </AnchorPane>
@@ -117,8 +114,6 @@
                   <AnchorPane id="Green" fx:id="PanelMenus" layoutX="-2.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="246.0">
                      <children>
                         <Button id="VisitasEnfermeriaButton" fx:id="btnMenuBar" layoutX="67.0" layoutY="20.0" mnemonicParsing="false" onAction="#loadPane" prefHeight="99.0" prefWidth="112.0" />
-                        <Button fx:id="btntstXX" layoutX="67.0" layoutY="150.0" mnemonicParsing="false" onAction="#unloadPaneMDI" prefHeight="99.0" prefWidth="112.0" text="test" />
-                        <Button fx:id="btntstXX1" layoutX="58.0" layoutY="275.0" mnemonicParsing="false" onAction="#unloadPaneMDI2" prefHeight="99.0" prefWidth="112.0" text="test" />
                      </children>
                   </AnchorPane>
                </children>
