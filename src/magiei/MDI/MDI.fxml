@@ -29,9 +29,9 @@
             <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" />
          </children>
       </AnchorPane>
-      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.2965, 0.7613" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
+      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.284423828125, 0.764892578125" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
          <items>
-            <AnchorPane maxWidth="300.0" prefHeight="500.0" prefWidth="127.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+            <AnchorPane id="BorderAnchorPane" maxWidth="300.0" prefHeight="500.0" prefWidth="127.0" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
                   <Accordion fx:id="AcordionMDI" layoutX="-10.0" layoutY="200.0" maxWidth="-Infinity" stylesheets="@../Principal/Magie1_Estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <panes>
@@ -68,7 +68,7 @@
                                                 <Font name="System Bold" size="13.0" />
                                              </font>
                                           </MenuButton>   
-                                          <Label fx:id="lblEstaciones" layoutY="495.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneral" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                          <Label fx:id="lblEstaciones" layoutY="500.0" prefHeight="18.0" prefWidth="127.0" styleClass="labelGeneral" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0" />
                                           <Label fx:id="lblIdPaciente" disable="true" layoutX="30.0" layoutY="200.0" prefHeight="16.0" prefWidth="0.0" styleClass="labelGeneralBold" visible="false" />
                                           <Button fx:id="btnGuardarNvoPaciente" disable="true" mnemonicParsing="false" onAction="#GuardarPaciente" styleClass="commitButtonSmall" text="Guardar" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="30.0" />
                                           <Button fx:id="btnCancelarAltaPaciente" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CancelarPaciente" prefHeight="25.0" prefWidth="76.0" styleClass="selectButtonSmall" text="Cancelar" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="110.0" />
@@ -102,22 +102,18 @@
             </AnchorPane>
             <AnchorPane maxHeight="601.0" maxWidth="900.0" minHeight="447.0" minWidth="400.0" prefHeight="601.0" prefWidth="605.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
-                  <VBox fx:id="dataPane" layoutY="-2.0" prefHeight="601.0" prefWidth="554.0">
+                  <VBox fx:id="dataPane" layoutY="-2.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="482.0">
                      <children>
-                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="555.0" />
+                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="484.0" />
                      </children></VBox>
                </children>
             </AnchorPane>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="241.0">
+            <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <AnchorPane id="Green" fx:id="PanelMenus" layoutX="-2.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="246.0">
-                     <children>
-                        <Button id="VisitasEnfermeriaButton" fx:id="btnMenuBar" layoutX="67.0" layoutY="20.0" mnemonicParsing="false" onAction="#loadPane" prefHeight="99.0" prefWidth="112.0" />
-                     </children>
-                  </AnchorPane>
+                  <Button id="VisitasEnfermeriaButton" fx:id="btnMenuBar" mnemonicParsing="false" onAction="#loadPane" prefHeight="99.0" prefWidth="112.0" />
+                  <AnchorPane id="Green" fx:id="PanelMenus" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="246.0" />
                </children>
-            </AnchorPane>
+            </VBox>
          </items>
       </SplitPane>
    </children>

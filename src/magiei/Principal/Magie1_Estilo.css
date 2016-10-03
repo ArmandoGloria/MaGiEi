@@ -48,37 +48,44 @@ src: url("centurygothic.ttf");
  
  
  .split-pane {
-     -fx-background-color: -fx-backgroundcolor;  
+     -fx-background-color: transparent;  
      -fx-padding: 0;
  }
  
  
  .split-pane > .split-pane-divider{
-     -fx-background-color: -fx-linecolor;
+     -fx-background-color: transparent;
      -fx-min-widht: -fx-linewidth;
      -fx-max-width: -fx-linewidth;
      -fx-pref-width: -fx-linewidth;
  }
+ 
+ 
                                       
  .AnchorPane{
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-color:  transparent;
     -fx-background-radius: 0;
-    -fx-border-width: 0;
-   
+    -fx-border-width: 0;  
 }
+
+#BorderAnchorPane {
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-color:  -fx-linecolor;
+    -fx-border-width: 0 .5 0 0;
+ }
 
 
 .accordion {
     -fx-background-color: -fx-backgroundcolor;
     -fx-border-width: 0;
-    -fx-text-fill: red;
 }
 
 .titled-pane {
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-text-fill: -fx-maincolor;   
+    -fx-text-fill: -fx-maincolor;  
+    -fx-background-color: -fx-backgroundcolor;
 }
 
 
@@ -442,7 +449,7 @@ src: url("centurygothic.ttf");
 .menu-button{
     -fx-background-color: -fx-inputcolor;
     -fx-background-radius: 10;
-    -fx-padding: -2 5 -2 5;
+    -fx-padding: -2 5 -2 3;
     -fx-cursor: hand;  
 }
 
