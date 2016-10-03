@@ -93,6 +93,7 @@ src: url("centurygothic.ttf");
 .titled-pane:expanded {
     -fx-color: white;
     -fx-border-width: 0;
+    -fx-text-fill: -fx-maincolor;
     /*-fx-padding:-1 -1 -2 -1; **/ 
 }   
 

@@ -102,9 +102,9 @@
             </AnchorPane>
             <AnchorPane maxHeight="601.0" maxWidth="900.0" minHeight="447.0" minWidth="400.0" prefHeight="601.0" prefWidth="605.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
-                  <VBox fx:id="dataPane" layoutY="-2.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="482.0">
+                  <VBox fx:id="dataPane" layoutY="-2.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="482.0">
                      <children>
-                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="484.0" />
+                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="484.0" />
                      </children></VBox>
                </children>
             </AnchorPane>
