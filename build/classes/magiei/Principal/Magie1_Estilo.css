@@ -20,6 +20,7 @@ src: url("centurygothic.ttf");
 -fx-interacttext:#808080;
 -fx-warningcolor:#ff0000;
 -fx-fontcolor: #737373;
+-fx-inputcolor: #ECECEC;
 
 /*-fx-scrollthumbcolor: linear-gradient(to right,#ececec);******Daba error*******************/
  /* Containers */
@@ -37,9 +38,13 @@ src: url("centurygothic.ttf");
      -fx-border-radius: 0;
      -fx-border-color: -fx-linecolor;
      -fx-border-width: 1px;
-     -fx-padding: 10 20 10 40;
-  
+     -fx-padding: 10 20 10 40; 
  }
+ 
+ #Agenda > .list-cell {
+     -fx-text-fill: -fx-fontcolor
+ }
+ 
  
  
  .split-pane {
@@ -62,6 +67,7 @@ src: url("centurygothic.ttf");
     -fx-border-width: 0;
    
 }
+
 
 .accordion {
     -fx-background-color: -fx-backgroundcolor;
@@ -253,12 +259,7 @@ src: url("centurygothic.ttf");
 .scroll-pane > .scroll-bar:vertical > .thumb{
     -fx-background-color: -fx-maincolor;
     -fx-border-width: 0;
-    -fx-pref-height:5;
-    -fx-min-height: 5;
-    -fx-max-height: 5;
-    -fx-background-size: 5 5 5 5;
-    -fx-value:3;
-    -fx-background-insets: -.5 -.5 -.5 -.5;   
+    -fx-background-insets: 0 -.5 0 -.5;   
 }
 
 .scroll-pane > .scroll-bar:vertical > .increment-button > .increment-arrow{
@@ -288,7 +289,7 @@ src: url("centurygothic.ttf");
 .button.commitButtonBig {
     -fx-background-color:  -fx-maincolor;
     -fx-text-fill: white;
-    -fx-background-radius: 5px; 
+    -fx-background-radius: 10px; 
    
 }
 
@@ -301,7 +302,7 @@ src: url("centurygothic.ttf");
 .button.commitButtonSmall {
     -fx-background-color:  -fx-maincolor;
     -fx-text-fill: -fx-backgroundcolor;
-    -fx-background-radius: 5px; 
+    -fx-background-radius: 10px; 
     -fx-font-size: 12; 
     -fx-pref-width:76px;
 }
@@ -317,7 +318,7 @@ src: url("centurygothic.ttf");
     -fx-background-color:  white;
     -fx-text-fill: #24BE58;
     -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
+    -fx-border-radius: 10px;
     -fx-border-color: #24BE58  
 }
 
@@ -330,8 +331,8 @@ src: url("centurygothic.ttf");
 .button.selectButtonSmall {
     -fx-background-color:  white;
     -fx-text-fill: -fx-maincolor;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
     -fx-border-color: -fx-maincolor;
     -fx-font-size: 12;
     -fx-pref-width: 76px;
@@ -667,38 +668,13 @@ src: url("centurygothic.ttf");
 /*  Combo box */
 
 .combo-box {
-    -fx-background-color: transparent;
-    -fx-font-size: 14;
-    -fx-padding: 0 0 0 0 ;
-    -fx-border-color: transparent;
     -fx-cursor: hand;
-    }
+    -fx-padding: 0 3 0 3;
+    -fx-background-color: -fx-inputcolor;
+    -fx-background-radius: 10; 
+}
     
-.combo-box.comboboxBold{
-    -fx-font-weight:bold;
-    
-        
-}
-
-.combo-box.comboboxBold > .arrow-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0;
-}
-
-.combo-box .combo-box-popup>.list-view {
-    -fx-min-height: 100;
-}
-
-/*.combo-box .list-view {
--height: 200;
-}*/
-
-.combo-box .list-view .list-cell{
--fx-cell-size: 25;
-}
-
 .combo-box > .list-cell {
-    
     -fx-padding: 0;
 }
 
@@ -708,35 +684,30 @@ src: url("centurygothic.ttf");
 }
 
 .combo-box > .arrow-button > .arrow {
-    -fx-background-color: transparent;
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    -fx-cursor: hand;
-    -fx-padding: 5 5 5 5; 
-    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
+    -fx-background-color: -fx-maincolor;
+    -fx-cursor: hand;  
 }
 
-.combo-box > .arrow-button:hover > .arrow {
+.combo-box:hover > .arrow-button > .arrow {
     
-    -fx-background-image: url("../../Resources/Imagenes/arrowHover.png");
+    -fx-background-color: -fx-hovercolor;
     -fx-cursor: hand;
      
 }
 
 .combo-box.ComBxEditable:editable {
-    -fx-padding: -1 -1 -2 -1;
-    -fx-text-alignment:justify;
-    -fx-border-radius: 0;   
+    -fx-padding: 0 3 0 3;
+    -fx-background-color: -fx-inputcolor;
+    -fx-background-radius: 10;    
 }
 
 
 
 .combo-box.ComBxEditable:editable > .text-field{
-    -fx-padding: 0;
-    -fx-background-color: #ECECEC;
-    -fx-text-alignment:justify;
-    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-alignment:center;
+    -fx-padding: 0 2 0 2;
+    
     /*-fx-font-weight: bold;*/
     
 }
@@ -747,141 +718,50 @@ src: url("centurygothic.ttf");
 }
 
 
-.combo-box.ComBxEditable > .arrow-button{
-    -fx-padding: 0 0 0 2;
-    
+.combo-box.ComBxEditable > .arrow-button{    
 }
 
 
 #CBstatus {
-    -fx-background-color: transparent;
     -fx-font-size: 15;
-    -fx-font-color: -fx-maincolor;
-    -fx-font-weight: bold;
-    -fx-padding: -2 -2 -2 -2;
-    -fx-border-color: transparent;
     -fx-cursor: hand;
+    -fx-padding: 1 5 1 10;
     }
 
-#CBstatus > .text-field {
-    -fx-padding: 0;
-    -fx-text-fill: -fx-interacttext;
-}
 
 #CBstatus > .list-cell {
-    -fx-font-weight: bold;
     -fx-text-fill: -fx-interacttext;
     -fx-padding: 0;
 }
 
-#CBstatus > .arrow-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0;
+#CBstatus:hover > .arrow-button > .arrow { 
+    -fx-background-color: -fx-hovercolor;
+    -fx-cursor: hand;   
 }
-
-#CBstatus > .arrow-button > .arrow {
-    -fx-background-color: transparent;
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    -fx-cursor: hand;
-    -fx-padding: 5 5 5 5;  
-}
-
-#CBstatus:hover > .arrow-button > .arrow {
-    
-    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
-    -fx-cursor: hand;
-     
-}
-
-
 
 #CBstatusA {
-    -fx-background-color: transparent;
     -fx-font-size: 15;
-    -fx-font-color: -fx-maincolor;
-    -fx-font-weight: bold;
-    -fx-padding: -2 -2 -2 -2;
-    -fx-border-color: transparent;
     -fx-cursor: hand;
+    -fx-padding: 1 5 1 10;
     }
-
-#CBstatusA > .text-field {
-    -fx-padding: 0;
-    -fx-text-fill: -fx-maincolor;
-}
+    
 
 #CBstatusA > .list-cell {
-    -fx-font-weight: bold;
     -fx-text-fill: -fx-maincolor;
-    -fx-padding: 0;
 }
-
-#CBstatusA > .arrow-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0;
-}
-
-#CBstatusA > .arrow-button > .arrow {
-    -fx-background-color: transparent;
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    -fx-cursor: hand;
-    -fx-padding: 5 5 5 5;  
-}
-
-#CBstatusA:hover > .arrow-button > .arrow {
-    
-    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
-    -fx-cursor: hand;
-     
-}
-
-
 
 #CBstatusI {
-    -fx-background-color: transparent;
-    -fx-font-size: 15;
-    -fx-font-color: -fx-maincolor;
-    -fx-font-weight: bold;
-    -fx-padding: -2 -2 -2 -2;
-    -fx-border-color: transparent;
+    -fx-font-size: 13;
     -fx-cursor: hand;
+    -fx-padding: 1 5 1 10;
     }
-
-#CBstatusI > .text-field {
-    -fx-padding: 0;
-    -fx-text-fill: -fx-interacttext;
-}
+    
 
 #CBstatusI > .list-cell {
-    -fx-font-weight: bold;
     -fx-text-fill: -fx-warningcolor;
-    -fx-padding: 0;
 }
 
-#CBstatusI > .arrow-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0;
-}
 
-#CBstatusI > .arrow-button > .arrow {
-    -fx-background-color: transparent;
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    -fx-cursor: hand;
-    -fx-padding: 5 5 5 5;  
-}
-
-#CBstatusI:hover > .arrow-button > .arrow {
-    
-    -fx-background-image: url("../../Resources/Imagenes/arrow.png");
-    -fx-cursor: hand;
-     
-}
 
 
 /* Labels */
@@ -986,7 +866,7 @@ src: url("centurygothic.ttf");
 }
 
 #textDirectIDInput {
-      -fx-background-color: #ECECEC;
+      -fx-background-color: -fx-inputcolor;
       -fx-font-size: 13;
       -fx-padding: 2 15 2 15;
       -fx-background-radius: 10;  
