@@ -53,6 +53,7 @@ src: url("centurygothic.ttf");
  }
  
  
+
  .split-pane > .split-pane-divider{
      -fx-background-color: transparent;
      -fx-min-widht: -fx-linewidth;
@@ -322,12 +323,12 @@ src: url("centurygothic.ttf");
     -fx-background-color: transparent;
     -fx-border-width: 0;
 }
-
+/*
 #MargenFoto{
     -fx-fill: transparent;
     -fx-stroke: -fx-maincolor;
     -fx-stroke-width:2px;
-}
+}*/
 
 /* Buttons */ 
 

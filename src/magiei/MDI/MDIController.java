@@ -187,6 +187,7 @@ public class MDIController implements Initializable {
 		new AutoCompleteComboBoxListener<MesObj>(cboMesFechaNacPaciente);
 		
 		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
+		hideAcordion();
 		loadPane2();
 		
 	}
@@ -871,8 +872,11 @@ public void setDataPane(Node node) {
 	  
 //	SplitPanelMDI.setDividerPositions(0.1);
         //setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+//	hideAcordion();
+//        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+	
 	hideAcordion();
-        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
+        setDataPane(fadeAnimate("/magiei/MDI/IniVideo2.fxml"));
 	
 //	AcordionMDI;
 //	tituloPaciente;
@@ -1025,10 +1029,6 @@ public void setDataPane(Node node) {
 
 
 
-    }
-
-    public void loadPane3(ActionEvent event) throws IOException {
-        setDataPane(fadeAnimate("/samplefx/view/FXML3.fxml"));
     }
 
 	private void ActivarControl(MouseEvent event) {
