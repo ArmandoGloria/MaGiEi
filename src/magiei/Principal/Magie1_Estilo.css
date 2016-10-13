@@ -70,11 +70,7 @@ src: url("centurygothic.ttf");
     -fx-border-width: 0;  
 }
 
-#BorderAnchorPane {
-    -fx-background-color: -fx-backgroundcolor;
-    -fx-border-color:  -fx-linecolor;
-    -fx-border-width: 0 .5 0 0;
- }
+
 
 
 .accordion {
@@ -110,14 +106,14 @@ src: url("centurygothic.ttf");
     -fx-border-color: -fx-linecolor;
     -fx-font-size: 12;
     
-    -fx-border-width: 0 0 1 0;
+    -fx-border-width: 0 .5 1 0;
 }
 
 
 .titled-pane > .content {
     -fx-background-color: -fx-backgroundcolor;
-    -fx-border-width: 0;
-    -fx-border-color: transparent;
+    -fx-border-width: 0 .5 0 0;
+    -fx-border-color: -fx-linecolor;
     -fx-padding: 0 20 0 0;
 }
 
@@ -780,6 +776,10 @@ src: url("centurygothic.ttf");
     -fx-padding: 0;
 }
 
+#CBstatus > .arrow-button > .arrow { 
+    -fx-background-color: -fx-maincolor;
+    -fx-cursor: hand;   
+}
 #CBstatus:hover > .arrow-button > .arrow { 
     -fx-background-color: -fx-hovercolor;
     -fx-cursor: hand;   
@@ -789,11 +789,17 @@ src: url("centurygothic.ttf");
     -fx-font-size: 15;
     -fx-cursor: hand;
     -fx-padding: 1 5 1 10;
+    -fx-background-color: -fx-maincolor;
     }
     
 
 #CBstatusA > .list-cell {
-    -fx-text-fill: -fx-maincolor;
+    -fx-text-fill: -fx-backgroundcolor;
+}
+
+#CBstatusA > .arrow-button > .arrow { 
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-cursor: hand;   
 }
 
 #CBstatusI {
