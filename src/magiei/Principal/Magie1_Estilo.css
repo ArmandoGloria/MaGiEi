@@ -50,6 +50,7 @@ src: url("centurygothic.ttf");
  .split-pane {
      -fx-background-color: transparent;  
      -fx-padding: 0;
+     -fx-border-width: o;
  }
  
  
@@ -78,6 +79,7 @@ src: url("centurygothic.ttf");
     -fx-border-width: 0;
 }
 
+
 .titled-pane {
     -fx-border-color: transparent;
     -fx-border-width: 0;
@@ -105,7 +107,6 @@ src: url("centurygothic.ttf");
     -fx-background-color: linear-gradient(white, #FFFDFC, #D7D7D7);
     -fx-border-color: -fx-linecolor;
     -fx-font-size: 12;
-    
     -fx-border-width: 0 .5 1 0;
 }
 
@@ -126,6 +127,7 @@ src: url("centurygothic.ttf");
 .titled-pane >  .title > .arrow-button:hover > .arrow {
     -fx-background-color: -fx-hovercolor;
     -fx-cursor:hand;
+    -fx-border-width: 0;
 }
 
 .titled-pane:focused >  .title > .arrow-button > .arrow {
@@ -142,6 +144,7 @@ src: url("centurygothic.ttf");
 #AcordeonPaciente > .title {
     -fx-padding: 10 10 10 3;
     -fx-font-weight: bold;
+   
 }
 
 
@@ -187,10 +190,12 @@ src: url("centurygothic.ttf");
 #AcordeonMedicamentos {
     -fx-border-width: 0; 
     -fx-font-weight: bold;
+    -fx-border-width: 0;
 }
 
 #AcordeonMedicamentos > .title {
     -fx-padding: 10 10 10 3;
+ 
 }
 
 #AcordeonMedicamentos > .title > .arrow-button {
@@ -234,10 +239,12 @@ src: url("centurygothic.ttf");
 #AcordeonSustanciasPeligrosas {
     -fx-border-width: 0; 
     -fx-font-weight: bold;
+    -fx-border-width: 0;
 }
 
 #AcordeonSustanciasPeligrosas > .title {
     -fx-padding: 10 10 10 3;
+
 }
 
 #AcordeonSustanciasPeligrosas > .title > .arrow-button {
@@ -344,6 +351,7 @@ src: url("centurygothic.ttf");
 
 .button.commitButtonBig:hover{
    -fx-background-color: linear-gradient(#39e600, #39e600);
+   
 }   
 
 
@@ -720,6 +728,13 @@ src: url("centurygothic.ttf");
     -fx-padding: 0;
 }
 
+#test > .list-view {
+    -fx-background-color: red;
+    -fx-border-color: red;
+}
+
+
+
 .combo-box > .arrow-button {
     -fx-background-color: transparent;
     -fx-padding: 0;
@@ -760,8 +775,7 @@ src: url("centurygothic.ttf");
 }
 
 
-.combo-box.ComBxEditable > .arrow-button{    
-}
+
 
 
 #CBstatus {
