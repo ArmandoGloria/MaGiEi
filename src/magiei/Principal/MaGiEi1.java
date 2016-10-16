@@ -8,6 +8,7 @@ package magiei.Principal;
 import static java.lang.Thread.sleep;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +48,7 @@ public class MaGiEi1 extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
-//	    Stage stage2 = stage;
+	    Stage stage2 = new Stage() ;
 	    
 	    
 	// load main form in to VBox (Root)
@@ -56,7 +57,7 @@ public class MaGiEi1 extends Application {
 //        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/IniVideo2.fxml" ) );
 //	Duration.millis(100500);
 //	mainPane=null;
-        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
+        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/IniVideo.fxml" ) );
         // add main form into the scene
         Scene scene = new Scene(mainPane);
         
@@ -95,8 +96,20 @@ public class MaGiEi1 extends Application {
 //        stage.setResizable(false);
         stage.show(); 
 	
+	PauseTransition pause = new PauseTransition(Duration.seconds(10));
+	pause.setOnFinished(e -> stage.hide());
+	pause.play();
 	
+        VBox mainPane2 = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
+        // add main form into the scene
+        Scene scene2 = new Scene(mainPane2);
+        stage2.setScene(scene2);
 	
+	PauseTransition pause2 = new PauseTransition(Duration.seconds(4));
+	pause2.setOnFinished(e -> stage2.show());
+	pause2.play();
+	
+//        stage2.show(); 
 	
 	
 	

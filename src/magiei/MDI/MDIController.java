@@ -107,6 +107,7 @@ public class MDIController implements Initializable {
 	
 //	Thread task;//=new Thread(Tarea2doPlano());
 	
+	SequentialTransition slideshow = new SequentialTransition();
 //	GlobalClass1 global;
 	
 	File fileImage;
@@ -874,9 +875,10 @@ public void setDataPane(Node node) {
         //setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
 //	hideAcordion();
 //        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
-	
+	slideshow.stop();
+
 	hideAcordion();
-        setDataPane(fadeAnimate("/magiei/MDI/IniVideo2.fxml"));
+        setDataPane(fadeAnimate("/magiei/VisitasEnfermeria/VisitasEnfermeria.fxml"));
 	
 //	AcordionMDI;
 //	tituloPaciente;
@@ -885,6 +887,7 @@ public void setDataPane(Node node) {
     
     public void hideAcordion() {
 	  try{
+		  if(!"".equals(tituloPaciente.getText())){
 		  strTitulos[0]=tituloPaciente.getText();
 		  strTitulos[1]=tituloMedicamentos.getText();
 		  strTitulos[2]=tituloSustancias.getText();
@@ -892,31 +895,36 @@ public void setDataPane(Node node) {
 		  tituloPaciente.setText("");
 		  tituloMedicamentos.setText("");
 		  tituloSustancias.setText("");
-		  
+		  }
 		  tituloPaciente.setExpanded(false);
 		  tituloMedicamentos.setExpanded(false);
 		  tituloSustancias.setExpanded(false);
 		  
-		  SplitPanelMDI.setDividerPosition(0,0.04);
+		  SplitPanelMDI.setDividerPosition(0,0.02);
 		    
 	  } catch(Exception ex)
 	  {
-		  
+		  MessageBox.show("Error","No se pudo esconder acordion", "No se pudo esconder acordion",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 	  }
     }
     
     public void showAcordion() {
 	  try{
+		  if(tituloPaciente.expandedProperty().get()){
 		  tituloPaciente.setText(strTitulos[0]);
 		  tituloMedicamentos.setText(strTitulos[1]);
 		  tituloSustancias.setText(strTitulos[2]);
 		  
 		  SplitPanelMDI.setDividerPosition(0,0.2965);
 		  SplitPanelMDI.setDividerPosition(1,0.7613);
+		  }
+		  else{
+		  hideAcordion();
+		  }
 		    
 	  } catch(Exception ex)
-		  
 	  {
+		  MessageBox.show("Error","No se pudo mostrar acordion", "No se pudo mostrar acordion",Alert.AlertType.ERROR,getClass().getResource("/magiei/Principal/Magie1_Estilo.css"));
 	    
 	  }
     }
@@ -969,7 +977,6 @@ public void setDataPane(Node node) {
  
  
  
- SequentialTransition slideshow = new SequentialTransition();
 
     for (VBox vs : v) {
 

@@ -5,29 +5,11 @@
  */
 package magiei.MDI;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import java.io.File;
-import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -38,16 +20,9 @@ import javafx.scene.media.MediaView;
  *
  * @author Shadowsboy
  */
-public class IniVideo2Controller implements Initializable {
 
-	@FXML
-	private Label lblIdPaciente;
-	@FXML
-	private Pane panelGrafiica;
-	@FXML
-	private Label lblVistasPuestoEstaArea;
-	@FXML
-	private TextField txtVisitasNoPaciente;
+public class IniVideoController implements Initializable {
+
 	@FXML
 	private AnchorPane videoPanel;
 
@@ -102,17 +77,34 @@ public class IniVideo2Controller implements Initializable {
 	
 	}	
 
-	@FXML
-	private void BuscarVisitasPacienteN(KeyEvent event) {
-	}
-
-	@FXML
-	private void limpiarBusqueda(MouseEvent event) {
-	}
-
-	@FXML
-	private void CargarVisitaPacienteN(ActionEvent event) {
-	}
+//Timer formClose = new Timer();
+//private void myForm_Load(object sender, EventArgs e)
+//    {
+//    formClose.Interval = 10000;
+//    formClose.Tick += new EventHandler(formClose_Tick);
+//    formClose.Start();
+//    }
+// 
+//void formClose_Tick(object sender, EventArgs e)
+//    {
+//    formClose.Stop();
+//    formClose.Tick -= new EventHandler(formClose_Tick);
+//    this.Close();
+//    }
+//
+//
+//Timer formCloser = new Timer();
+//private void mySecondForm_Load(object sender, EventArgs e)
+//{
+//    formCloser.Interval = 10000;
+//    formCloser.Enabled = true;
+//    frmCloser.Tick += new EventHandler(formClose_Tick)
+//}
+// 
+//private void formClose_Tick(object sender, EventArgs e)
+//{
+//    this.DialogResult = DialogResult.OK;
+//}
 
 
 }
