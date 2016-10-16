@@ -5,6 +5,8 @@
  */
 package magiei.Principal;
 
+import java.awt.Font;
+import java.io.InputStream;
 import static java.lang.Thread.sleep;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -50,7 +52,9 @@ public class MaGiEi1 extends Application {
     public void start(Stage stage) throws Exception {
 	    Stage stage2 = new Stage() ;
 	    
-	    
+	    InputStream is = getClass().getResourceAsStream("/magiei/Principal/MDfont.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+
 	// load main form in to VBox (Root)
 //	hideAcordion();
 //        setDataPane(fadeAnimate("/magiei/MDI/IniVideo2.fxml"));
@@ -60,12 +64,10 @@ public class MaGiEi1 extends Application {
         VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/IniVideo.fxml" ) );
         // add main form into the scene
         Scene scene = new Scene(mainPane);
-        
-        stage.setTitle("MaGiEi 1.1 powered by InteliGene");
+	
         stage.setScene(scene);
         stage.setMaximized(false);    // make the main form fit to the screen
         stage.setResizable(false);
-	
 	            
 	
 //	
@@ -102,6 +104,12 @@ public class MaGiEi1 extends Application {
 	
         VBox mainPane2 = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
         // add main form into the scene
+        
+        stage2.setTitle("MaGiEi 1.1 powered by InteliGene");
+//        stage2.setScene(scene);
+        stage2.setMaximized(false);    // make the main form fit to the screen
+        stage2.setResizable(false);
+	
         Scene scene2 = new Scene(mainPane2);
         stage2.setScene(scene2);
 	
