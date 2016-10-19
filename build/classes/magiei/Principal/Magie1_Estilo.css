@@ -48,7 +48,7 @@ src: url("centurygothic.ttf");
  
  
  .split-pane {
-     -fx-background-color: transparent;  
+     -fx-background-color: -fx-backgroundcolor;  
      -fx-padding: 0;
      -fx-border-width: o;
  }
@@ -423,6 +423,14 @@ src: url("centurygothic.ttf");
     -fx-stroke-width:2px;
 }
 
+
+#PanelModulos {
+    -fx-background-color: -fx-inputcolor;
+}
+
+#PanelModulos > .separator {
+    -fx-background-color: red;
+}
 /* Buttons */ 
 
 
