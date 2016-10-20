@@ -420,7 +420,7 @@ src: url("centurygothic.ttf");
 
 .list-view   {
     -fx-padding: 0 5 0 0;  
-    -fx-border-color: -fx-linecolor;
+    -fx-border-color: transparent;
 }
 
 
@@ -468,16 +468,17 @@ src: url("centurygothic.ttf");
 }
 
 .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
-    -fx-background-color: -fx-maincolor;  
+    -fx-background-color: linear-gradient(to left, white, #D7D7D7);  
+    -fx-text-fill: black;
 }
 
 .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
-    -fx-background-color: blue;  
+    -fx-background-color: linear-gradient(to left, white, -fx-maincolor)  
 }
 
 .list-view > .virtual-flow > .clipped-container >  .sheet > .list-cell:filled:selected:hover {
-    -fx-background-color: orange; 
-    -fx-text-fill: blue;
+    -fx-background-color: linear-gradient(to left, white, -fx-hovercolor); 
+    -fx-text-fill: -fx-backgroundcolor;
 }
 
 
