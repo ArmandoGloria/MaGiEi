@@ -416,6 +416,72 @@ src: url("centurygothic.ttf");
     -fx-border-width: 0;
 }
 
+
+
+.list-view   {
+    -fx-padding: 0 5 0 0;  
+    -fx-border-color: -fx-linecolor;
+}
+
+
+.list-view > .virtual-flow > .scroll-bar:vertical {
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0 0 0 0;
+    -fx-pref-width: -fx-linewidth;
+    -fx-min-width: -fx-linewidth;
+    -fx-max-width: -fx-linewidth;   
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .track{
+    -fx-background-color:   -fx-linecolor; 
+    -fx-border-width: 0;   
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .track-background{
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-width: 0;
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .thumb {
+    -fx-background-color: -fx-maincolor;
+    -fx-border-width: 0;
+    -fx-background-insets: 0 -.5 0 -.5;  
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .increment-button > .increment-arrow{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: -fx-backgroundcolor;  
+    -fx-padding: 5 5 5 5;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: -fx-maincolor;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: blue;  
+}
+
+.list-view > .virtual-flow > .clipped-container >  .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: orange; 
+    -fx-text-fill: blue;
+}
+
+
+
 #MargenFoto{
     -fx-fill: transparent;
     -fx-stroke: -fx-maincolor;
@@ -805,29 +871,6 @@ src: url("centurygothic.ttf");
     -fx-min-width:10;
 }
 
-.list-view > .virtual-flow > .scroll-bar:vertical {
-    -fx-background-color:  violet;  
-}
-
-.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
-    -fx-background-color: yellow;  
-}
-
-.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
-    -fx-background-color: red;  
-}
-
-.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
-    -fx-background-color: blue;  
-}
-
-.list-view > .virtual-flow > .clipped-container >  .sheet > .list-cell:filled:selected:hover {
-    -fx-background-color: orange;  
-}
-
-.list-view > .placeholder > .label {
-    -fx-text-fill: violet;
-}
 
 
 
