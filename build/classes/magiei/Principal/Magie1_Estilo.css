@@ -497,6 +497,12 @@ src: url("centurygothic.ttf");
 #PanelModulos > .separator {
     -fx-background-color: red;
 }
+
+#BotonVisitasEnfermeria {
+    -fx-background-color: red;
+}
+
+
 /* Buttons */ 
 
 
