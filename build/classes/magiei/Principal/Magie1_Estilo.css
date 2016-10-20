@@ -141,12 +141,11 @@ src: url("centurygothic.ttf");
 
 
 #AcordeonPaciente {
-    -fx-border-width: 0; 
-    
+    -fx-border-width: 0;     
 }
 
 #AcordeonPaciente > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -225,7 +224,7 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonMedicamentos > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -303,7 +302,7 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonSustanciasPeligrosas > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -806,6 +805,31 @@ src: url("centurygothic.ttf");
     -fx-min-width:10;
 }
 
+.list-view > .virtual-flow > .scroll-bar:vertical {
+    -fx-background-color:  violet;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: yellow;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: red;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: blue;  
+}
+
+.list-view > .virtual-flow > .clipped-container >  .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: orange;  
+}
+
+.list-view > .placeholder > .label {
+    -fx-text-fill: violet;
+}
+
+
 
 
 
@@ -826,10 +850,7 @@ src: url("centurygothic.ttf");
     -fx-padding: 0;
 }
 
-#test > .list-view {
-    -fx-background-color: red;
-    -fx-border-color: red;
-}
+
 
 
 
@@ -1218,14 +1239,14 @@ src: url("centurygothic.ttf");
     -fx-border-color:rgba(0, 158, 170, .7);
     -fx-background-color:  transparent;
     -fx-text-fill: rgba(0, 158, 170, .7);
-    -fx-border-radius: 5px; 
+    -fx-border-radius: 10px; 
 }
 
 #myDialog .button:hover {
     -fx-border-color:rgba(26, 240, 255, .7);
     -fx-background-color:  transparent;
     -fx-text-fill: rgba(26, 240, 255, .7);
-    -fx-border-radius: 5px; 
+    -fx-border-radius: 10px; 
 }
 /*
 #myDialog > *.button-bar > *.container rgba(0, 158, 170, .7);{
