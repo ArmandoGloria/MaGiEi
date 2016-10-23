@@ -48,7 +48,7 @@ src: url("centurygothic.ttf");
  
  
  .split-pane {
-     -fx-background-color: transparent;  
+     -fx-background-color: -fx-backgroundcolor;  
      -fx-padding: 0;
      -fx-border-width: o;
  }
@@ -141,12 +141,11 @@ src: url("centurygothic.ttf");
 
 
 #AcordeonPaciente {
-    -fx-border-width: 0; 
-    
+    -fx-border-width: 0;     
 }
 
 #AcordeonPaciente > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -225,7 +224,7 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonMedicamentos > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -303,7 +302,7 @@ src: url("centurygothic.ttf");
 }
 
 #AcordeonSustanciasPeligrosas > .title {
-    -fx-padding: 10 10 10 3;
+    -fx-padding: 10 10 10 13;
     -fx-font-weight: bold;
 }
 
@@ -417,11 +416,92 @@ src: url("centurygothic.ttf");
     -fx-border-width: 0;
 }
 
+
+
+.list-view   {
+    -fx-padding: 0 5 0 0;  
+    -fx-border-color: transparent;
+}
+
+
+.list-view > .virtual-flow > .scroll-bar:vertical {
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0 0 0 0;
+    -fx-pref-width: -fx-linewidth;
+    -fx-min-width: -fx-linewidth;
+    -fx-max-width: -fx-linewidth;   
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .track{
+    -fx-background-color:   -fx-linecolor; 
+    -fx-border-width: 0;   
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .track-background{
+    -fx-background-color: -fx-backgroundcolor;
+    -fx-border-width: 0;
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .thumb {
+    -fx-background-color: -fx-maincolor;
+    -fx-border-width: 0;
+    -fx-background-insets: 0 -.5 0 -.5;  
+}
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .increment-button > .increment-arrow{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.list-view > .virtual-flow > .scroll-bar:vertical > .decrement-button > .decrement-arrow{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-background-color: -fx-backgroundcolor;  
+    -fx-padding: 5 5 5 5;  
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background-color: linear-gradient(to left, white, #D7D7D7);  
+    -fx-text-fill: black;
+}
+
+.list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(to left, white, -fx-maincolor)  
+}
+
+.list-view > .virtual-flow > .clipped-container >  .sheet > .list-cell:filled:selected:hover {
+    -fx-background-color: linear-gradient(to left, white, -fx-hovercolor); 
+    -fx-text-fill: -fx-backgroundcolor;
+}
+
+
+
 #MargenFoto{
     -fx-fill: transparent;
     -fx-stroke: -fx-maincolor;
     -fx-stroke-width:2px;
 }
+
+
+#PanelModulos {
+    -fx-background-color: -fx-inputcolor;
+}
+
+#PanelModulos > .separator {
+    -fx-background-color: red;
+}
+
+#BotonVisitasEnfermeria {
+    -fx-background-color: red;
+}
+
 
 /* Buttons */ 
 
@@ -805,6 +885,8 @@ src: url("centurygothic.ttf");
 
 
 
+
+
 /*  Combo box */
 
 .combo-box {
@@ -818,10 +900,7 @@ src: url("centurygothic.ttf");
     -fx-padding: 0;
 }
 
-#test > .list-view {
-    -fx-background-color: red;
-    -fx-border-color: red;
-}
+
 
 
 
@@ -1210,14 +1289,14 @@ src: url("centurygothic.ttf");
     -fx-border-color:rgba(0, 158, 170, .7);
     -fx-background-color:  transparent;
     -fx-text-fill: rgba(0, 158, 170, .7);
-    -fx-border-radius: 5px; 
+    -fx-border-radius: 10px; 
 }
 
 #myDialog .button:hover {
     -fx-border-color:rgba(26, 240, 255, .7);
     -fx-background-color:  transparent;
     -fx-text-fill: rgba(26, 240, 255, .7);
-    -fx-border-radius: 5px; 
+    -fx-border-radius: 10px; 
 }
 /*
 #myDialog > *.button-bar > *.container rgba(0, 158, 170, .7);{

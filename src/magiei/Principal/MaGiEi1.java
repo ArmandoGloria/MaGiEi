@@ -18,7 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 //import javafx.scene.image.Image;
 //import javafx.scene.text.Font;
-import javafx.stage.Stage;
+import javafx.stage.*;
 //import javafx.stage.Screen;
 //
 //
@@ -36,6 +36,7 @@ import javafx.stage.Stage;
 //import javafx.scene.image.ImageView;
 //import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.util.Duration;
 
 /**
@@ -65,6 +66,7 @@ public class MaGiEi1 extends Application {
         // add main form into the scene
         Scene scene = new Scene(mainPane);
 	
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.setMaximized(false);    // make the main form fit to the screen
         stage.setResizable(false);

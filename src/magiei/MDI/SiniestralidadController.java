@@ -20,7 +20,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Shadowsboy
  */
-public class SiniestrabilidadController implements Initializable {
+public class SiniestralidadController implements Initializable {
 
 	@FXML
 	private Label lblIdPaciente;
