@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
+<VBox minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.MDIController">
    <children>
       <AnchorPane id="TopPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefWidth="1024.0" stylesheets="@../Principal/Magie1_Estilo.css">
          <children>
@@ -32,7 +32,7 @@
             <Button id="HomeButton" contentDisplay="CENTER" layoutX="847.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="102.0" stylesheets="@../Principal/Magie1_Estilo.css" />
          </children>
       </AnchorPane>
-      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.26, 0.765" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
+      <SplitPane fx:id="SplitPanelMDI" dividerPositions="0.02, 0.765" stylesheets="@../Principal/Magie1_Estilo.css" VBox.vgrow="ALWAYS">
          <items>
             <AnchorPane id="AnchorPane" maxWidth="300.0" prefHeight="500.0" prefWidth="127.0" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>

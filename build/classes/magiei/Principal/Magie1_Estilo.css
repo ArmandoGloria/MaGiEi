@@ -50,7 +50,7 @@ src: url("centurygothic.ttf");
  .split-pane {
      -fx-background-color: -fx-backgroundcolor;  
      -fx-padding: 0;
-     -fx-border-width: o;
+     -fx-border-width: 0;
  }
  
  
