@@ -188,8 +188,8 @@ public class MDIController implements Initializable {
 		new AutoCompleteComboBoxListener<MesObj>(cboMesFechaNacPaciente);
 		
 		//new ComboBoxAutoComplete2<>(cboMesFechaNacPaciente);
-		hideAcordion();
 		loadPane2();
+		hideAcordion();
 		
 	}
 	catch(Exception ex){
@@ -955,7 +955,7 @@ public void setDataPane(Node node) {
 //    public VBox fadeAnimate(String url) throws IOException {
 
  VBox[] v=new VBox[2];
-	v[0] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/Siniestrabilidad.fxml"));
+	v[0] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/Siniestralidad.fxml"));
 	v[1] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/graficaPrincipal.fxml"));
         FadeTransition ft = new FadeTransition(Duration.millis(4000));
         ft.setNode(v[0]);
