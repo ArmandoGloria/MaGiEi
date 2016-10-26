@@ -115,6 +115,8 @@ src: url("centurygothic.ttf");
     -fx-border-color: -fx-linecolor;
     -fx-font-size: 12;
     -fx-border-width: 0 .5 1 0;
+    -fx-padding: 7 10 7 13;
+    -fx-font-weight: bold;
 }
 
 
@@ -143,12 +145,6 @@ src: url("centurygothic.ttf");
 #AcordeonPaciente {
     -fx-border-width: 0;     
 }
-
-#AcordeonPaciente > .title {
-    -fx-padding: 10 10 10 13;
-    -fx-font-weight: bold;
-}
-
 
 
 #AcordeonPaciente > .title > .arrow-button {
@@ -216,18 +212,82 @@ src: url("centurygothic.ttf");
     -fx-background-color: transparent;   
 }
 
+#AcordeonEstaciones {
+    -fx-border-width: 0;     
+}
+
+
+#AcordeonEstaciones > .title > .arrow-button {
+    
+    -fx-min-height: 21;
+    -fx-max-height:21;
+    -fx-pref-height: 21;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconEstaciones.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 13;
+}
+
+#AcordeonEstaciones > .title:hover > .arrow-button {
+    
+    -fx-min-height: 21;
+    -fx-max-height:21;
+    -fx-pref-height: 21;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconEstacionesHover.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 13;
+}
+
+#AcordeonEstaciones:focused > .title > .arrow-button {
+    
+    -fx-min-height: 21;
+    -fx-max-height:21;
+    -fx-pref-height: 21;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconEstaciones.png");
+    -fx-effect: dropshadow(two-pass-box , -fx-hovercolor, 5, 0.2 , 0, 0);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20;
+}
+
+#AcordeonEstaciones:focused > .title > .arrow-button:hover {
+    
+    -fx-min-height: 21;
+    -fx-max-height:21;
+    -fx-pref-height: 21;
+    -fx-min-width: 30;
+    -fx-max-width:30;
+    -fx-pref-width: 30;
+    -fx-background-image: url("../../Resources/Imagenes/IconEstaciones.png");
+    -fx-effect: dropshadow(two-pass-box , -fx-hovercolor, 5, 0.2 , 0, 0);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 20;
+}
+
+
+
+#AcordeonEstaciones > .title > .arrow-button > .arrow {
+    
+    -fx-background-color: transparent;   
+}
+
  
 
 #AcordeonMedicamentos {
     -fx-border-width: 0; 
     
 }
-
-#AcordeonMedicamentos > .title {
-    -fx-padding: 10 10 10 13;
-    -fx-font-weight: bold;
-}
-
 
 
 #AcordeonMedicamentos > .title > .arrow-button {
@@ -301,10 +361,6 @@ src: url("centurygothic.ttf");
     
 }
 
-#AcordeonSustanciasPeligrosas > .title {
-    -fx-padding: 10 10 10 13;
-    -fx-font-weight: bold;
-}
 
 
 
@@ -498,10 +554,23 @@ src: url("centurygothic.ttf");
     -fx-background-color: red;
 }
 
-#BotonVisitasEnfermeria {
-    -fx-background-color: red;
+#BotonVisitasEnfermeria{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/IconVisitasEnfermeria.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
 }
 
+#BotonVisitasEnfermeria:hover{
+    -fx-background-color: transparent;
+    -fx-background-image: url("../../Resources/Imagenes/IconVisitasEnfermeriaHover.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}
 
 /* Buttons */ 
 
@@ -753,27 +822,11 @@ src: url("centurygothic.ttf");
 
 /* -------------------------------------------*/
 
-#VisitasEnfermeriaButton{
-    -fx-background-color: transparent;
-    -fx-background-image: url("../../Resources/Imagenes/BotonVisitasEnf.png");
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    
-}
 
-#VisitasEnfermeriaButton:hover{
-    -fx-background-color: transparent;
-    -fx-background-image: url("../../Resources/Imagenes/BotonVisitasEnfHover.png");
-    -fx-background-size: 100%;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    
-}
 
 #HomeButton {
     -fx-background-color: transparent;
-    -fx-background-image: url("../../Resources/Imagenes/Logo1.png");
+    -fx-background-image: url("../../Resources/Imagenes/Logo.png");
     -fx-background-size: 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;  
