@@ -42,7 +42,7 @@ src: url("centurygothic.ttf");
  }
  
  #Agenda > .list-cell {
-     -fx-text-fill: -fx-fontcolor
+     -fx-text-fill: -fx-fontcolor;
  }
  
  
@@ -548,6 +548,8 @@ src: url("centurygothic.ttf");
 
 #PanelModulos {
     -fx-background-color: -fx-inputcolor;
+    -fx-effect: dropshadow(three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1);
+    -fx-padding: 30 5 60 14;
 }
 
 #PanelModulos > .separator {
@@ -572,6 +574,21 @@ src: url("centurygothic.ttf");
     
 }
 
+.label.TituloPanelCentral {
+    -fx-text-fill: -fx-linecolor;
+}
+
+.label.NumerosPanelCentral {
+    -fx-text-fill: linear-gradient(to top, -fx-linecolor 50%, #D7D7D7 50%);
+    -fx-font-size: 190;
+}
+
+#CirculoPanelCentral {
+    -fx-stroke: -fx-maincolor;
+    -fx-stroke-width:25px;
+    -fx-fill: transparent;
+}
+
 /* Buttons */ 
 
 
@@ -589,7 +606,7 @@ src: url("centurygothic.ttf");
 }
 
 .button.commitButtonBig:hover{
-   -fx-background-color: linear-gradient(#39e600, #39e600);
+   -fx-background-color: -fx-hovercolor;
    
 }   
 

@@ -109,9 +109,9 @@
             </AnchorPane>
             <AnchorPane maxHeight="601.0" maxWidth="900.0" minHeight="447.0" minWidth="400.0" prefHeight="601.0" prefWidth="605.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" stylesheets="@../Principal/Magie1_Estilo.css">
                <children>
-                  <VBox fx:id="dataPane" layoutY="-2.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="641.0">
+                  <VBox fx:id="dataPane" layoutY="-2.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="735.0">
                      <children>
-                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="639.0" />
+                        <AnchorPane fx:id="PanelCentral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="736.0" />
                      </children></VBox>
                </children>
             </AnchorPane>
@@ -119,9 +119,9 @@
                <children>
                   <AnchorPane fx:id="PanelMenus" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="88.0" snapToPixel="false" styleClass="AnchorPane">
                      <children>
-                        <VBox id="PanelModulos" layoutX="-6.0" layoutY="166.0" prefHeight="161.0" prefWidth="100.0" spacing="10.0">
+                        <VBox id="PanelModulos" layoutX="4.0" layoutY="172.0" prefHeight="194.0" prefWidth="88.0" spacing="10.0">
                            <children>
-                              <Button id="BotonVisitasEnfermeria" fx:id="btnMenuBar" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="56.0" />
+                              <Button id="BotonVisitasEnfermeria" fx:id="btnMenuBar" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="36.0" prefWidth="53.0" />
                               <Button mnemonicParsing="false" text="Button" />
                               <Button mnemonicParsing="false" text="Button" />
                            </children>
