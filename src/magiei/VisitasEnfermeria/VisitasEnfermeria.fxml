@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.VisitasEnfermeria.VisitasEnfermeriaController">
+   <children>
+      <AnchorPane maxHeight="720.0" maxWidth="960.0" minHeight="720.0" minWidth="960.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: #24BE58;" stylesheets="@../Principal/Magie1_Estilo.css">
+         <children>
+            <Label fx:id="lblIdPaciente" disable="true" layoutX="40.0" layoutY="210.0" prefHeight="16.0" prefWidth="0.0" visible="false" />
+            <Label layoutX="366.0" prefHeight="58.0" prefWidth="229.0" styleClass="header" stylesheets="@../Principal/Magie1_Estilo.css" text="Visita a Enfermeria" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutY="60.0" prefHeight="163.0" prefWidth="588.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+               <children>
+                  <TextField id="textInputBox" fx:id="txtVisitasNombreP" layoutX="142.0" layoutY="50.0" onMouseClicked="#limpiarBusqueda" prefWidth="280.0" promptText="Nombre" stylesheets="@../Principal/Magie1_Estilo.css">
+                     <padding>
+                        <Insets bottom="2.0" top="2.0" />
+                     </padding>
+                  </TextField>
+                  <TextField id="textInputBox" fx:id="txtVisitasNoPaciente" layoutX="142.0" layoutY="24.0" onAction="#CargarVisitaPacienteN" onKeyPressed="#BuscarVisitasPacienteN" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="87.0" promptText="No. Paciente" stylesheets="@../Principal/Magie1_Estilo.css">
+                     <padding>
+                        <Insets bottom="2.0" top="2.0" />
+                     </padding>
+                  </TextField>
+                                          <ImageView fx:id="imgVisitasPaciente" disable="true" fitHeight="95.0" fitWidth="90.0" nodeOrientation="INHERIT" pickOnBounds="true" visible="false">
+                                             <viewport>
+                                                <Rectangle2D />
+                                             </viewport>
+                                          </ImageView>
+                  <Label fx:id="lblVisitasEdadSexo" layoutX="142.0" layoutY="69.0" prefHeight="25.0" prefWidth="231.0" styleClass="temp" text="30 años, Masculino" />
+                  <Label fx:id="lblVistasPuestoEstaArea" layoutX="142.0" layoutY="89.0" prefHeight="25.0" prefWidth="231.0" styleClass="temp" text="Operador, BMW-ME301" />
+                  <ComboBox fx:id="cboFechaVisitasP" layoutX="28.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="20.0" prefWidth="201.0" style="-fx-background-color: transparent; -fx-background-radius: 0;" styleClass="combobox" stylesheets="@../Principal/Magie1_Estilo.css" visibleRowCount="2" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="360.0" />
+                  <Button fx:id="btnVisitasBuscarP" layoutX="238.0" layoutY="23.0" mnemonicParsing="false" onAction="#CargarVisitaPaciente" styleClass="searchButton" />
+                  <Button id="addPictureButton" fx:id="btnImgPaciente2" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="95.0" prefWidth="90.0" style="-fx-background-color: Trasnsparent; -fx-border-color: Trasnsparent;" stylesheets="@../Principal/Magie1_Estilo.css" textAlignment="CENTER" wrapText="true">
+                     <graphic>
+                        <Circle id="Margen" fx:id="imgCirculo2" fill="TRANSPARENT" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="588.0" layoutY="60.0" prefHeight="660.0" prefWidth="373.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+               <children>
+                  <Button layoutX="226.0" layoutY="596.0" minHeight="28.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="126.0" styleClass="commitButtonBig" stylesheets="@../Principal/Magie1_Estilo.css" text="Terminar">
+                     <padding>
+                        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                     </padding>
+                     <cursor>
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

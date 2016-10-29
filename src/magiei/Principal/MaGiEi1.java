@@ -5,29 +5,39 @@
  */
 package magiei.Principal;
 
+import java.awt.Font;
+import java.io.InputStream;
+import static java.lang.Thread.sleep;
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+//import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
-import javafx.stage.Screen;
-
-
-import MySQLconn.ConexionMySQL;
-//import br.com.supremeforever.suprememdiwindow.*;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
-
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+//import javafx.scene.image.Image;
+//import javafx.scene.text.Font;
+import javafx.stage.*;
+//import javafx.stage.Screen;
+//
+//
+//import MySQLconn.ConexionMySQL;
+//import Resources.MessageBox;
+////import br.com.supremeforever.suprememdiwindow.*;
+//import java.io.IOException;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//
+//
+//
+//import javafx.event.ActionEvent;
+//import javafx.scene.control.Button;
+//import javafx.scene.image.ImageView;
+//import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.util.Duration;
 
 /**
  *
@@ -35,24 +45,151 @@ import javafx.scene.layout.VBox;
  */
 public class MaGiEi1 extends Application {
     
-	
+	public Object cerrojoImplicito = new Object();
+
 	int i=1;
 	
     @Override
     public void start(Stage stage) throws Exception {
-	
+	    Stage stage2 = new Stage() ;
 	    
-	    
+	    InputStream is = getClass().getResourceAsStream("/magiei/Principal/MDfont.ttf");
+		Font font = Font.createFont(Font.TRUETYPE_FONT, is);
+
 	// load main form in to VBox (Root)
-        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
+//	hideAcordion();
+//        setDataPane(fadeAnimate("/magiei/MDI/IniVideo2.fxml"));
+//        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/IniVideo2.fxml" ) );
+//	Duration.millis(100500);
+//	mainPane=null;
+        VBox mainPane = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/IniVideo.fxml" ) );
         // add main form into the scene
         Scene scene = new Scene(mainPane);
-        
-        stage.setTitle("MaGiEi 1.0 powered by InteliGene");
+	
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.setMaximized(false);    // make the main form fit to the screen
         stage.setResizable(false);
+	            
+	
+//	
+//	synchronized (cerrojoImplicito) {
+//		
+//		
+//		
+//        stage2.show(); 
+//		
+//                    cerrojoImplicito.wait(5000);
+//	sleep(25000);
+//		    stage2.close();
+//                }
+//
+//	sleep(25000);
+//	Duration.millis(15000);
+//	
+//	
+//	
+//	
+//	VBox mainPane2 = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
+//        // add main form into the scene
+//        Scene scene2 = new Scene(mainPane2);
+//        
+//        stage.setTitle("MaGiEi 1.1 powered by InteliGene");
+//        stage.setScene(scene2);
+//        stage.setMaximized(false);    // make the main form fit to the screen
+//        stage.setResizable(false);
         stage.show(); 
+	
+	PauseTransition pause = new PauseTransition(Duration.seconds(10));
+	pause.setOnFinished(e -> stage.hide());
+	pause.play();
+	
+        VBox mainPane2 = (VBox) FXMLLoader.load( getClass().getResource("/magiei/MDI/MDI.fxml" ) );
+        // add main form into the scene
+        
+        stage2.setTitle("MaGiEi 1.1 powered by InteliGene");
+//        stage2.setScene(scene);
+        stage2.setMaximized(false);    // make the main form fit to the screen
+        stage2.setResizable(false);
+	
+        Scene scene2 = new Scene(mainPane2);
+        stage2.setScene(scene2);
+	
+	PauseTransition pause2 = new PauseTransition(Duration.seconds(4));
+	pause2.setOnFinished(e -> stage2.show());
+	pause2.play();
+	
+//        stage2.show(); 
+	
+	
+	
+	
+//////	
+////// VBox[] v=new VBox[2];
+//////	v[0] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/IniVideo2.fxml"));
+//////	v[1] = (VBox) FXMLLoader.load(getClass().getResource("/magiei/MDI/MDI.fxml"));
+//////        FadeTransition ft = new FadeTransition(Duration.millis(4000));
+//////        ft.setNode(v[0]);
+//////        ft.setFromValue(0.0);
+//////        ft.setToValue(1);
+//////        ft.setCycleCount(1);//Transition.INDEFINITE);
+////////        ft.setAutoReverse(true);
+//////	FadeTransition ft2 = new FadeTransition(Duration.millis(4000));
+//////        ft2.setNode(v[1]);
+//////        ft2.setFromValue(1);
+//////        ft2.setToValue(0);
+//////        ft2.setCycleCount(1);//Transition.INDEFINITE);
+////////        ft2.setAutoReverse(true);
+////////	ParallelTransition pt = new ParallelTransition(ft2, ft); 
+////////        pt.play();
+//////// PanelCentral.getChildren().setAll(v);
+////// 
+////// 
+////// 
+////// 
+////// 
+////// SequentialTransition slideshow = new SequentialTransition();
+//////
+//////    for (VBox vs : v) {
+//////
+//////        SequentialTransition sequentialTransition = new SequentialTransition();
+//////
+//////        FadeTransition fadeIn = ft;//Transition.getFadeTransition(ft, 0.0, 1.0, 2000);
+//////        FadeTransition stayOn = ft2;//Transition.getFadeTransition(ft2, 1.0, 1.0, 2000);
+////////        FadeTransition fadeOut = Transition.getFadeTransition(slide, 1.0, 0.0, 2000);
+//////
+//////        sequentialTransition.getChildren().addAll(fadeIn, stayOn);//, fadeOut); 
+//////	sequentialTransition.setCycleCount(Animation.INDEFINITE); 
+//////	sequentialTransition.setAutoReverse(true);
+//////        slideshow.getChildren().add(sequentialTransition);    
+//////	
+//////        scene.getChildren().add(vs);
+////////        slideshow.getChildren().add(sequentialTransition);
+//////	
+////////        PanelCentral.getChildren().setAll(vs);   
+//////    }
+//////    slideshow.play();                  
+//////
+//////	
+//////	
+//////	
+////////	Scene scene = new Scene(mainPane);
+//////        
+//////        stage2.setTitle("MaGiEi 1.1 powered by InteliGene");
+//////        stage2.setScene(scene);
+//////        stage2.setMaximized(false);    // make the main form fit to the screen
+//////        stage2.setResizable(false);
+//////        stage2.show(); 
+//////	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 ////	Button b=new Button("+");
@@ -105,7 +242,14 @@ public class MaGiEi1 extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+//	    MessageBox msj;
         launch(args);
     }
+    
+    
+    
+//    public static void main(String[] args) {
+//        launch(args);
+//    }
     
 }

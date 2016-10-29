@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="magiei.MDI.SiniestralidadController">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="100.0" styleClass="AnchorPane" stylesheets="@../Principal/Magie1_Estilo.css">
+         <children>
+            <Circle id="CirculoPanelCentral" fill="DODGERBLUE" layoutX="481.0" layoutY="350.0" radius="196.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="lblCantSiniestra" alignment="CENTER" contentDisplay="CENTER" layoutX="325.0" layoutY="220.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="231.0" prefWidth="314.0" styleClass="NumerosPanelCentral" text="3.2" textAlignment="CENTER" />
+            <TextField id="textInputBox" fx:id="txtVisitasNoPaciente" layoutX="142.0" layoutY="24.0" onAction="#CargarVisitaPacienteN" onKeyPressed="#BuscarVisitasPacienteN" onMouseClicked="#limpiarBusqueda" prefHeight="20.0" prefWidth="87.0" promptText="No. Paciente" stylesheets="@../Principal/Magie1_Estilo.css" visible="false">
+               <padding>
+                  <Insets bottom="2.0" top="2.0" />
+               </padding>
+            </TextField>
+            <Label fx:id="lblVistasPuestoEstaArea" alignment="CENTER" layoutX="370.0" layoutY="430.0" prefHeight="25.0" prefWidth="221.0" style="-fx-font-size: 20; -fx-text-fill: -fx-linecolor;;" text="x 100,000 empleados" textAlignment="CENTER" />
+            <Label layoutX="337.0" layoutY="55.0" prefHeight="61.0" prefWidth="296.0" styleClass="TituloPanelCentral" stylesheets="@../Principal/Magie1_Estilo.css" text="Siniestralidad" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIdPaciente" disable="true" prefHeight="16.0" prefWidth="0.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

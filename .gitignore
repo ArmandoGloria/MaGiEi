@@ -75,3 +75,22 @@ $RECYCLE.BIN/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/.project
+dist/MaGiEi 1.jar
+build/built-jar.properties
+build/built-jar.properties
+dist/MaGiEi 1.jar
+nbproject/private/private.properties
+dist/MaGiEi1.html
+dist/MaGiEi1.jnlp
+nbproject/private/private.xml
+build/built-jar.properties
+build/built-jar.properties
+build/classes/magiei/MDI/MDIController$1.class
+build/classes/MySQLconn/ConexionMySQL.class
+dist/MaGiEi1.html
+nbproject/private/private.properties
+dist/web-files/dtjava.js
+dist/MaGiEi1.jnlp
+build/classes/MySQLconn/ConexionMySQL.class
+build/classes/magiei/MDI/MDIController$1.class
