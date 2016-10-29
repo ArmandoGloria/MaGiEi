@@ -61,7 +61,7 @@ public class IniVideoController implements Initializable {
 	
 //		    StackPane root = new StackPane();
 
-        MediaPlayer player2 = new MediaPlayer( new Media(getClass().getResource("1.mp4").toExternalForm()));
+        MediaPlayer player2 = new MediaPlayer( new Media(getClass().getResource("2.mp4").toExternalForm()));
         MediaView mediaView2 = new MediaView(player2);
 	mediaView2.setFitWidth(400);
 	mediaView2.setFitHeight(200);
